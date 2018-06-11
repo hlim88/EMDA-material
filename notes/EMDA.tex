@@ -1,0 +1,1336 @@
+\documentclass[prd]{revtex4}
+\usepackage{amsmath, graphicx}
+\usepackage{grffile}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{epsfig}
+\usepackage{mathrsfs}  %  package for the "curly" fonts 
+\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{algorithmicx}
+\usepackage{amssymb}
+\usepackage{tensor}
+\usepackage{mathrsfs}
+
+\newcommand*\apost{\textsc{\char13}}
+
+\topmargin 0.30in
+\textheight 9.00in
+
+ \addtolength{\voffset}{-2cm}
+ 
+\begin{document}
+
+\title{Black Holes in Einstein-Maxwell-Dilaton-Axion Theory}
+
+\author{Hyun Lim}
+
+
+%\pacs{}
+\maketitle
+
+\section{Mathematical Formulations of the Einstein-Maxwell-Dilaton-Axion Theory}
+
+\subsection{Equations of Motion in the EMDA theory}
+
+%Action
+The action for Einstein-Maxwell-Dilaton-Axion (EMDA) is
+\begin{equation}
+S=\int d^4 x \sqrt{-g} \left[R - 2 (\nabla \phi)^2 - e^{-2 \alpha_0 \phi} F^2 -\frac{1}{2} e^{4 \alpha_1 \phi} (\nabla \kappa)^2 - \kappa F_{ab} ( \ast  F )^{ab} \right]
+\end{equation}
+where $\phi$ is the dilaton field, $\kappa$ is the axion field, and $\ast F$ means dual of the maxwell stress tensor. We include parameter $\alpha_0$ and $\alpha_1$ in order to parametrize a family of theories. Form this action, we can derive the equations of motion. 
+
+% EOMs
+For $\phi$:
+\begin{equation}
+\nabla_a \nabla^a \phi = -\frac{1}{2} \alpha_0 e^{-2 \alpha_0 \phi} F^2 + \frac{1}{2} \alpha_0 e^{4 \alpha_1 \phi} (\nabla \kappa)^2
+\end{equation}
+
+For $\kappa$:
+\begin{equation}\
+\nabla_a \left(e^{4 \alpha_1 \phi} \nabla^a \kappa \right) = F_{ab} (\ast F)^{ab}
+\end{equation}
+
+For EM field:
+\begin{equation}
+\nabla_a \left(e^{-2 \alpha_0 \phi} F^{ab}\right) = - (\nabla_a \kappa) (\ast F)^{ab}
+\end{equation}
+
+For metric(i.e. Einstein Field equation)
+\begin{align}
+R_{ab} -\frac{1}{2} g_{ab} R = 2 \nabla_a \phi \nabla_b \phi - g_{ab} \nabla_a \phi \nabla^a \phi + 2 e^{-2 \alpha_0 \phi} ( F_{ac} F_b^c -\frac{1}{4} g_{ab} F^2) + \frac{1}{2} e^{4 \alpha_0 \phi} (\nabla_a \kappa \nabla_b \kappa -\frac{1}{2} g_{ab} \nabla_a \kappa \nabla^a \kappa) 
+\end{align}
+%Chern-Simon term does not depend on metric explicitly
+Note that in the Chern-Simon term, $\mathcal{L}^{CS}= - \sqrt{-g} \kappa F_{ab} (\ast F)^{ab}$, there is no metric variation because 
+\begin{align}
+\mathcal{L}^{CS} &= - \sqrt{-g} \kappa F_{ab} (\ast F)^{ab} \nonumber \\
+			   &=	- \sqrt{-g} \epsilon^{abcd}\kappa F_{ab} F_{cd} \nonumber \\
+			   & =- \sqrt{-g} \frac{1}{\sqrt{-g}} \left[abcd\right] \kappa F_{ab} F_{cd} \nonumber \\
+			   & =- \left[abcd\right] \kappa F_{ab} F_{cd} \nonumber
+\end{align}
+Thus, the Lagrangian density does not contain metric explicitly. i.e. independent of choosing the metric. This term is also called the topological term
+
+Now, we need to decompose these equations in ADM form (and BSSN form).
+\subsection{The 3+1 Decomposition for EMDA}
+%Define 3+1 decomposition quantities
+Here, we use usual 3+1 decomposition quantities:
+\begin{align}
+g_{ab}=h_{ab}-n_a n_b \nonumber \\
+n_a = (-\alpha,0,0,0) \nonumber \\
+n^a = \left(\frac{1}{\alpha}, -\frac{\vec{\beta}}{\alpha} \right) \nonumber \\
+K_{ab} = - h_a^c h_b^d \nabla_c n_d \nonumber
+\end{align}
+where $h_{ab}$ is an induced metric on the 3D hypersurface $\Sigma$, $n_a$ is a normal vector to the $\Sigma$ that satisfies $n_a n^a =-1$ (timelike) and $K_{ab}$ is an extrinsic curvature on the $\Sigma$.
+\newline
+\newline
+\textbf{Decomposition of dilaton field, $\phi$, equation}
+
+%Start decompose the equation for dilaton field
+Let\textsc{\char13}s start with the dilaton field $\phi$ equation
+\begin{align}
+\nabla_a \nabla^a \phi &= g^b_a \nabla_b (g^{ac} \nabla_c \phi) \nonumber \\
+				  &= (h^b_a - n_a n^b) \nabla_b ((h^{ac}-n^a n^c) \nabla_c \phi) \nonumber \\
+				  &= h^b_a \nabla_b  (h^{ac} \nabla_c \phi) - n_a n^b \nabla_b (h^{ac} \nabla_c \phi) - h^b_a \nabla_b (n^a n^c \nabla_c \phi) + n_a n^b \nabla_b (n^a n^c \nabla_c \phi)
+\end{align}
+Define new variable $\Pi=-n^a \nabla_a \phi$. And, we know that $h_{ab}$ lives in $\Sigma$, so $h^{ab} \nabla_b$ turns out 3D covariant derivative called $D^a$ that on the $\Sigma$. Using these, rewrite the equation for $\phi$
+\begin{align}
+\label{eqn1}
+\nabla_a \nabla^a \phi &= D_a (D^{a} \phi) - n_a n^b \nabla_b (D^a \phi) - h^b_a \nabla_b (-n^a \Pi) + n_a n^b \nabla_b (-n^a \Pi)
+\end{align}
+For second term of RHS in Eqn.~\ref{eqn1}, we can rewrite this as $- n_a n^b \nabla_b (D^a \phi)=-n^b \nabla (n^a D_a \phi)+(n^b \nabla_b n_a)D^a \phi$. Since the $D_a$ is defined on $\Sigma$ and $n_a$ is perpendicular to $\Sigma$, so $\nabla (n^a D_a \phi)=0$. Using the definition of $n_a$, $n^b \nabla_b n_a = D_a \ln \alpha$. So, $- n_a n^b \nabla_b (D^a \phi)=(D_a \ln \alpha) D^a \phi$.
+
+For third term of RHS in Eqn.~\ref{eqn1},
+
+\begin{align}
+- h^b_a \nabla_b (-n^a \Pi) &=  h^b_a n^a (\nabla_b \Pi) +  h^b_a (\nabla_b n^a) \Pi \nonumber \\
+					 &= h^b_a (-K^a_b) \Pi \nonumber \\
+					 &= - K \Pi 
+\end{align}
+Here, we use the facts that $h^b_a n^a = 0$ due to orthogonality and the definition of extrinsic curvature $K_{ab} = -h_a^c h_b^d \nabla_c n_d$
+
+For fourth term of RHS in Eqn.~\ref{eqn1},
+\begin{align}
+n_a n^b \nabla_b (-n^a \Pi) &= -n_a n^b (\nabla_b n_a)\Pi - n_a n^b n^a (\nabla_b \Pi) \nonumber \\
+					  &= -n_a n^b (-K^a_b)\Pi + n^b (\nabla_b \Pi) \nonumber \\
+					  &= n^b (\nabla_b \Pi)
+\end{align}
+We use $n_a n^a=-1$ and orthogonality between $n_a$ and the extrinsic curvature on $\Sigma$
+
+Using these, equation for $\phi$ is
+\begin{align}
+\nabla_a \nabla^a \phi &= n^b \nabla_b \Pi + D_a D^a \phi + (D_a \ln \alpha)D^a \phi - K \Pi \nonumber \\
+				  &= n^b \nabla_b \Pi + \frac{1}{\alpha} D_a (\alpha D^a \phi) - K \Pi
+\end{align}
+
+
+Similarly, $\nabla_a \nabla^a \kappa$ can be decomposed:
+\begin{equation}
+\label{decompk1}
+\nabla_a \nabla^a \kappa = n^b \nabla_b \Xi + \frac{1}{\alpha} D_a (\alpha D^a \kappa) - K \Xi
+\end{equation}
+where we define $\Xi=-n^a \nabla_a \kappa$
+
+Let\textsc{\char13}s decompose the Maxwell tensor, $F_{ab}$
+\begin{align}
+\label{eqn2}
+F_{ab} &= g_a^c g_b^d F_{cd} \nonumber \\
+	   &= (h_a^c - n_a n^c)(h_b^d - n_b n^d) F_{cd} \nonumber\\
+	   &=h_a^c h_b^d F_{cd} - n_a n^c F_{cd} h_b^d - h_a^c F_{cd} n_b n^d +n_a n^c n_b n^d F_{cd}
+\end{align}
+
+The fourth term of RHS in Eqn.~\ref{eqn2}, $n_a n^c n_b n^d F_{cd}=0$ because $n^c n^d$ is symmetric and $F_{cd}$ is antisymmetric. We define the quantity $\bot E_a = h_a^b F_{bc} n^c$. Then, second and third terms of RHS in Eqn.~\ref{eqn2} are
+\begin{align}
+h_a^c F_{cd} n_b n^d = n_b (h_a^c F_{cd} n^d) = n_b \bot E_a \nonumber \\
+n_a n^c F_{cd} h_b^d = n_a (-h_b^d F_{dc} n^c) = -n_a \bot E_b \nonumber
+\end{align}
+
+And, the first term of RHS in Eqn.~\ref{eqn2} can be expressed as $h_a^c h_b^d F_{cd} = \epsilon_{abc} \bot B^c$ which indicates spatial components of Maxwell tensor on $\Sigma$. Using these, the decomposition of $F_{ab}$ is
+\begin{align}
+F_{ab} = \epsilon_{abc} \bot B^c + n_a \bot E_b - n_b \bot E_a
+\end{align}
+Thus, the decomposition of $F^2$ is
+\begin{align}
+F^2 & = (\epsilon_{abc} \bot B^c + n_a \bot E_b - n_b \bot E_a) (\epsilon^{abd} \bot B_d + n^a \bot E^b - n^b \bot E^a)\nonumber \\
+	& = \epsilon_{abc} \epsilon^{abd} \bot B^c \bot B_d + n_a n^a \bot E_b \bot E^b + n_b n^b \bot E_a \bot E^a \nonumber \\
+	& = 2 \delta_c^d \bot B^c \bot B_d - \bot E_b \bot E^b - \bot E_a \bot E^a \nonumber \\
+	& = 2 [ (\bot B)^2 - (\bot E)^2)]
+\end{align}
+We use the facts that $\epsilon_{abc} \bot B^c n_a \bot E_b = 0$ because $n_a$ is orthogonal to spatial component of the Maxwell tensor on $\Sigma$ and $n_a \bot E_b n^b \bot E^a =0$
+
+$(\nabla \kappa)^2$ can be decomposed
+\begin{align}
+\label{eqn3}
+(\nabla \kappa)^2 & = \nabla_a \kappa \nabla^a \kappa = g_b^a \nabla \kappa g^{ca} \nabla_c \kappa \nonumber \\
+			   & =(h_a^b - n^b n_a)\nabla_b \kappa (h^{ca}-n^c n^a)\nabla_c \kappa \nonumber \\
+			   & =h_a^b h^{ca} \nabla_b \kappa \nabla_c \kappa - n^b n_a h^{ca}\nabla_b \kappa \nabla_c \kappa - h^b_a n^c n^a \nabla_b \kappa \nabla_c \kappa +n^b n_a n^c n^a \nabla_b \kappa \nabla_c \kappa
+\end{align}
+First term of Eqn.~\ref{eqn3} gives spatial derivates of $\kappa$, last term is $ -(\Xi)^2$ by definition, and second and third term are zero because $n_a h^{ab} = 0$. So, $(\nabla \kappa)^2$ is
+\begin{equation}
+\label{decompk2}
+(\nabla \kappa)^2 = D^a \kappa D_a \kappa - (\Xi)^2
+\end{equation}
+(We can do this just $\nabla_a \kappa \nabla^a \kappa = \nabla_a \kappa g^{ab} \nabla_b \kappa = (h^{ab}-n^a n^b)\nabla_a \kappa \nabla_b \kappa = D^a \kappa D_a \kappa - (\Xi)^2$ by using definitions)
+
+Using all above, the equation of motion for dilaton $\phi$ is decomposed into
+\begin{align}
+\nabla_a \nabla^a \phi &= -\frac{1}{2} \alpha_0 e^{-2 \alpha_0 \phi} F^2 + \frac{1}{2} \alpha_0 e^{4 \alpha_1 \phi} (\nabla \kappa)^2 \nonumber \\
+\rightarrow n^b \nabla_b \Pi + \frac{1}{\alpha} D_a (\alpha D^a \phi) - K \Pi &= -\alpha_0 e^{-2 \alpha_0 \phi}  [ (\bot B)^2 - (\bot E)^2)]  + \frac{1}{2} \alpha_0 e^{4 \alpha_1 \phi} (D^a \kappa D_a \kappa - (\Xi)^2)
+\end{align}
+Thus, we have sets of equation 
+\begin{align}
+n^a \nabla_a \phi &= - \Pi \\
+n^a \nabla_a \kappa &= -\Xi \\
+n^b \nabla_b \Pi &= - \frac{1}{\alpha} D_a (\alpha D^a \phi) + K \Pi -\alpha_0 e^{-2 \alpha_0 \phi}  [ (\bot B)^2 - (\bot E)^2)]  + \frac{1}{2} \alpha_0 e^{4 \alpha_1 \phi} (D^a \kappa D_a \kappa - (\Xi)^2)
+\end{align}
+In terms of time derivative, we may write above equations using $n^a \nabla_a f = \frac{1}{\alpha}(\partial_t - \beta^a \partial_a) f $ where $f$ is a scalar field (not true for vector or tensor field)
+\begin{align}
+\partial_t \phi &= \beta^a \partial_a \phi - \alpha \Pi \\
+\partial_t \kappa &= \beta^a \partial_a \kappa - \alpha \Xi  \\
+\partial_t \Pi &= \beta^a \partial_a \Pi - D_a (\alpha D^a \phi) + \alpha K \Pi -\alpha_0 \alpha e^{-2 \alpha_0 \phi}  [ (\bot B)^2 - (\bot E)^2)]  + \frac{1}{2} \alpha_0 \alpha e^{4 \alpha_1 \phi} (D^a \kappa D_a \kappa - (\Xi)^2)
+\end{align}
+Nota that $D_a$ and $\partial_a$ both indicates spatial derivatives but $D_a$ is spatial derivative on $\Sigma$. We cannot say $D_a = \partial_a$ in general
+%End of decompose equation for dilaton field
+\newline
+\newline
+\textbf{Decomposition of axion field, $\kappa$, equation}
+
+%Start Decompose of equation for axion field
+Now, consider the equations of motion for axion field, $\kappa$
+\begin{align}
+\label{eqn4}
+\nabla_a \left(e^{4 \alpha_1 \phi} \nabla^a \kappa \right) &= F_{ab} (\ast F)^{ab} \nonumber \\
+ e^{4 \alpha_1 \phi} \nabla_a \nabla^a \kappa + 4 \alpha_1 \nabla_a \phi e^{4 \alpha_1 \phi} \, \nabla^a \kappa &= F_{ab} (\ast F)^{ab} \nonumber \\
+\nabla_a \nabla^a \kappa + 4 \alpha_1 \nabla_a \phi \nabla^a \kappa  - e^{-4 \alpha_1 \phi} F_{ab} (\ast F)^{ab}  &=0 
+\end{align}
+First and second terms of Eqn.~\ref{eqn4} can be decomposed easily by using Eqn.~\ref{decompk1} and analogy of Eqn.~\ref{decompk2} such that
+\begin{align}
+\nabla_a \nabla^a \kappa &= n^b \nabla_b \Xi + \frac{1}{\alpha} D_a (\alpha D^a \kappa) - K \Xi \nonumber \\
+\nabla_a \phi \nabla^a \kappa &= D^a \kappa D_a \phi - \Pi \Xi \nonumber
+\end{align}
+For $F_{ab}(\ast F)^{ab}$,
+\begin{align}
+F_{ab}(\ast F)^{ab} &= \frac{1}{2} \epsilon^{abcd} F_{ab} F_{cd} = \frac{1}{2} \epsilon_{ijkl} g^{ia} g^{jb} g^{kc} g^{ld} F_{ab} F_{cd} \nonumber \\
+	& = \frac{1}{2} \epsilon_{ijkl} F_{ab} F_{cd} (h^{ia} - n^i n^a)(h^{jb} - n^j n^b)(h^{kc} - n^k n^c)(h^{ld} - n^l n^d) \nonumber \\
+	& = \frac{1}{2} \epsilon_{ijkl} F_{ab} F_{cd} (h^{ia} h^{jb} - n^i n^a h^{jb} - h^{ia} n^j n^b  + n^i n^a n^j n^b)(h^{kc} h^{dl} - n^c n^k h^{dl} - h^{ck} n^d n^l + n^c n^k n^d n^l) \nonumber
+\end{align}
+Here $n^i n^a n^j n^b$ is symmetric with respect to swap $i$ and $j$ and $\epsilon_{ijkl}$ is antisymmetric with respect to that change. So, $n^i n^a n^j n^b \epsilon_{ijkl}=0$. (Same argument can be applied to $n^c n^k n^d n^l$ term)
+\begin{align}
+F_{ab}(\ast F)^{ab} &= \frac{1}{2} \epsilon_{ijkl} F_{ab} F_{cd} (h^{ia} h^{jb} - n^i n^a h^{jb} - h^{ia} n^j n^b  )(h^{kc} h^{ld} - n^c n^k h^{ld} - h^{kc} n^d n^l ) \nonumber \\
+			      &= \frac{1}{2} \epsilon_{ijkl} F_{ab} F_{cd} (h^{ia} h^{jb} h^{kc} h^{ld} - h^{ia} h^{jb} n^c n^k h^{ld} - h^{ia} h^{jb} h^{kc} n^d n^l -n^i n^a h^{jb} h^{kc} h^{ld} + n^i n^a h^{jb} n^c n^k h^{ld} \nonumber \\
+			      &\indent + n^i n^a h^{jb} h^{kc} n^d n^l - h^{ia} n^j n^b h^{kc} h^{ld} + h^{ia} n^j n^b n^c n^k h^{ld} + h^{ia} n^j n^b h^{kc} n^d n^l) \label{eqn5} \\ 
+			      &=\frac{1}{2} \epsilon_{ijkl} F_{ab} F_{cd} (- h^{ia} h^{jb} n^c n^k h^{ld} - h^{ia} h^{jb} h^{kc} n^d n^l -n^i n^a h^{jb} h^{kc} h^{ld}- h^{ia} n^j n^b h^{kc} h^{ld} ) 
+\end{align}
+In Eqn.~\ref{eqn5}, we use the argument that symmetric tensor $\times$ antisymmetric tensor is equal to zero. Also, $\epsilon_{ijkl}$ is 4 dimensional objects and induced metric is 3 dimensional objects so $\epsilon_{ijkl} h^{ia} h^{jb} h^{ck} h^{dl} = 0$ in any combinations of spatial indices.
+
+Using the definitions $\bot F_{ab} = h_a^c h_b^d F_{cd}$ and $\bot E_a = h_a^c F_{cd} n^d$ with $\epsilon_{abc} = \epsilon_{abcd} n^d$
+\begin{align}
+\epsilon_{ijkl} F_{ab} F_{cd} (- h^{ia} h^{jb} n^c n^k h^{ld} ) &= - \epsilon_{ijkl} n^k (F_{ab} h^{ia} h^{jb}) (h^{dl} F_{cd} n^c) =  \epsilon_{ijkl} n^k (F_{ab} h^{ia} h^{jb}) (h^{dl} F_{dc} n^c) \nonumber \\
+											 &= \epsilon_{ijl} \bot F^{ij} \bot E^l
+\end{align}
+Using above, $F_{ab} (\ast F)^{ab}$ can be written as
+\begin{align}
+F_{ab}(\ast F)^{ab} & = \frac{1}{2} (\epsilon_{ijl} \bot F^{ij} \bot E^l + \epsilon_{ijk} \bot F^{ij} \bot E^k + \epsilon_{jkl} \bot F^{kl} \bot E^j + \epsilon_{ikl} \bot F^{kl} \bot E^i) \nonumber \\
+			      & = \frac{1}{2} (\epsilon^{abd} \bot F_{ab} \bot E_d + \epsilon^{abc} \bot F_{ab} \bot E_d + \epsilon^{bcd} \bot F_{cd} \bot E_b + \epsilon^{acd} \bot F_{cd} \bot E_a) \nonumber \\
+			      & = 2 \epsilon^{abc} \bot F_{ab} \bot E_c
+\end{align}
+Here we swap the indices from ${i,j,k,l}$ to ${a,b,c,d}$ and every terms is scalar quantities with dummy indices so we can reduce like that. We know that $\bot F_{ab} = \epsilon_{abc} \bot B^c$ so 
+\begin{align}
+F_{ab}(\ast F)^{ab} &= 2 \epsilon^{abc} \epsilon_{abd} \bot B^d \bot E_c = 4 \delta_c^d \bot B^d \bot E_c = 4 \bot B^c \bot E_c
+\end{align}
+
+Using all above, the equation of motion for axion $\kappa$ is decomposed into
+\begin{align}
+\nabla_a \nabla^a \kappa + 4 \alpha_1 \nabla_a \phi \nabla^a \kappa  - e^{-4 \alpha_1 \phi} F_{ab}(\ast F)^{ab}  = 0 \nonumber \\
+\rightarrow n^b \nabla_b \Xi + \frac{1}{\alpha} D_a (\alpha D^a \kappa) - 4 \alpha_1 K \Xi +4 \alpha_1 D^a \kappa D_a \phi - \Pi \Xi - 4 e^{-4 \alpha_1 \phi} \bot B^c \bot E_c = 0 \\
+n^b \nabla_b \Xi = - \frac{1}{\alpha} D_a (\alpha D^a \kappa) + K \Xi +4 \alpha_1 D^a \kappa D_a \phi + 4 \alpha_1 \Pi \Xi + 4 e^{-4 \alpha_1 \phi} \bot B^c \bot E_c
+\end{align}
+In terms of time derivatives, 
+\begin{equation}
+\partial_t \Xi = \beta^a \partial_a \Xi -  D_a (\alpha D^a \kappa) + \alpha K \Xi +4 \alpha \alpha_1 D^a \kappa D_a \phi + 4 \alpha \alpha_1 \Pi \Xi + 4 \alpha e^{-4 \alpha_1 \phi} \bot B^c \bot E_c
+\end{equation}
+%End of decomposition of axion field
+\newline
+\textbf{Decomposition of EM equation}
+
+%Start of decomposition of EM field
+Next, decompose the EM field equation
+\begin{align}
+\label{eqnem}
+\nabla_a \left(e^{-2 \alpha_0 \phi} F^{ab}\right) = - (\nabla_a \kappa) (\ast F)^{ab} \nonumber \\
+e^{-2 \alpha_0 \phi} \nabla_a F^{ab} - 2 \alpha_0 (\nabla_a \phi) F^{ab} e^{-2 \alpha_0 \phi} + (\nabla_a \kappa) (\ast F)^{ab}=0 \nonumber \\
+\nabla_a F^{ab} - 2 \alpha_0 (\nabla_a \phi) F^{ab}  + e^{2 \alpha_0 \phi} (\nabla_a \kappa) (\ast F)^{ab}=0 
+\end{align}
+We contract the Eqn.~\ref{eqnem} with $n_a$ and $h_{ab}$ respectively to decompose the equation. First, consider contraction with $n_a$
+\begin{align}
+n_b \nabla_a F^{ab} - 2 \alpha_0 (\nabla_a \phi) F^{ab} n_b  + e^{2 \alpha_0 \phi} (\nabla_a \kappa) (\ast F)^{ab} n_b=0 
+\end{align}
+Begin to look at this term by term.
+\begin{align}
+n_b \nabla_a F^{ab} &= \nabla_a  (n_b F^{ab}) - F^{ab} \nabla_a n_b = g^c_a \nabla_c  (n_b F^{db} g^a_d) - g^{ac} g^{bd} F_{cd} \nabla_a n_b \nonumber \\
+			&=(h_a^c - n_a n^c) \nabla_c ((h_d^a - n^a n_d) F^{db} n_b) - F_{cd} (h^{ac} - n^a n^c)(h^{bd} - n^b n^d) \nabla_a n_b \nonumber \\	
+			&= (h_a^c - n_a n^c) \nabla_c (h_d^a F^{db} n_b - n^a n_b n_d F^{db}) - F_{cd} (h^{ac} h^{bd} - h^{ac} n^b n^d - h^{bd} n^a n^c +n^a n^b n^c n^d) \nabla_a n_b \nonumber \\
+			&= (h_a^c - n_a n^c) \nabla_c \bot E^a - F_{cd} (h^{ac} h^{bd} - h^{ac} n^b n^d - h^{bd} n^a n^c) \nabla_a n_b \nonumber
+\end{align}
+Here, we use $n_b n_d F^{bd} = 0$, $F_{cd} n^c n^d = 0$ (sym $\times$ anti-sym = 0 property) and the definition of $\bot E^a = h_d^a F^{db} n_b$
+\begin{align}
+\label{eqn7}
+n_b \nabla_a F^{ab} &= h_a^c \nabla_c \bot E^a - n_a n^c \nabla_c \bot E^a - F_{cd} (h^{ac} h^{bd} \nabla_a n_b - h^{ac} n^b n^d \nabla_a n_b - h^{bd} n^a n^c \nabla_a n_b) \nonumber \\
+				&= D_a \bot E^a - (n^c \nabla_c (n_a \bot E^a) - \bot E^a n^c \nabla_c n_a)- F_{cd} (-K^{cd} - h^{ac} n^d n^b \nabla_a n_b - h^{bd} n^c n^a \nabla_a n_b) \nonumber \\
+				&= D_a \bot E^a + \bot E^a D_a \ln \alpha + F_{cd} K^{cd} + F_{cd} h^{ac} n^d n^b \nabla_a n_b + h^{bd} F_{cd} n^c D_b \ln \alpha \nonumber \\
+				&= D_a \bot E^a + \bot E^a D_a \ln \alpha + F_{cd} K^{cd} + F_{cd} h^{ac} n^d n^b \nabla_a n_b - h^{bd} F_{dc} n^c D_b \ln \alpha \nonumber \\
+				&= D_a \bot E^a + \bot E^a D_a \ln \alpha + F_{cd} K^{cd} + F_{cd} h^{ac} n^d n^b \nabla_a n_b - \bot E^b D_b \ln \alpha \nonumber \\ 
+				& = D_a \bot E^a
+\end{align}
+To reach Eqn.~\ref{eqn7}, we impose that $n_a \bot E^a = 0$, using the relation $n^b \nabla_b n_a = D_a \ln \alpha$, and the definition of extrinsic curvature $K_{ab} = -h_a^c h_b^d \nabla_c n_d$. $F_{cd} K^{cd} = 0$ because $F_{cd}$ is antisymmetric and $K^{cd}$ is symmetric. And, $n^b \nabla_a n_b = 0$ because
+\begin{align}
+n^b \nabla_a n_b = \nabla_a (n^b n_b) - n_b \nabla_a n^b = -n_b \nabla_a n^b \nonumber \\
+n^b \nabla_a n_b + n_b \nabla n^b = 0 \nonumber \\
+2 n^b \nabla_a n_b = 0 \rightarrow n^b \nabla_a n_b = 0 \nonumber
+\end{align}
+We use this relation a lot during the calculation. Now, evaluate next term
+\begin{align}
+2 \alpha_0 (\nabla_a \phi) F^{ab} n_b &= 2\alpha_0 (\nabla_a \phi) g_c^a F^{cb} n_b \nonumber \\
+							 &= 2\alpha_0 (\nabla_a \phi) (h_c^{a} -n_c n^a) F^{cb} n_b \nonumber \\
+							 &= 2\alpha_0 (\nabla_a \phi h_c^a F^{cb} n_b) \nonumber \\
+							 &= 2\alpha_0 (D_c \phi) \bot E^c
+\end{align}
+Note that $(\nabla_a \phi h_c^a F^{cb} n_b) = D_c\phi \bot E^c$ can be explained by the induced metric acting on both left and right. This can be showed more explicitly such that
+\begin{align}
+\nabla_a F^{ab} n_b & = \nabla_a \phi g^{ac} F_c^b n_b \nonumber \\
+			        & = \nabla_a \phi (h^{ac} -n^a n^c) F^{db} n_b g_{cd} \nonumber \\
+			        & = \nabla_a \phi h^{ac} F^{db} n_b (h_{bd} - n_b n_d ) \nonumber \\
+			        & = \nabla_a \phi h^{ac} h_{bd} F^{db} n_b \nonumber \\
+			        & = D^c \phi h_c^d F^{db} n_b = (D^c \phi) \bot E_c \nonumber
+\end{align}
+Now, evaluate the last term
+\begin{align}
+e^{2 \alpha_0 \phi} (\nabla_a \kappa) (\ast F)^{ab} n_b &= e^{2 \alpha_0 \phi} (\nabla_a \kappa) (\ast F)^{cb} g_c^a n_b \nonumber \\
+										    &= e^{2 \alpha_0 \phi} (\nabla_a \kappa) (\ast F)^{cb} (h_c^a - n^c n_a) n_b \nonumber \\
+										    &=e^{2 \alpha_0 \phi} \nabla_a \kappa h_c^a (\ast F)^{cb} n_b \nonumber \\
+										    &=-e^{2 \alpha_0 \phi} (D_c \kappa) \bot B^c
+\end{align}
+We use similar procedures in previous case. For dual of EM tensor, we can decompose it as the EM tensor
+\begin{align}
+(\ast F)^{ab} &= g_a^c g_b^d (\ast F)_{cd} \nonumber \\
+	   &= (h_a^c - n_a n^c)(h_b^d - n_b n^d) (\ast F)_{cd} \nonumber\\
+	   &=h_a^c h_b^d (\ast F)_{cd} - n_a n^c (\ast F)_{cd} h_b^d - h_a^c (\ast F)_{cd} n_b n^d +n_a n^c n_b n^d (\ast F)_{cd} \nonumber \\
+	   &= - \epsilon_{abc} \bot E^c - n_a h_b^d (\ast F)_{cd} n^c  - n_b h_a^c (\ast F)_{cd} n^d \nonumber \\  
+	   &= - \epsilon_{abc} \bot E^c - n_a h_b^d (\ast F)_{cd} n^c  + n_b h_a^c (\ast F)_{dc} n^d \nonumber \\
+	   &= - \epsilon_{abc} \bot E^c +n_a \bot B_b - n_b \bot B_a
+\end{align}
+We define the quantity $\bot B_a = - h_a^b (\ast F)_{bc} n^c = \frac{1}{2} \epsilon_{abc} F^{bc}$ and $h_a^c h_b^d F_{cd} = -\epsilon_{abc} \bot E^c$ to decompose it. Therefore, Eqn.~\ref{eqnem} with contraction $n_b$ gives 
+\begin{align}
+n_b \nabla_a F^{ab} - 2 \alpha_0 (\nabla_a \phi) F^{ab} n_b  + e^{2 \alpha_0 \phi} (\nabla_a \kappa) (\ast F)^{ab} n_b=0  \nonumber \\
+\rightarrow D_a \bot E^a - 2\alpha_0 (D_c \phi) \bot E^c -e^{2 \alpha_0 \phi} (D_c \kappa) \bot B^c = 0 \nonumber \\
+\label{eqnem_n_contrac}
+\rightarrow D_i \bot E^i =  2\alpha_0 (D_i \phi) \bot E^i + e^{2 \alpha_0 \phi} (D_i \kappa) \bot B^i
+\end{align}
+Now, consider contraction with $h_{bc}$
+\begin{align}
+h_{bc} \nabla_a F^{ab} - 2 \alpha_0 (\nabla_a \phi) F^{ab} h_{bc}  + e^{2 \alpha_0 \phi} (\nabla_a \kappa) (\ast F)^{ab} h_{bc}=0 
+\end{align}
+We follow similar procedures as contraction with $n_b$. Let\textsc{\char13}s start to decompose it term by term
+\begin{align}
+\label{eqn8}
+h_{bc} \nabla_a F^{ab} &= h_{bc}(h_a^d-n_a n^d) \nabla_d [(h_e^a - n^a n_e) F^{eb}] \nonumber \\
+				    &=h_{bc} [ h_a^d \nabla_d (h_e^a F^{eb}) - n_a n^d \nabla_d (h_e^a F^{eb}) - h_a^d \nabla_d (n^a n_e F^{eb}) + n_a n^d \nabla_d (n^a n_e F^{eb})]
+\end{align}
+\begin{align}
+h_{bc}  h_a^d \nabla_d (h_e^a F^{eb}) &=h_{bc} h_a^d \nabla_d (h_e^a F^{ef} g_f^b) = h_{bc} h_a^d \nabla_d (h_e^a F^{ef} (h_f^b - n^b n_f)) \nonumber \\
+							   &=h_{bc} h_a^d \nabla_d (h_e^a h_f^b F^{ef} -  - n^b h_e^a F^{ef} n_f) \nonumber \\
+							   &=h_{bc} h_a^d \nabla_d (\bot F^{ab}   - n^b \bot E^a) \nonumber \\
+							   &=h_{bc} [h_a^d \nabla_d (\bot F^{ab} )  - h_a^d \nabla_d (n^b \bot E^a)] \nonumber \\
+							   &=h_{bc} [D_a (\bot F^{ab} )  - h_a^d \nabla_d (n^b) \bot E^a - h_a^d n^b \nabla_d (\bot E^a)] \nonumber \\
+							   &=h_{bc} D_a \bot F^{ab}  -h_{bc} h_a^d \nabla_d (n^b) \bot E^a  - h_a^d h_{bc} n^b \nabla_d (\bot E^a)] \nonumber \\
+							   &=h_{bc} D_a \bot F^{ab}  + K_{ac} \bot E^a
+\end{align}
+
+\begin{align}
+- h_{bc} n_a n^d \nabla_d (h_e^a F^{eb}) &= - h_{bc} [n^d \nabla_d (n_a h_e^a F^{eb} - n^d h_e^a F^{eb}] \nonumber \\
+							       &= h_{bc} h_e^a F^{eb} n^d \nabla_d n_a \nonumber \\
+							       &=\bot F_c^a D_a \ln \alpha
+\end{align}
+\begin{align}
+-h_{bc} h_a^d \nabla_d (n^a n_e F^{eb}) &= - h_{bc} h_a^d (\nabla_d n^a) n_e F^{eb} - h_{bc} h_a^d n^a \nabla_d (n_e F^{eb} \nonumber \\
+							       &= -(h_a^d \nabla_d n^a) (h_{bc} F^{eb} n_e) \nonumber \\
+							       &=K \bot E_c
+\end{align}
+\begin{align}
+h_{bc} n_a n^d \nabla_d (n^a n_e F^{eb}) &= h_{bc} n^d n_a (\nabla_d n^a) n_e F^{eb} + h_{bc} n_a n^a n^d \nabla_d (n_e F^{eb}) \nonumber \\
+								&= - h_{bc} n^d \nabla_d (n_e F^{eb}) \nonumber \\
+								&= n^d \nabla_d (h_bc F^{be} n_e) - n^d F^{be} n_e \nabla_d h_{bc} \nonumber \\
+								&=n^d \nabla_d \bot E_c 
+\end{align}
+Here we use definitions and properties that are used previously. So, Eqn.~\ref{eqn8} can be written as
+\begin{align}
+h_{bc} \nabla_a F^{ab} = h_{bc} D_a \bot F^{ab}  + K_{ac} \bot E^a + \bot F_c^a D_a \ln \alpha + K \bot E_c + n^d \nabla_d \bot E_c 
+\end{align} 
+Evaluate remaining terms
+\begin{align}
+-2 \alpha_0 (\nabla_a \phi) F^{ab} h_{bc} &= -2 \alpha_0 (\nabla_a \phi) g^{ad} F_d^{b} h_{bc}  = -2 \alpha_0 (\nabla_a \phi) (h^{ad} - n^a n^d) F_d^{b} h_{bc} \nonumber \\
+							       &=-2 \alpha_0[(\nabla_a \phi) F_d^b h^{ad} h_{bc}  - (n^a \nabla_a \phi) (h^{ad} F_d^b n_d) h_{bc}] \nonumber \\
+							       &=-2 \alpha_0 ( \Pi \bot E^a) h_{bc} = -2 \alpha_0 \Pi \bot E^a h_{bc}
+\end{align}
+\begin{align}
+e^{2 \alpha_0 \phi} (\nabla_a \kappa) (\ast F)^{ab} h_{bc} &= e^{2 \alpha_0 \phi} (\nabla_a \kappa) (\ast F)_d^{b} g^{ad} h_{bc} = e^{2 \alpha_0 \phi} (\nabla_a \kappa) (h^{ad} - n^a n^d) (\ast F)_d^{b} h_{bc} \nonumber \\
+											&=e^{2 \alpha_0 \phi} [ (\nabla_a \kappa) (\ast F)_d^{b} h^{ad} h_{bc} - (n^a \nabla_a \kappa) (h^{ad} (\ast F)_d^{b} n_d) h_{bc} ] \nonumber \\
+											&=- e^{2 \alpha_0 \phi} \Xi \bot B^a h_{bc}			
+\end{align}
+Therefore, EM equation with contraction $h_{bc}$ is
+\begin{align}
+\label{eqnem_h_contrac}
+h_{bc} D_a \bot F^{ab}  + K_{ac} \bot E^a + \bot F_c^a D_a \ln \alpha + K \bot E_c + n^d \nabla_d \bot E_c -2 \alpha_0 \Pi \bot E^a h_{bc}- e^{2 \alpha_0 \phi} \Xi \bot B^a h_{bc}= 0
+\end{align}
+We can express it sets of equation
+\begin{align}
+D_a \bot F^{ab}  -2 \alpha_0 \Pi \bot E^a - e^{2 \alpha_0 \phi} \Xi \bot B^a = 0 \\
+n^d \nabla_d \bot E_c = -K_{ac} \bot E^a - \bot F_c^a D_a \ln \alpha - K \bot E_c 
+\end{align}
+%In terms of time derivatives
+%\begin{equation}
+%\partial_t \bot E_c = \beta^a \partial_a \bot E_c - \alpha K_{ac} \bot E^a - \alpha \bot F_c^a D_a \ln \alpha - \alpha K \bot E_c 
+%\end{equation}
+In EM, there are supplemented with the identity $\nabla_{[a} F_{bc]} = 0$. Thus, there is a equation that we need to consider such that
+\begin{equation}
+\nabla_a (\ast F)^{ab} = 0 
+\end{equation}
+Contract this equation with $n_b$ and $h_{bc}$. We follow the same procedure for $F_{ab}$ equation. For contraction with $n_b$, we can get this immediately with the definition of $\bot B_a = -h_a^b (\ast F)_{bc} n^c$
+\begin{align}
+\label{eqndualem}
+n_b \nabla_a (\ast F)^{ab}  & = -D_a \bot B^a = 0
+\end{align}
+For contraction with $h_{bc}$, we can write
+\begin{align}
+\label{eqndualem2}
+h_{bc} \nabla_a (\ast F)^{ab}  &=h_{bc} D_a \bot (\ast F)^{ab}  - K_{ac} \bot B^a + \bot (\ast F)_c^a D_a \ln \alpha - K \bot B_c - n^d \nabla_d \bot B_c = 0
+\end{align}
+Thus, it gives
+\begin{align}
+D_a \bot (\ast F)^{ab} &= 0 \\
+n^d \nabla_d \bot B_c  &=- K_{ac} \bot B^a + \bot (\ast F)_c^a D_a \ln \alpha - K \bot B_c 
+\end{align}
+%In terms of time derivatives
+%\begin{equation}
+%\partial_t \bot B_c = \beta^a \partial_a \bot B_c - \alpha K_{ac} \bot B^a - \alpha \bot (\ast F)_c^a D_a \ln \alpha - \alpha K %\bot B_c 
+%\end{equation}
+We incorporate with constraint damping by adding scalar fields, $\Psi$ and $\Phi$, to the EM equations for obtaining time evolution equations. Now, we have the equations:
+\begin{align}
+\label{eqnemconst1}
+\nabla_a (F^{ab} + g^{ab} \Psi) - 2 \alpha_0 (\nabla_a \phi) F^{ab}  + e^{2 \alpha_0 \phi} (\nabla_a \kappa) (\ast F)^{ab} &= \eta_1 n^b \Psi  \\
+\label{eqnemconst2}
+\nabla_a ((\ast F)^{ab} + g^{ab} \Phi) &= \eta_2 n^b \Phi
+\end{align}
+where $\eta_1$ and $\eta_2$ are positive real constants
+
+From EM equations, we define the charge and current for it
+\begin{align}
+J_{em}^i &= - ( 2 \alpha_0 (\nabla_a \phi) F^{ab}  - e^{2 \alpha_0 \phi} (\nabla_a \kappa) (\ast F)^{ab} ) \nonumber \\
+q_e &= J_{em}^i n_i \nonumber 
+\end{align}
+The negative sign in the current is chosen for sign convention
+
+We follow the same ways to decompose this equation. Most of terms are already decomposed, we only need to consider decomposition of constraint damping fields.
+
+Let\textsc{\char13}s contract with $n_b$ first.
+
+\begin{align}
+n_b \nabla_a (g^{ab} \Psi) &= n_b \nabla_a (g_{cd} \Psi g^{ac} g^{bd}) = n_b \nabla_a [g_{cd} \Psi (h^{ac} - n^a n^c)(h^{bd}-n^b n^d)] \nonumber \\
+					&=n_b \nabla_a [ h^{ac} h^{bd} g_{cd} \Psi - g_{cd} h^{ac} n^b n^d \Psi - g_{cd} h^{bd} n^a n^c \Psi + n^a n^c n^b n^d g_{cd} \Psi ] \nonumber \\
+					&=n_b \nabla_a [ h^{ab} \Psi - h_{d}^a n^b n^d \Psi - h_{c}^b n^a n^c \Psi - n^a n^b \Psi ] \nonumber \\
+					&=n_b \nabla_a ( h^{ab} \Psi - n^a n^b \Psi ) \nonumber \\
+					&=n_b h^{ab} \nabla_a \Psi + n_b \Psi \nabla_a h^{ab} - n_b \nabla_a (n^a n^b \Psi) \nonumber \\
+					&=n_b \Psi \nabla_a h^{ab} - n_b n^b \nabla_a (n^a \Psi) - n_b (\nabla_a n^b) n^a \Psi \nonumber \\
+					&=\Psi \nabla_a (h^{ab} n_b) - (h^{ab} \nabla_a n_b) \Psi + \nabla_a (n^a \Psi) \nonumber \\
+					&= K \Psi + \nabla_b (n^a \Psi) g_a^b = K \Psi + \nabla_b (n^a \Psi) (h_a^b - n^b n_a) \nonumber \\
+					&= K \Psi + (\Psi \nabla_b n^a + n^a \nabla_b \Psi)(h_a^b -n^b n_a) \nonumber \\
+					&= K\Psi + (h_a^b \nabla_b n^a)\Psi + h_a^b n^a \nabla_a \Psi - \Psi n^b n_a \nabla_b n^a - n^b n_a n^a \nabla_b \Psi \nonumber \\
+					&= K\Psi - K\Psi + n^b \nabla_b \Psi \nonumber \\
+					&= n^b \nabla_b \Psi
+\end{align}
+Similarly, for $\Phi$
+\begin{align}
+n_b \nabla_a (g^{ab} \Phi) & = n^a \nabla_a \Phi
+\end{align}
+RHS of Eqns.~\ref{eqnemconst1} and~\ref{eqnemconst2} are
+\begin{align}
+n_b \eta_1 n^b \Psi = -\eta_1 \Psi \\
+n_b \eta_2 n^b \Phi = -\eta_2 \Phi
+\end{align}
+Combine these with previous Eqns.~\ref{eqnem_n_contrac} and~\ref{eqndualem} gives
+\begin{align}
+n^a \nabla_a \Psi+ D_a \bot E^a - 2\alpha_0 (D_c \phi) \bot E^c -e^{2 \alpha_0 \phi} (D_c \kappa) \bot B^c &= -\eta_1 \Psi \\
+n^a \nabla_a \Phi - D_a \bot B^a &= -\eta_2 \Phi
+\end{align}
+In terms of time derivatives
+\begin{align}
+\partial_t \Psi &= \beta^a \partial_a \Psi - \alpha D_a \bot E^a + 2 \alpha  \alpha_0 (D_c \phi) \bot E^c + \alpha  e^{2 \alpha_0 \phi} (D_c \kappa) \bot B^c  - \alpha \eta_1 \Psi \\
+\partial_t \Phi &=  \beta^a \partial_a \Phi +\alpha D_a \bot B^a  - \alpha  \eta_2 \Phi
+\end{align}
+Next, contract with $h_{bc}$. Using the property $h_{bc} n^b = 0$, RHS of Eqns.~\ref{eqnemconst1} and~\ref{eqnemconst2} are zero.
+\begin{align}
+h_{bc} \nabla_a (g^{ab} \Psi) &= h_{bc} \nabla_a (g_{cd} \Psi g^{ac} g^{bd}) = h_{bc} \nabla_a (h^{ab} \Psi - n^a n^b \Psi) \nonumber \\
+					     &=h_{bc} h^{ab} \nabla_a \Psi + h_{bc} \Psi \nabla_a h^{ab} - h_{bc} n^a n^b \nabla_a \Psi - h_{bc} \Psi \nabla_a (n^a n^b) \nonumber \\
+					     &=h_c^a \nabla_a \Psi + h_{bc} \Psi \nabla_a (g^{ab} + n^a n^b) - h_{bc} \Psi \nabla_a (n^a n^b) \nonumber \\
+					     &= D_c \Psi + h_{bc} \Psi \nabla_a g^{ab} + h_{bc} \Psi \nabla_a (n^a n^b) - h_{bc} \Psi \nabla_a (n^a n^b) \nonumber \\
+					     &= D_c \Psi
+\end{align}
+Here we use the fact that $\nabla_a g^{ab} = 0$ by geodesic equation (or covariant derivatives of metric are zero). For $\Phi$, using same procedure
+\begin{equation}
+h_{bc} \nabla_a (g^{ab} \Phi) = D_c \Phi
+\end{equation}
+Combine these with previous Eqns.~\ref{eqnem_h_contrac} and~\ref{eqndualem2}
+\begin{align}
+h_{bc} D_a \bot F^{ab}  + K_{ac} \bot E^a + \bot F_c^a D_a \ln \alpha + K \bot E_c + n^d \nabla_d \bot E_c -2 \alpha_0 \Pi \bot E^a h_{bc}- e^{2 \alpha_0 \phi} \Xi \bot B^a h_{bc} + D_c \Psi &= 0 \\
+h_{bc} D_a \bot (\ast F)^{ab}  - K_{ac} \bot B^a + \bot (\ast F)_c^a D_a \ln \alpha - K \bot B_c - n^d \nabla_d \bot B_c + D_c \Phi &= 0
+\end{align}
+
+Here we need to evaluate $n^a \nabla_a \bot A^b$ form to write time derivative term. Since $\bot A^b$ is a vector, we cannot write this as scalar field case. Let $f^a$ be a arbitrary spatial vector. We want to show
+\begin{equation}
+\label{eqn:lie}
+h_{bc} n^a \nabla_a f^b = h_{bc} (n^a \partial_a f^b - K^b_a f^a + \frac{1}{\alpha} f^a \partial_a \beta^b)
+\end{equation}
+To show this, using the definition of Lie derivative 
+\begin{equation}
+\mathcal{L}_x y^a \equiv x^b \nabla_b y^a - y^b \nabla_b x^a = x^b \partial_b y^a - y^b \partial_b x^a
+\end{equation}
+From RHS of Eqn.~\ref{eqn:lie},
+\begin{align}
+ n^a \partial_a f^b - K^b_a f^a + \frac{1}{\alpha} f^a \partial_a \beta^b &= \frac{1}{\alpha} ( \partial_t f^b - \beta^i \partial_i f^b) - K^b_a f^a + \frac{1}{\alpha} f^a \partial_a \beta^b \nonumber \\
+ 		&=-\frac{1}{\alpha} \mathcal{L}_{\beta} f^b - f^a K_a^b +\frac{1}{\alpha} \partial_t f^b \nonumber
+\end{align}
+From LHS of Eqn.~\ref{eqn:lie},
+\begin{align}
+n^a \nabla_a f^b = n^a \nabla_a f^b - f^a \nabla_a n^b + f^a \nabla_a n^b = \mathcal{L}_n f^b + f^a \nabla_a n^b \nonumber
+\end{align}
+Combine these results give
+\begin{align}
+h_{bc} (\mathcal{L}_n f^b + f^a \nabla_a n^b) = h_{bc} (-\frac{1}{\alpha} \mathcal{L}_{\beta} f^b - f^a K_a^b +\frac{1}{\alpha} \partial_t f^b) \nonumber \\
+h_{bc} ( \mathcal{L}_n f^b + \frac{1}{\alpha} \mathcal{L}_\beta f^b) = h_{bc} (\frac{1}{\alpha} \partial_t f^b - f^a \nabla_a n^b - f^a K^b_a) \label{eqn:lie2}
+\end{align}
+Here we evaluate
+\begin{align}
+h_{bc} f^a \nabla_a n^b &= h_{bc} f^d (h^a_d - n^a n_d) \nabla_a n^b = h_{bc} f^d h^a_d \nabla_a n^b - h_{bc} f^d n_d n^a \nabla_a n^b \nonumber \\
+				     &= f^d (h_bc h^a_d \nabla_a n^b) = - f^d K_{dc}
+\end{align}
+Since $f^d$ is fully spatial, $f^d n_d = 0$. So, we can rewrite Eqn.~\ref{eqn:lie2}
+\begin{align}
+h_{bc} ( \mathcal{L}_n f^b + \frac{1}{\alpha} \mathcal{L}_\beta f^b) &= h_{bc} (\frac{1}{\alpha} \partial_t f^b - f^a \nabla_a n^b - f^a K^b_a) \nonumber \\
+											   	&=h_{bc} \frac{1}{\alpha} \partial_t f^b + f^d K_{dc} - f^a h_{bc} K^b_a \nonumber \\
+												&=h_{bc} \frac{1}{\alpha} \partial_t f^b
+\end{align}
+Or
+\begin{equation}
+h_{bc} (\alpha \mathcal{L}_n + \mathcal{L}_\beta) f^b = h_{bc} \partial_t
+\end{equation}
+By definition of $n^a$ and $\beta^a$, $\alpha n^a + \beta^a = \alpha \left( \frac{1}{\alpha}, - \frac{\beta^i}{\alpha} \right) + (0, \beta^i) = (1,0,0,0) = t^a$. And using the property of Lie derivative
+\begin{align}
+(\alpha \mathcal{L}_n + \mathcal{L}_\beta) f^b = \mathcal{L}_{\alpha n + \beta} f^b = \mathcal{L}_t f^b = t^a \partial_a f^b - f^a \partial_a t^b = \partial_t f^b
+\end{align}
+which shows that Eqn.~\ref{eqn:lie} is true. Using this property, we can write 
+\begin{equation}
+n^a \nabla_a \bot E^b = n^a \partial_a \bot E^b - K^b_a \bot E^a +\frac{1}{\alpha} \bot E^a \partial_a \beta^b
+\end{equation}
+This can be applied for magnetic field. To sum up, decomposition of EM equations is
+\begin{align}
+n^a \nabla_a \bot E^b &= -\frac{1}{\alpha} D_a (\alpha \bot F^{ab}) - \bot E^a K_a^b + \bot E^b K - D^b \Psi - 2 \alpha_0 [ \Pi \bot E^b - \epsilon^{abc} D_a \phi \bot B_c ] \nonumber \\
+				  &\indent - e^{2 \alpha_0 \phi} [ \Xi  \bot B^b + D_a K \bot (\ast F^{ab})] \\
+n^a \nabla_a \bot B^b &= \frac{1}{\alpha} D_a (\alpha \epsilon^{abc} \bot E_c ) - \bot B^a K_a^b + \bot B^b K + D^b \Phi
+\end{align}
+In terms of time derivatives
+\begin{align}
+\partial_t \bot E^b &= \beta^i \partial_i \bot E^b -\bot E^a \partial_a \beta^b -D_a (\alpha \epsilon^{abc} \bot B_c ) + \alpha \bot E^b K - \alpha D^b \Psi - 2 \alpha \alpha_0 [ \Pi \bot E^b - \epsilon^{abc} D_a \phi \bot B_c ] \nonumber \\
+				  &\indent - \alpha e^{2 \alpha_0 \phi} [ \Xi \bot B^b + D_a K \epsilon^{abc} \bot E_c] \\
+\partial_t \bot B^b &= \beta^i \partial_i \bot B^b- \bot B^a \partial_a \beta^b + D_a (\alpha \epsilon^{abc} \bot E_c ) + \alpha \bot B^b K + \alpha D^b \Phi
+\end{align}
+%In terms of time derivative,
+%\begin{align}
+%\partial_t \bot E_c &= \beta^a \partial_a \bot E_c + \alpha(- h_{bc} D_a \bot F^{ab}  - K_{ac} \bot E^a - \bot F_c^a D_a \ln \alpha - K \bot E_c  + 2 \alpha_0 \Pi \bot E^a h_{bc} + e^{2 \alpha_0 \phi} \Xi \bot B^a h_{bc} - D_c \Psi)  \\
+%\partial_t \bot B_c &= \beta^a \partial_a + \alpha (h_{bc} D_a \bot (\ast F)^{ab}  - K_{ac} \bot B^a + \bot (\ast F)_c^a D_a \ln \alpha - K \bot B_c + D_c \Phi) 
+%\end{align}
+
+%End of decomposition of EM field
+\textbf{Decomposition of Einstein field equation}
+
+
+%Start of decomposition of EFE
+The last step of this procedure is decomposition of the Einstein\textsc{\char13}s equation. Consider RHS of the Einstein equation first.
+\begin{align}
+R_{ab} -\frac{1}{2} g_{ab} R = 2 \nabla_a \phi \nabla_b \phi - g_{ab} \nabla_a \phi \nabla^a \phi + 2 e^{-2 \alpha_0 \phi} ( F_{ac} F_b^c -\frac{1}{4} g_{ab} F^2) + \frac{1}{2} e^{4 \alpha_1 \phi} (\nabla_a \kappa \nabla_b \kappa -\frac{1}{2} g_{ab} \nabla_a \kappa \nabla^a \kappa) 
+\end{align}
+So, the energy-momentum tensor $T_{ab}$ is
+\begin{equation}
+T_{ab} = 2 \nabla_a \phi \nabla_b \phi - g_{ab} \nabla_a \phi \nabla^a \phi + 2 e^{-2 \alpha_0 \phi} ( F_{ac} F_b^c -\frac{1}{4} g_{ab} F^2) +\frac{1}{2} e^{4 \alpha_1 \phi} (\nabla_a \kappa \nabla_b \kappa -\frac{1}{2} g_{ab} \nabla_a \kappa \nabla^a \kappa)
+\end{equation}
+Using this, we can define the projected stress tensor, $\bot T_{ab}$, the momentum flux density, $J^i$, and the energy density $\rho$. Define the energy-momentum tensor
+\begin{align}
+\rho &= T_{ab} n^a n^b \nonumber \\
+       &= 2 \nabla_a \phi \nabla_b \phi n^a n^b - g_{ab} n^a n^b \nabla_a \phi \nabla^a \phi + 2 e^{-2 \alpha_0 \phi} ( F_{ac} F_b^c n^a n^b -\frac{1}{4} g_{ab} n^a n^b F^2) \nonumber \\
+       &\indent +\frac{1}{2} e^{4 \alpha_0 \phi} (\nabla_a \kappa \nabla_b \kappa n^a n^b -\frac{1}{2} g_{ab} n^a n^b \nabla_a \kappa \nabla^a \kappa) \nonumber \\
+       & = 2 \Pi^2 + \nabla_a \phi \nabla^a \phi + 2 e^{-2 \alpha_0 \phi} ( F_{ac} n^a n^b F_b^c  + \frac{1}{4} F^2) +\frac{1}{2} e^{4 \alpha_0 \phi} (\Xi^2 + \frac{1}{2} \nabla_a \kappa \nabla^a \kappa) \nonumber \\
+       &= 2 \Pi^2 + D_a \phi D^a \phi - \Pi^2  + 2 e^{-2 \alpha_0 \phi} ((\bot E)^2 + \frac{1}{4} 2[(\bot B)^2 - (\bot E)^2] ) +\frac{1}{2} e^{4 \alpha_0 \phi} (\Xi^2 + \frac{1}{2} ( D_a \kappa D^a \kappa - \Xi^2)) \nonumber \\
+       &= \Pi^2 + D_a \phi D^a \phi + e^{-2 \alpha_0 \phi} [(\bot B)^2 + (\bot E)^2]  +\frac{1}{4} e^{4 \alpha_1 \phi} (\Xi^2 +  D_a \kappa D^a \kappa) 
+\end{align}
+Here, we use the facts that $g_{ab} n^a n^b = (h_{ab} - n_a n_b) n^a n^b = -1$ and previous definitions/decompositions that related with $\phi$, $\kappa$, and $F_{ab}$
+\begin{align}
+J^i &= -h^{ia} T_{ab} n^b \nonumber \\
+     &= - 2 h^{ia} \nabla_a \phi \nabla_b \phi n^b  + h^{ia} g_{ab} n^b \nabla_a \phi \nabla^a \phi - 2 e^{-2 \alpha_0 \phi} ( h^{ia} F_{ac} F_b^c n^b -\frac{1}{4} h^{ia} g_{ab} n^b F^2) \nonumber \\
+     &\indent - \frac{1}{2} e^{4 \alpha_1 \phi} (h^{ia} \nabla_a \kappa \nabla_b \kappa n^b -\frac{1}{2} h^{ia} g_{ab} n^b \nabla_a \kappa \nabla^a \kappa) \nonumber \\
+     &= 2 D^i \phi \, \Pi - 2 e^{-2 \alpha_0 \phi}  h^{ia} F_{ac} F_{be} g^{ec} n^b - \frac{1}{2} e^{4 \alpha_0 \phi} (- D^i \kappa \, \Xi) \nonumber \\     
+          &= 2 D^i \phi\,  \Pi + \frac{1}{2} e^{4 \alpha_1 \phi} D^i \kappa \, \Xi + 2 e^{-2 \alpha_0 \phi}  h^{ia} F_{ac} F_{eb} n^b (h^{ce} - n^c n^e) \nonumber \\     
+          &= 2 D^i \phi \, \Pi + \frac{1}{2} e^{4 \alpha_1 \phi} D^i \kappa \, \Xi + 2 e^{-2 \alpha_0 \phi}  h^{ia} F_{ac} h^{ce}  F_{eb} n^b \nonumber \\
+          &= 2 D^i \phi \, \Pi + \frac{1}{2} e^{4 \alpha_1 \phi} D^i \kappa \, \Xi + 2 e^{-2 \alpha_0 \phi}  \bot F^{ie} \bot E_e \nonumber \\
+                    &= 2 D^i \phi \,\Pi + \frac{1}{2} e^{4 \alpha_1 \phi} D^i \kappa \, \Xi + 2 e^{-2 \alpha_0 \phi}  \epsilon^{ief} \bot B_{f} \bot E_e 
+\end{align}
+We use $h^{ia} g_{ab} n^b = h^{ia} (h_{ab} - n_a n_b) n^b =0$
+\begin{align}
+\bot T_{ab} &= h_a^c h_b^d T_{cd} \nonumber \\
+	          &=2 h_a^c h_b^d \nabla_c \phi \nabla_d \phi - h_a^c h_b^d g_{cd} \nabla_c \phi \nabla^c \phi + 2 e^{-2 \alpha_0 \phi} ( h_a^c h_b^d F_{ce} F_d^e -\frac{1}{4} h_a^c h_b^d g_{cd} F^2) \nonumber \\
+	          &\indent +\frac{1}{2} e^{4 \alpha_1 \phi} (h_a^c h_b^d \nabla_c \kappa \nabla_d \kappa -\frac{1}{2} h_a^c h_b^d g_{cd} \nabla_c \kappa \nabla^c \kappa) \nonumber \\
+	          &= D_a \phi D_b \phi - h_{ab} \nabla_c \phi \nabla^c \phi + 2 e^{-2 \alpha_0 \phi} ( h_a^c h_b^d F_{ce} F_d^e -\frac{1}{4} h_{ab} F^2) +\frac{1}{2} e^{4 \alpha_1 \phi} (D_a \kappa D_b \kappa -\frac{1}{2} h_{ab} \nabla_c \kappa \nabla^c \kappa) \nonumber \\
+	          &= D_a \phi D_b \phi - h_{ab} (D_c \phi D^c \phi - \Pi) + 2 e^{-2 \alpha_0 \phi} [ \bot F_{ac} \bot F_b^c + \bot E_a \bot E_b  -\frac{1}{2} h_{ab}( (\bot B)^2 + \bot E)^2)] \nonumber \\
+	          &\indent +\frac{1}{2} e^{4 \alpha_1 \phi} (D_a \kappa D_b \kappa -\frac{1}{2} h_{ab} (D_c \kappa D^c \kappa - \Xi^2)) 
+\end{align}
+Contraction $h_a^c h_b^d g_{cd}$ makes the metric $g_{cd}$ to the full spatial metric $h_{ab}$
+
+Usual decomposition of the Einstein tensor (LHS side of the equation) is used. (It gives constraint equations and evolution equation of extrinsic curvature and induced metric) Now, we reevaluate these equations into the BSSN form
+
+
+%Start BSSN formalsim
+\subsection{BSSN Formalism}
+Previously, we have sets of equation 
+\begin{align}
+\partial_t \phi &= \beta^a \partial_a \phi - \alpha \Pi \nonumber \\
+\partial_t \kappa &= \beta^a \partial_a \kappa - \alpha \Xi  \nonumber\\
+\partial_t \Pi &= \beta^a \partial_a \Pi - D_a (\alpha D^a \phi) + \alpha K \Pi -\alpha_0 \alpha e^{-2 \alpha_0 \phi}  [ (\bot B)^2 - (\bot E)^2)]  \nonumber \\
+		&\indent + \frac{1}{2} \alpha_0 \alpha e^{4 \alpha_1 \phi} (D^a \kappa D_a \kappa - (\Xi)^2)  \nonumber \\
+\partial_t \Xi &= \beta^a \partial_a \Xi -  D_a (\alpha D^a \kappa) + \alpha K \Xi +4 \alpha \alpha_1 D^a \kappa D_a \phi + 4 \alpha \alpha_1 \Pi \Xi + 4 \alpha e^{-4 \alpha_1 \phi} \bot B^c \bot E_c \nonumber \\
+\partial_t \Psi &= \beta^a \partial_a \Psi - \alpha D_a \bot E^a + 2 \alpha  \alpha_0 (D_c \phi) \bot E^c + \alpha  e^{2 \alpha_0 \phi} (D_c \kappa) \bot B^c  - \alpha \eta_1 \Psi \nonumber \\
+\partial_t \Phi &=  \beta^a \partial_a \Phi +\alpha D_a \bot B^a  - \alpha  \eta_2 \Phi \nonumber \\
+\partial_t \bot E^b &= \beta^i \partial_i \bot E^b -\bot E^a \partial_a \beta^b -D_a (\alpha \epsilon^{abc} \bot B_c ) + \alpha \bot E^b K - \alpha D^b \Psi - 2 \alpha \alpha_0 [ \Pi \bot E^b - \epsilon^{abc} D_a \phi \bot B_c ] \nonumber \\
+				  &\indent - \alpha e^{2 \alpha_0 \phi} [ \Xi \bot B^b + D_a K \epsilon^{abc} \bot E_c] \\
+\partial_t \bot B^b &= \beta^i \partial_i \bot B^b- \bot B^a \partial_a \beta^b + D_a (\alpha \epsilon^{abc} \bot E_c ) + \alpha \bot B^b K + \alpha D^b \Phi \nonumber
+\end{align}
+Now, we rewrite these equations in terms of the BSSN form
+
+For going to BSSN, we consider a conformal transformation of the 3-metric
+\begin{equation}
+\tilde{\gamma}_{ij} = e^{-4 \bar{\phi}} h_{ij}
+\end{equation}
+where $\bar{\phi}$ is conformal factor such that the conformal metric has unit determinant. Thus, $h = exp(12^\phi)$ because $\tilde{\gamma}=1$. (This is not related with the dilaton field $\phi$! I know this is not the best notation..) We also define a conformally rescaled traceless extrinsic curvature
+\begin{equation}
+\tilde{A}_{ij} = e^{-4 \bar{\phi}} \left(K_{ij} - \frac{1}{3} h_{ij} K \right)
+\end{equation}
+Finally, define conformal connection function
+\begin{equation}
+\tilde{\Gamma}^i = \tilde{\gamma}^{jk} \tilde{\Gamma}_{jk}^i = - \partial_j \tilde{\gamma}^{ij}
+\end{equation}
+where the $\tilde{\Gamma}_{jk}^i$ are the Christoffel symbols built out of the conformal 3-metric which is
+\begin{equation}
+\tilde{\Gamma}_{ij}^k = \Gamma_{ij}^k - 2 (\delta_i^k \partial_j \bar{\phi} + \delta_j^k \partial_i \bar{\phi} - \gamma_{ij} \gamma^{kl} \partial_l \bar{\phi})
+\end{equation}
+
+To write down previous equations in BSSN form, we should consider these facts. First consider for scalar quantity. Let $\psi$ be a arbitrary scalar function(or field, quantity etc.). By definition of $D_a \psi$
+\begin{align}
+D_a \psi = \partial_a \psi
+\end{align}
+This is true because there is no connection coefficients for scalar field. Therefore, we can easily rewrite 3D covariant derivative as 3D partial derivative (gradient) for scalar field. For more real case, consider the term $D_a (\alpha D^a \phi)$ (or $D^a (\alpha D_a \phi)$.
+\begin{align}
+D^a (\alpha D_a \phi) &= h^{ij} \nabla_i (\alpha D_j \phi) = h^{ij} [ \partial_i (\alpha \partial_j \phi) - \Gamma_{ij}^k \alpha \partial_k \phi] \nonumber \\
+				&=h^{ij} [ \alpha \partial_i \partial_j \phi + \partial_i \alpha \partial_j \phi - \alpha \partial_k \phi (\tilde{\Gamma}_{ij}^k + 2 ( \delta_j^k \partial_i \bar{\phi} + \delta_i^k \partial_j \bar{\phi} - \gamma_{ij} \gamma^{kl} \partial_l \bar{\phi})] \nonumber \\
+				&=\alpha e^{-4 \bar{\phi}} \tilde{\gamma}^{ij} [ \partial_i \partial_j \phi + \frac{1}{\alpha} \partial_i \alpha \partial_j \phi - \partial_k \phi (\tilde{\Gamma}_{ij}^k + 2 ( \delta_j^k \partial_i \bar{\phi} + \delta_i^k \partial_j \bar{\phi} - \gamma_{ij} \gamma^{kl} \partial_l \bar{\phi})] \nonumber \\
+				&=\alpha \chi \tilde{\gamma}^{ij} [ \partial_i \partial_j \phi +  (\partial_i \ln \alpha) \partial_j \phi - \partial_k \phi (\tilde{\Gamma}_{ij}^k -\frac{1}{2} ( \delta_j^k \partial_i \ln \chi + \delta_i^k \partial_j \ln \chi - \gamma_{ij} \gamma^{kl} \partial_l \ln \chi)] \nonumber \\
+				&=\alpha \chi \tilde{\gamma}^{ij} [ \partial_i \partial_j \phi +  (\partial_i \ln \alpha) \partial_j \phi - \partial_k \phi \tilde{\Gamma}_{ij}^k + \frac{1}{2}( \delta_j^k \partial_k \phi \partial_i \ln \chi + \delta_i^k \partial_k \phi \partial_j \ln \chi - \gamma_{ij} \gamma^{kl} \partial_k \phi \partial_l \ln \chi)] \nonumber \\
+				&= \alpha \chi \tilde{\gamma}^{ij} [ \partial_i \partial_j \phi +  (\partial_i \ln \alpha) \partial_j \phi - \partial_k \phi \tilde{\Gamma}_{ij}^k + \frac{1}{2}( \partial_j \phi \partial_i \ln \chi + \partial_i \phi \partial_j \ln \chi -\frac{1}{\chi} \tilde{\gamma}_{ij} \chi \tilde{\gamma}^{kl} \partial_k \phi \partial_l \ln \chi)] \nonumber \\
+				&=\alpha \chi [ \tilde{\gamma}^{ij} \partial_i \partial_j \phi +  \tilde{\gamma}^{ij} (\partial_i \ln \alpha) \partial_j \phi - \partial_k \phi \tilde{\gamma}^{ij} \tilde{\Gamma}_{ij}^k + \frac{1}{2}( \tilde{\gamma}^{ij} \partial_j \phi \partial_i \ln \chi + \tilde{\gamma}^{ij} \partial_i \phi \partial_j \ln \chi -\tilde{\gamma}^{ij} \tilde{\gamma}_{ij} \tilde{\gamma}^{kl} \partial_k \phi \partial_l \ln \chi)] \nonumber \\
+				&=\alpha \chi [ \tilde{\gamma}^{ij} \partial_i \partial_j \phi +  \tilde{\gamma}^{ij} (\partial_i \ln \alpha) \partial_j \phi - \tilde{\Gamma}^k \partial_k \phi + \frac{1}{2}( \tilde{\gamma}^{ij} \partial_i \phi \partial_j \ln \chi +  \tilde{\gamma}^{ij} \partial_i \phi \partial_j \ln \chi -3 \tilde{\gamma}^{kl} \partial_k \phi \partial_l \ln \chi)] \nonumber \\
+				&=\alpha \chi [ \tilde{\gamma}^{ij} \partial_i \partial_j \phi +   \tilde{\gamma}^{ij} (\partial_i \ln \alpha) \partial_j \phi -  \tilde{\Gamma}^i \partial_i \phi - \frac{1}{2} \tilde{\gamma}^{ij} \partial_i \phi \partial_j \ln \chi ]
+\end{align}
+we use $\tilde{\gamma}_{ij} \tilde{\gamma}^{ij} = 3$ and rearrange the dummy indicies. Also, we define $\chi = e^{-4 \bar{\phi}}$ for convenient purpose. Using this, we can get the relations
+\begin{align}
+\tilde{\gamma}_{ij} = \chi h_{ij} \\
+\tilde{\gamma}^{ij} = \frac{1}{\chi} h^{ij} \\
+\bar{\phi} = -\frac{1}{4} \ln \chi
+\end{align}
+Other terms also can be written as similar way. Consider some arbitrary spatial vector field called $f^a$.
+\begin{align}
+D_a f^a &= \partial_a f^a +\,^{(3)}\Gamma_{ac}^a f^c = \partial_a f^a +\partial_c \ln \sqrt{h} \, f^c \nonumber \\
+	     &= \frac{1}{\sqrt{h}} \partial_a (\sqrt{h} f^a) = \frac{1}{\sqrt{e^{12 \bar{\phi}}}} \partial_a (\sqrt{e^{12 \bar{\phi}}} f^a)  \nonumber \\
+	     &=\frac{1}{\sqrt{\chi^{-6}}} \partial_a (\sqrt{\chi^{-6}} f^a) = \chi^{3/2} \partial_a (\chi^{-3/2} f^a) \nonumber \\
+	     &=\partial_a f^a -\frac{3}{2} \chi^{3/2} \chi^{-5/2} \partial_a \chi \, f^a \nonumber \\
+	     &=\partial_a f^a - \frac{3}{2 \chi} f^a \partial_a \chi
+\end{align}
+Where $^{(3)}\Gamma_{bc}^a$ is connection coefficients in spatial dimensions and we use the property $^{(3)}\Gamma_{ac}^a=\partial_c \ln \sqrt{h}$ like $\Gamma_{ac}^a = \partial_c \ln \sqrt{-g}$ in full 4D case. Note that this is true when $f^a$ is spatial vector. Using this, we can write
+\begin{align}
+D_a \bot E^a = \partial_a \bot E^a - \frac{3}{2 \chi} \bot E^a \partial_a \chi  \\
+D_a \bot B^a = \partial_a \bot E^a - \frac{3}{2 \chi} \bot B^a \partial_a \chi 
+\end{align}
+In general, consider general covariant vector $V_a$. In this case, $D_a V_b$ implies full projection on both derivative and vector such that 
+\begin{align}
+D_a V_b = \bot (\nabla_a V_b) = h_a^c \nabla_c (h_b^d V_d)
+\end{align}
+To write down this in the BSSN form i.e. conformal transformation, we need to evaluate the covariant derivative and change connection coefficients $\Gamma$ to $\tilde{\Gamma}$ also change the 3-metric $h$ to $\tilde{\gamma}$ using the transformation properties that we defined before. For higher rank tensors such as $W_{ab}$, we follow the same procedures but it include more connection coefficients thus we need to get transformation more than one. (For $W_{ab}$, we will have two $\Gamma$ so we need two $\tilde{\Gamma}$)
+Rewrite down the equations for dilaton, axion, and EM in BSSN form 
+\begin{align}
+\partial_t \phi &= \beta^a \partial_a \phi - \alpha \Pi \\
+\partial_t \kappa &= \beta^a \partial_a \kappa - \alpha \Xi  \\
+\partial_t \Pi &= \beta^a \partial_a \Pi - \alpha \chi [ \tilde{\gamma}^{ij} \partial_i \partial_j \phi +   \tilde{\gamma}^{ij} (\partial_i \ln \alpha) \partial_j \phi -  \tilde{\Gamma}^i \partial_i \phi - \frac{1}{2} \tilde{\gamma}^{ij} \partial_i \phi \partial_j \ln \chi ] + \alpha K \Pi  \nonumber \\
+		   &\indent -\alpha_0 \alpha e^{-2 \alpha_0 \phi}  [ (\bot B)^2 - (\bot E)^2)] + \frac{1}{2} \alpha_0 \alpha e^{4 \alpha_1 \phi} (\partial^a \kappa \partial_a \kappa - (\Xi)^2)  \\
+\partial_t \Xi &= \beta^a \partial_a \Xi - \alpha \chi [ \tilde{\gamma}^{ij} \partial_i \partial_j \kappa +   \tilde{\gamma}^{ij} (\partial_i \ln \alpha) \partial_j \kappa -  \tilde{\Gamma}^i \partial_i \kappa - \frac{1}{2} \tilde{\gamma}^{ij} \partial_i \kappa \partial_j \ln \chi ] \nonumber \\
+&\indent +  \alpha K \Xi +4 \alpha \alpha_1 \partial^a \kappa \partial_a \phi + 4 \alpha \alpha_1 \Pi \Xi + 4 \alpha e^{-4 \alpha_1 \phi} \bot B^c \bot E_c \\
+\partial_t \Psi &= \beta^a \partial_a \Psi - \alpha \left(\partial_a \bot E^a - \frac{3}{2 \chi}  \bot E^a \, \partial_a \chi \right) + 2 \alpha  \alpha_0 (\partial_c \phi) \bot E^c + \alpha  e^{2 \alpha_0 \phi} (\partial_c \kappa) \bot B^c  - \alpha \eta_1 \Psi \\
+\partial_t \Phi &=  \beta^a \partial_a \Phi +\alpha \left(\partial_a \bot B^a - \frac{3}{2 \chi} \bot B^a \, \partial_a \chi  \right)  - \alpha  \eta_2 \Phi \\
+\partial_t \bot E^a &= \beta^i \partial_i \bot E^a - \bot E^b \partial_b \beta^a - \chi^{1/2} \epsilon^{abc} \bigg \{ \alpha [\partial_b \tilde{\gamma}_{cd} \bot B^d + \tilde{\gamma}_{cd} \partial_b \bot B^d] + \tilde{\gamma}_{cd} \bot B^d \left[ \partial_b \alpha - \alpha \frac{\partial_b \chi}{\chi} \right] \bigg \} \nonumber \\
+			    & \indent + \alpha K \bot E^a - \alpha \chi \tilde{\gamma}^{ab} \partial_b \Psi - 2 \alpha \alpha_0 [ \Pi \bot E^a - \epsilon^{abc} \chi^{1/2} \partial_b \phi \tilde{\gamma}_{cd} \bot B^d] \nonumber \\
+			    & \indent - \alpha e^{2 \alpha_0 \phi} [ \Xi \bot B^a + \epsilon^{abc} \chi^{1/2} \partial_b K \tilde{\gamma}_{cd} E^d] \\
+\partial_t \bot B^a &= \beta^i \partial_i \bot B^a - \bot B^b \partial_b \beta^a - \chi^{1/2} \epsilon^{abc} \bigg \{ \alpha [\partial_b \tilde{\gamma}_{cd} \bot E^d + \tilde{\gamma}_{cd} \partial_b \bot E^d] + \tilde{\gamma}_{cd} \bot E^d \left[ \partial_b \alpha - \alpha \frac{\partial_b \chi}{\chi} \right] \bigg \} \nonumber \\
+			    & \indent + \alpha K \bot B^a + \alpha \chi \tilde{\gamma}^{ab} \partial_b \Phi
+%Need to check this and we need to write this up index
+%\partial_t \bot E_c &= \beta^a \partial_a \bot E_c - \alpha e^{8 \bar{\phi}} \tilde{\gamma}_{bc} \tilde{D}_a \bot F^{ab}  - \alpha e^{4 \bar{\phi}} \left(\tilde{A}_{ac} + \frac{1}{3} \tilde{\gamma}_{ac} K \right) \bot E^a - \alpha \bot F_c^a D_a \ln \alpha   \nonumber \\
+%			    &\indent - \alpha K  \bot E_c  + 2 \alpha \alpha_0 e^{4 \bar{\phi}} \tilde{\gamma}_{bc} \Pi \bot E^a + \alpha e^{4 \bar{\phi}} \tilde{\gamma}_{bc} e^{2 \alpha_0 \phi} \Xi \bot B^a - \alpha e^{4 \bar{\phi}} \tilde{D}_c \Psi \\
+%\partial_t \bot B_c &= \beta^a \partial_a + \alpha e^{-4 \bar{\phi}} \tilde{\gamma}_{bc} \tilde{D}_a \bot \tilde{(\ast F)}^{ab}  - \alpha  e^{4 \bar{\phi}} \left(\tilde{A}_{ac} + \frac{1}{3} \tilde{\gamma}_{ac} K \right) \bot B^a + \alpha  \bot (\ast F)_c^a e^{4 \bar{\phi}}  \tilde{D}_a \ln \alpha \nonumber  \\
+%			     &\indent - \alpha K \bot B_c + \alpha e^{4 \bar{\phi}} \tilde{D}_c \Phi 
+\end{align}
+
+The evolution equation for the variable, $\tilde{\gamma}_{ij}$, $\tilde{\Gamma}^i$, $\tilde{A}_{ij}$, $\bar{\phi}$, and $K$ can be obtained from the decomposition of the Einstein tensor
+\begin{align}
+\partial_t \tilde{\gamma}_{ij} &= \beta^k \partial_k \tilde{\gamma}_{ij} + \tilde{\gamma}_{kj} \partial_i \beta^k -\frac{2}{3} \tilde{\gamma}_{ij} \partial_k \beta^k - 2 \alpha \tilde{A}_{ij} \\
+\partial_t \bar{\phi} &= \beta^k \partial_k \bar{\phi} + \frac{1}{6} \partial_k \beta^k - \frac{1}{6} \alpha K \\
+\partial_t \tilde{A}_{ij} &= \beta^k \partial_k \tilde{A}_{ij} + \tilde{A}_{kj} \partial_j \beta^k -\frac{2}{3} \tilde{A}_{ij} \partial_k \beta^k + e^{-4 \bar{\phi}} \left[ - D_i D_j \alpha + \alpha ^{(3)}R_{ij} - 8 \pi G \alpha \bot T_{ij}\right]^{TF} \nonumber \\
+				&\indent + \alpha \left( K \tilde{A}_{ij} - 2 \tilde{A}_{ik} \tilde{A}_{j}^k \right) \\
+\partial_t K &= \beta^k \partial_k K - D_i D^i \alpha + \alpha \left(\tilde{A}_{ij} \tilde{A}^{ij} + \frac{1}{3} K^2 \right) + 4 \pi G \alpha ( \rho + \bot T) \\
+\partial_t \tilde{\Gamma}^i &= \beta^j \partial_j \tilde{\Gamma}^i - \tilde{\Gamma}^j \partial_j \beta^i+ \frac{2}{3} \tilde{\Gamma}^i \partial_j \beta^j + \tilde{\gamma}^{jk} \partial_j \partial_k \beta^i + \frac{1}{3} \tilde{\gamma}^{ij} \partial_j \partial_k \beta^k \nonumber \\
+					&\indent - 2 \tilde{A}^{ij} \partial_j \alpha + 2 \alpha \left(\tilde{\Gamma}_{jk}^i \tilde{A}^{jk} + 6 \tilde{A}^{jk} -\frac{2}{3} \tilde{\gamma}^{ij} \partial_j K - 8 \pi G e^{4 \bar{\phi}} J^i \right)
+\end{align}
+where TF means trace free part. The $\rho$, $J^i$, and $\bot T_{ij}$ are obtained previously and $\bot T = \bot T_i^i$
+
+\section{Black Hole Initial Data for the EMDA theory}
+Here, we describe several different types of black holes in both EMD and EMDA theories. We aim to solve the black hole system that is charged rotating black holes. 
+
+% KS start
+
+\subsection{Kerr-Sen Initial Data}
+Consider Kerr metric in Boyer-Linquist coordinates
+\begin{equation}
+ds^2 = - \left(1-\frac{2 M r}{\rho^2} \right) dt^2 - \frac{4 M a r \sin^2 \theta}{\rho^2}dt d \varphi + \frac{\Sigma}{\rho^2} \sin^2 \theta d \varphi^2 + \frac{\rho^2}{\Delta} dr^2 + \rho^2 d \theta^2
+\end{equation}
+where
+\begin{align}
+\rho^2 = r^2 + a^2 \cos^2 \theta \\
+\Delta = r^2 - 2 M r - a^2 \\
+\Sigma = (r^2 + a^2)^2 - a^2 \Delta \sin^2 \theta
+\end{align}
+The Kerr metric in Boyer-Lindquist coordinates will have singularities at $\Delta = 0 $ and $\rho^2 = 0$. Comparing these singularities with the singularities of the Schwarzschild metric, the singularities at $\Delta = 0$ must be coordinate singularities, while the singularities at $ \rho^2 = 0$ must be physical. The coordinate singularity $\Delta = 0$ has two solutions
+\begin{equation}
+r_{\pm} = M \pm \sqrt{M^2-a^2}
+\end{equation}
+which define the event horizon, located at $r_{+}$, and the inner apparent horizon, located at $r_{-}$. The physical singularity, $\rho^2 = 0$, in the domain $ 0 \leq \phi < 2 \pi$, $ 0 \leq \theta < \pi$, and $r \geq 0$, can only be located at $r=0$ in the equatorial plane, defined by $\theta = \frac{\pi}{2}$, and must be a ring singularity due to azimuthal symmetry
+
+Extending the idea of isotropic coordinates for Schwarzschild case to Kerr black holes yields quasi-isotropic coordinates (S. R. Brandt and E. Seidel, Physical Review D 54, 1403 (1996).)
+\begin{align}
+ds^2 = - \left(\frac{\rho^2 \Delta}{\Sigma} - \beta^{\varphi} \beta_{\varphi} \right) dt^2 - 2 \beta_{\varphi} dt d\varphi + \chi^4 \left[ \left(\frac{\rho^4}{\Sigma} \right)^{1/3} (d \bar{r}^2 + \bar{r}^2 d \theta^2) + \bar{r}^2 \sin^2 \theta \left(\frac{\Sigma}{\rho^4} \right)^{2/3} d \varphi^2 \right]
+\end{align}
+where
+\begin{align}
+\rho^2 &= \psi^4 \bar{r}^2 + a^2 \cos^2 \theta \\
+\Delta &= \psi^4 \bar{r}^2 - 2 M \psi^2 \bar{r} + a^2 \\
+\Sigma &=(\psi^4 \bar{r}^2 + a^2)^2 - a^2 \Delta \sin^2 \theta \\
+\beta^{\varphi} & = - \frac{2 M \psi^2 \bar{r} a}{\Sigma} \\
+\beta_{\varphi} &= \beta^\varphi g_{\varphi \varphi} = -\frac{2 M a \psi^2 \bar{r} \sin^2 \theta}{\rho^2} \\
+\chi^4 &= \left(\frac{\rho^2 \Sigma}{\bar{r}^6} \right)^{1/3}
+\end{align}
+where the coordinate transformation from quasi-isotropic coordinate $\bar{r}$ to Boyer-Lindquist coordinate r is defined by
+\begin{equation}
+\label{eqn:iso}
+r = \psi^2 \bar{r} = \bar{r} \left(1+\frac{M+a}{2 \bar{r}} \right) \left(1+\frac{M-a}{2 \bar{r}} \right)
+\end{equation}
+The angular coordinates $\theta$, $\phi$ are unchanged. 
+Rotating charge-neutral black hole solutions can be constructed in string theory, and it is identical to the Kerr solution of usual Einstein gravity with the constant dilaton field. Here we will use Kerr-Sen black hole as a model black hole data.
+
+In Kerr-Sen solution, the idea comes from the transformation that contains vector field and change of the Einstein tensor The transformed solution is 
+\begin{align}
+(ds^\prime)^2 &= - \frac{(r^2 a^2 \cos^2 \theta -2 M r) (r^2 + a^2 \cos^2 \theta)}{[r^2 + a^2 \cos^2 \theta + 2 M r \sinh^2 (\alpha/2)]^2} dt^2 + \frac{r^2 + a^2 \cos^2 \theta}{r^2 + a^2 - 2 M r} d r^2 + (r^2 + a^2 \cos^2 \theta) d \theta^2 \nonumber \\
+	&\indent + \{ (r^2 + a^2)(r^2 + a^2 \cos^2 \theta) + 2 M r a^2 + 4 M r (r^2 + a^2) \sinh^2 (\alpha/2) + 4 M^2 r^2 \sinh^4 (\alpha/2) \} \nonumber \\
+	&\indent \times \frac{(r^2 + a^2 \cos^2 \theta) \sin^2 \theta}{[r^2 + a^2 \cos^2 \theta + 2 M r \sinh^2 (\alpha/2)]^2} d \varphi^2 - \frac{4 M r a \cosh^2 (\alpha/2) ( r^2 + a^2 \cos^2 \theta) \sin^2 \theta}{[r^2 + a^2 \cos^2 \theta + 2 M r \sinh^2 (\alpha/2)]^2} dt d \varphi
+\end{align}
+Note that $\alpha$ is not same $\alpha$ in the evolution equations. This is Kerr-Sen scalar parameter to give a value of specific quantities in the metric. With the associated the fields $\Phi$ and $A_i$ and $B_{ij}$ are given by
+\begin{align}
+\Phi^\prime &= - \ln \frac{ r^2 + a^2 \cos^2 \theta + 2 M r \sinh^2 (a/2)}{r^2 + a^2 \cos^2 \theta} \\
+A^\prime_\phi &= - \frac{2 M r a \sinh \alpha \sin^2 \theta}{r^2 + a^2 \cos^2 \theta + 2 M r \sinh^2 (a/2) } \\
+A^\prime_t &= \frac{2 M r  \sinh \alpha }{r^2 + a^2 \cos^2 \theta + 2 M r \sinh^2 (a/2) } \\
+B^\prime_{t \phi} &= - \frac{2 M r a \sinh^2 (\alpha/2) \sin^2 \theta}{r^2 + a^2 \cos^2 \theta + 2 M r \sinh^2 (a/2) }
+\end{align}
+The other component of $A^\prime_\mu$, and $B^\prime_{\mu \nu}$ vanish. Define the metric that describes a black hole solution $(d s^\prime_E)^2 = e^{- \Phi^\prime} (d s^\prime)^2$ (Sen called this as the Einstein metric)
+\begin{align}
+(d s^\prime_E)^2  &= -\frac{r^2 + a^2 \cos^2 \theta - 2 M r}{r^2 + a^2 \cos^2 \theta + 2 M r \sinh^2 (\alpha/2)} dt^2 + \frac{r^2 + a^2 \cos^2 \theta + 2 M r \sinh^2 (\alpha/2)}{r^2 + a^2 - 2 M r} d r^2 \nonumber \\
+			   &\indent + [ r^2 + a^2 \cos^2 \theta + 2 M r \sinh^2 (\alpha/2)]d \theta^2 - \frac{4 M r a \cosh^2 (\alpha/2) \sin^2 \theta}{r^2 + a^2 \cos^2 \theta + 2 M r \sinh^2 (\alpha/2)} dt d\varphi \nonumber \\
+			   &\indent + \{ (r^2 + a^2)(r^2 + a^2 \cos^2 \theta) + 2 M r a^2 \sin^2 \theta + 4 M r (r^2 + a^2)\sinh^2 (\alpha/2) + 4 M^2 r \sinh^4 (\alpha/2) \} \nonumber \\
+			   &\indent \times \frac{ \sin^2 \theta}{r^2 + a^2 \cos^2 \theta + 2 M r \sinh^2 (\alpha/2)} d \varphi^2
+\end{align}
+
+(See the paper PhyRevLett.69.1006 to check how this transformations are applied)
+In this metric, coordinate singularities are same as Kerr metric ($r_{\pm} = M \pm \sqrt{M^2-a^2}
+$). So, we can use similar idea of quasi-isotropic case in previous. Using Eqn.~\ref{eqn:iso} for isotropic coordinate and above metric can be modified
+\begin{align}
+(d s^\prime_E)^2  &= -\frac{(\psi^2 \bar{r})^2 + a^2 \cos^2 \theta - 2 M \psi^2 \bar{r}}{(\psi^2 \bar{r})^2 + a^2 \cos^2 \theta + 2 M \psi^2 \bar{r} \sinh^2 (\alpha/2)} dt^2 + \frac{(\psi^2 \bar{r})^2 + a^2 \cos^2 \theta + 2 M \psi^2 \bar{r} \sinh^2 (\alpha/2)}{(\psi^2 \bar{r})^2 + a^2 - 2 M \psi^2 \bar{r}} (2 \psi \bar{r} d\psi + \psi^2 d \bar{r})^2 \nonumber \\
+			   &\indent + [ (\psi^2 \bar{r})^2 + a^2 \cos^2 \theta + 2 M \psi^2 \bar{r} \sinh^2 (\alpha/2)]d \theta^2 - \frac{4 M \psi^2 \bar{r} a \cosh^2 (\alpha/2) \sin^2 \theta}{(\psi^2 \bar{r})^2 + a^2 \cos^2 \theta + 2 M \psi^2 \bar{r} \sinh^2 (\alpha/2)} dt d\varphi \nonumber \\
+			   &\indent + \{ ((\psi^2 \bar{r})^2 + a^2)((\psi^2 \bar{r})^2 + a^2 \cos^2 \theta) + 2 M \psi^2 \bar{r} a^2 \sin^2 \theta + 4 M \psi^2 \bar{r} ((\psi^2 \bar{r})^2 + a^2)\sinh^2 (\alpha/2) \nonumber \\
+			   &\indent + 4 M^2 \psi^2 \bar{r} \sinh^4 (\alpha/2) \} \times \frac{ \sin^2 \theta}{(\psi^2 \bar{r})^2 + a^2 \cos^2 \theta + 2 M \psi^2 \bar{r} \sinh^2 (\alpha/2)} d \varphi^2
+\end{align}
+where $d \psi$ is
+\begin{equation}
+d \psi = -\frac{1}{2 \bar{r}^2 \psi} \left[ (M+a)\left(1+\frac{M-a}{2 \bar{r}} \right) + (M-a)\left(1+\frac{M+a}{2 \bar{r}} \right) \right] d \bar{r}
+\end{equation}
+
+(Note that I expand all single term here for calculation purpose but we can use similar terms like previous Kerr case. Need to check further)
+
+In original Sen paper, the Einstein metric describe a black hole solution with mass $M_b$, charge $Q$, angular momentum $J$, and magnetic dipole moment $\mu$ given by
+\begin{align}
+M_b &= \frac{M}{2} (1+\cosh \alpha) \\
+Q &= \frac{M}{\sqrt{2}} \sinh \alpha \\
+J &= \frac{M a}{2} (1+\cosh \alpha) \\
+\mu &=\frac{M a}{\sqrt{2}} \sinh \alpha
+\end{align}
+
+Thus, we can express $M$, $a$, and $\alpha$ in terms of the independent physical parameters $M_b$, $J$, and $Q$ by inverting these relations
+
+\begin{align}
+M &= M_b - \frac{Q^2}{2 M_b} \\
+\sinh \alpha &= \frac{2 \sqrt{2} Q M_b}{2 M_b^2 - Q^2} \\
+a &= J/M
+\end{align}
+Then, coordinate singularities are
+\begin{align}
+r_{\pm} &= M \pm \sqrt{M^2-a^2} \nonumber \\
+	    &= M_b - \frac{Q^2}{2 M_b} \pm \sqrt{\left( M_b^2 - \frac{Q^2}{2 M_b} \right)^2 - \frac{J^2}{M^2}}
+\end{align}
+For convenience purpose (i.e. easy to code up), we use below form as Kerr-Sen black hole
+\begin{align}
+ds^2 = - \frac{\Delta \rho^2}{\Sigma} dt^2 + \rho^2 \left( \frac{dr^2}{\Delta} + d \theta^2 \right) + \frac{\Sigma \sin^2 \theta}{\rho^2} \left(d \varphi - \frac{2 a m r \cosh^2 \alpha}{\Sigma} dt \right)^2
+\end{align}
+where
+\begin{align}
+\Delta &=r^2 - 2mr + a^2 \\
+\rho^2 &=\Delta - a^2 \sin^2 \theta + 2mr \cosh^2 \alpha \\
+\Sigma &= (\rho^2 + a^2 \sin^2 \theta)^2 - \Delta a^2 \sin^2 \theta
+\end{align}
+Here we use a algebraic calculation trick
+\begin{align}
+\rho^4 \Delta &= (r^2 - 2mr + a^2 - a^2 \sin^2 \theta + 2mr \cosh^2 \alpha)^2 (r^2 - 2mr + a^2) \nonumber \\
+		     &= (r^2 + a^2 \cos^2 \theta + 2 m r \sinh^2 \alpha)^2 (r^2 - 2mr + a^2) \nonumber \\
+		     &=(\rho^2 - 2 m r \cosh^2 \alpha) \Sigma + a^2 \sin^2 \theta(2 m r \cosh^2 \alpha)^2
+\end{align}
+with associated gauge field, dilaton and two-form field are
+\begin{align}
+A_a dx^a &= \frac{m r \sinh 2 \alpha}{\sqrt{2} \rho^2} (dt - a \sin^2 \theta d \varphi) \\
+e^{-\Phi} &= e^{-2 \phi} = \frac{\rho^2}{r^2 + a^2 \cos^2 \theta} \\
+B_{t \varphi} &= \frac{2 m a r \sinh^2 \alpha}{\rho^2} \sin^2 \theta
+\end{align}
+The quantities $m$, $\alpha$, and $a$ are integration parameters. Thus, we can define mass, electric charge, angular momentum, and magnetic dipole momentum of spacetime can be expressed in terms of these parameters as we described above (notation is slightly changed). Also, the inverse relations are same as above.
+
+We use the axion rather than the 3 form field $H$, we need to find the expression of 2 form field in terms of axion field $\kappa$. To do that, we need to solve
+\begin{align}
+H_{abc} = \frac{1}{2} e^{4 \phi} \epsilon_{abc}^{\; \; \; \; \; d} \partial_d \kappa
+\end{align}
+where we need to know what the 3 form $H_{abc}$, is in terms of its potential, the 2 form $B_{ab}$.  For instance, in Sen?s paper, the action in String frame
+\begin{align}
+\int d^4 x \sqrt{-g_{str}} e^{-2 \phi} \left(R+4 (\nabla \phi)^2 -\frac{1}{12} H^2 - F^2 \right)
+\end{align}
+Performing the conformal transformation give the Einstein frame such that
+\begin{align}
+\int d^4 x \sqrt{-g}\left(R - 2 (\nabla \phi)^2 -\frac{1}{12} e^{-4 \phi} H^2 - e^{-2\phi}F^2 \right)
+\end{align}
+For the normalization in the current action, 3 form $H_{abc}$ is given as
+\begin{align}
+H_{abc} = \partial_a B_{bc} + \partial_b B_{ca} + \partial_c B_{ab} - 2( A_a F_{bc} + A_b F_{ca} + A_c F_{ab} )
+\end{align}
+From this, we obtain these integrability conditions for axion field $\kappa$ 
+\begin{align}
+\partial_\theta \kappa &= 2 e^{-4 \phi} \frac{1}{\sqrt{-g}} \frac{1}{g^{\theta \theta}} \partial_r B_{t \phi} \\
+\partial_r \kappa &= - 2 e^{-4 \phi} \frac{1}{\sqrt{-g}} \frac{1}{g^{rr}} \left( \partial_\theta B_{t \varphi} + 2 A_t^2 \partial_\theta \frac{A_\varphi}{A_t} \right)
+\end{align}
+Integrate both above expressions that gives
+\begin{align}
+\kappa = 4 m a \sinh^2 \alpha \frac{\cos \theta}{r^2 + a^2 \cos^2 \theta}
+\end{align}
+This shows self-consistency of field and this suggests that the definition above for the $H$ field in terms of $B$ and $A$ is correct.
+
+Next things we need to consider above forms in quasi-isotropic coordinate (say, redundant but more suitable for code up in our case).  Consider $(r,\theta)$ part of the metric which is conformally related to
+\begin{align}
+\frac{dr^2}{\Delta(r)} + d\theta^2
+\end{align}
+Denote $\bar{r}$ is a new radial coordinate which can be used to express the 2 metric as conformally flat and with respect to standard circular type coordinates in the form
+\begin{align}
+\frac{dr^2}{\Delta(r)} + d\theta^2 = \frac{1}{\bar{r}^2} (d \bar{r}^2 + \bar{r}^2 d \theta^2)
+\end{align}
+This implies a coordinate transformation defined as
+\begin{align}
+\int \frac{d \bar{r}}{\bar{r}} = \int \frac{dr}{\sqrt{\Delta}}
+\end{align}
+such that $\bar{r} \rightarrow r$ as $\bar{r} \rightarrow \infty$, then we get the below form (similar as Eqn.~\ref{eqn:iso} with different notation)
+\begin{align}
+\bar{r} = \frac{1}{2} ( r-m \pm \sqrt{(r-m)^2 - (m^2 - a^2)})
+\end{align}
+This is the quasi-isotropic coordinates for this case. The inverse should be obtained by
+\begin{align}
+r &= \bar{r} + m + \frac{m^2 - a^2}{4 \bar{r}} \nonumber \\
+  &= \frac{1}{\bar{r}} \left[ \left(\bar{r} +\frac{m}{2} \right)^2 - \frac{a^2}{4} \right] \nonumber \\
+  &= \frac{1}{\bar{r}} (\bar{r} + \bar{r}_1)(\bar{r} + \bar{r}_2)
+\end{align}
+where $r_{1,2} = (m \pm a)/2$ such that $\bar{r}_1 < \bar{r}_2$. The metric with respect to the isotropic coordinate becomes
+\begin{align}
+ds^2 = - \frac{\Delta \rho^2}{\Sigma} dt^2 + \frac{\rho^2}{\bar{r}^2} (d \bar{r}^2 + \bar{r}^2 d \theta^2) + \frac{\Sigma \sin^2 \theta}{\rho^2} \left(d \phi - \frac{2 a m r \cosh^2 \alpha}{\Sigma} dt \right)^2
+\end{align}
+Note that now $r$ is a function of $\bar{r}$ i.e. $r(\bar{r})$. All metric components depend on the isotropic coordinate, $\bar{r}$
+\begin{align}
+\Delta(\bar{r}) &=r^2 - 2mr + a^2 = (r-m)^2 - (m^2 - a^2) \nonumber \\
+		      &= \left(\bar{r} + \frac{m^2 - a^2}{4 \bar{r}} \right)^2 - (m^2 - a^2) = \left(\bar{r} + \frac{\bar{r}_1 \bar{r}_2}{ \bar{r}} \right)^2 - 4 \bar{r}_1 \bar{r}_2 \nonumber \\
+		      &= \bar{r}^2 - 2 \bar{r}_1 \bar{r}_2 + \frac{\bar{r}_1^2 \bar{r}_2^2}{\bar{r}^2}  \nonumber \\
+		      & = \left(\bar{r} - \frac{\bar{r}_1 \bar{r}_2}{ \bar{r}} \right)^2 = \frac{1}{\bar{r}^2} (\bar{r}^2 - \bar{r}_1 \bar{r}_2)^2 \\
+\rho^2(\bar{r}) &=\Delta - a^2 \sin^2 \theta + 2mr \cosh^2 \alpha = r^2 + a^2 \cos^2 \theta + 2mr \sinh^2 \alpha \nonumber \\
+	   &= \frac{1}{\bar{r}^2} (\bar{r} + \bar{r}_1)^2(\bar{r} + \bar{r}_2)^2 + a^2 \cos^2 \theta + \frac{2 m}{\bar{r}} (\bar{r} + \bar{r}_1)(\bar{r} + \bar{r}_2) \sinh^2 \alpha\\
+\Sigma(\bar{r}) &= (\rho^2(\bar{r}) + a^2 \sin^2 \theta)^2 - \Delta(\bar{r}) a^2 \sin^2 \theta
+\end{align}
+
+With these metric, we need several calculations of quantities that are required in the evolution scheme that include
+\begin{itemize}
+\item The inverse metric, $g^{ab}$
+\item The components of the Maxwell field, $F_{ab} = \partial_a A_b - \partial_b A_a$
+\item The components of the extrinsic curvature, $K_{ab} = -\nabla_a n_b - n_a n_b$
+\end{itemize}
+
+The nonzero components of the inverse metric are
+\begin{align}
+g^{tt} &= -\frac{\Sigma}{\Delta \rho^2} \\
+g^{t \phi} &= -\frac{2 a m r \cosh^2 \alpha}{\Delta \rho^2} \\
+g^{\varphi \varphi} &= \frac{1}{\Delta \sin^2 \theta} \left(1-\frac{2 m r \cosh^2 \alpha}{\rho^2} \right) \\
+g^{rr} &= \frac{\Delta}{\rho^2} \\
+g^{\theta \theta} &= \frac{1}{\rho^2}
+\end{align}
+
+The nonzero components of extrinsic curvature are
+\begin{align}
+K_{r \varphi} &= a m \sin^2 \theta \cosh^2 \alpha \frac{ (\partial_r \Sigma)r - \Sigma}{\rho^2 \sqrt{\Delta \rho^2 \Sigma}} \\
+K_{r \varphi} &= a m \sin^2 \theta \cosh^2 \alpha \frac{ \partial_\theta \Sigma}{\rho^2 \sqrt{\Delta \rho^2 \Sigma}} 
+\end{align}
+
+The nonzero components of the Maxwell fields are
+\begin{align}
+F_{tr} &= \frac{m}{\sqrt{2}} \sinh 2 \alpha \left( \frac{r^2 - a^2 \cos^2 \theta}{\rho^4} \right) \\
+F_{t \theta} &= - \sqrt{2} m \sinh 2 \alpha \left(\frac{r}{\rho^4} \right) a^2 \sin \theta \cos \theta \\
+F_{r \varphi} &= \frac{a m}{\sqrt{2}} \sinh 2 \alpha \left( \frac{r^2 - a^2 \cos^2 \theta}{\rho^4} \right) \sin^2 \theta \\
+F_{\theta \varphi} &= - \sqrt{2} m a \sinh 2 \alpha \left(\frac{r}{\rho^4} \right) (r^2 + a^2 2 m r \sinh^2 \alpha) \sin \theta \cos \theta
+\end{align}
+
+In the code, the BSSN variables are written with respect to a Cartesian coordinate (denote $\bar{x}, \bar{y}, \bar{z}$) of the isotropic radial coordinate ($\bar{r}$). We still keep the Boyer-Lindquist type $r$ for convenience (If we write down everything in isotropic coordinate, this requires a bunch of algebras). The BSSN variables are written such that
+\begin{align}
+ds^2 = -\alpha^2 dt^2 +e^{4\bar{\phi}} \tilde{\gamma}_{ij} (dx^i + \beta^i dt)(dx^j \beta^j dt)
+\end{align}
+where $\bar{\phi}$ is a conformal factor (same as BSSN section above) and $\det \tilde{\gamma} = 1$. From here, we have
+\begin{align}
+\alpha^2 &= \frac{\Delta \rho^2}{\Sigma} \\
+\beta^{\varphi} &= - \frac{2 a m r \cosh^2 \alpha}{\Sigma}
+\end{align}
+with respect to the radial isotropic coordinates. Calculate derivatives of metric quantities that we need in several places
+\begin{align}
+\partial_r (\rho^2) &= 2r + 2m\sinh^2 \alpha\\
+\partial_\theta (\rho^2) &= - 2a^2 \sin \theta \cos \theta \\
+\partial_r \Sigma &= 4 \rho^2 (r + m \sinh^2 \alpha) + 2a^2 \sin^2 \theta ( r + m \cosh 2 \alpha) \\
+\partial_\theta \Sigma &= -2 \Delta a^2 \sin \theta \cos \theta
+\end{align}
+
+We can write the metric $\tilde{\gamma}_{ij}$ in Cartesian like coordinates (with $\bar{r}^2 = \bar{x}^2+\bar{y}^2 + \bar{z}^2$, $\bar{\rho}^2= \bar{x}^2+\bar{y}^2$)
+\begin{align}
+e^{12 \bar{\phi}} &= \frac{\rho^2 \Sigma}{\bar{r}^6} \\
+\tilde{\gamma}_{\bar{x} \bar{x}} &=\frac{C^{-2/3}}{\bar{\rho}^2} (\bar{x}^2 C + \bar{y}^2) \\
+\tilde{\gamma}_{\bar{x} \bar{y}} &=\frac{\bar{x} \bar{y} C^{-2/3}}{\bar{\rho}^2} (C-1) \\
+\tilde{\gamma}_{\bar{y} \bar{y}} &=\frac{C^{-2/3}}{\bar{\rho}^2} (\bar{y}^2 C + \bar{x}^2)\\
+\tilde{\gamma}_{\bar{z} \bar{z}} &=C^{1/3}
+\end{align}
+where $C = \rho^4/\Sigma$. The components of the inverse metric are
+\begin{align}
+\tilde{\gamma}^{\bar{x} \bar{x}} &=\frac{C^{-1/3}}{\bar{\rho}^2} (\bar{y}^2 C + \bar{x}^2) \\
+\tilde{\gamma}^{\bar{x} \bar{y}} &=\frac{\bar{x} \bar{y} C^{-1/3}}{\bar{\rho}^2} (1- C) \\
+\tilde{\gamma}^{\bar{y} \bar{y}} &=\frac{C^{-1/3}}{\bar{\rho}^2} (\bar{x}^2 C + \bar{y}^2)\\
+\tilde{\gamma}^{\bar{z} \bar{z}} &=C^{-1/3}
+\end{align}
+The components of conformal connection coefficients are
+\begin{align}
+\tilde{\Gamma}^{\bar{x}} &= -\bar{x} \left[\frac{C^{-1/3}}{\bar{\rho}^2}(3-C) + (\bar{r} \sin^2 \theta + \partial_{\bar{r}} + \sin \theta \cos \theta \partial_\theta)\frac{C^{-1/3}}{\bar{\rho}^2} \right] \\
+\tilde{\Gamma}^{\bar{y}} &= \frac{\bar{y}}{\bar{x}} \tilde{\Gamma}^{\bar{x}} \\
+\tilde{\Gamma}^{\bar{z}} &= - \partial_{\bar{z}} C^{-1/3}
+\end{align}
+We could rewrite the components of extrinsic curvature in Cartesian like coordinates ($\bar{x}, \bar{y}, \bar{z}$)
+\begin{align}
+K_{\bar{x} \bar{x}} &= - \frac{2 \bar{x} \bar{y}}{\bar{r} \bar{\rho}^3} \left(\bar{\rho} \frac{\partial r}{\partial \bar{r}} K_{r \varphi} + \frac{\bar{z}}{\bar{r}} K_{\theta \varphi} \right)\\
+K_{\bar{x} \bar{y}} &= - \frac{\bar{x}^2 - \bar{y}^2}{\bar{r} \bar{\rho}^3} \left(\bar{\rho} \frac{\partial r}{\partial \bar{r}} K_{r \varphi} + \frac{\bar{z}}{\bar{r}} K_{\theta \varphi} \right)\\
+K_{\bar{x} \bar{z}} &= - \frac{\bar{y}}{\bar{r} \bar{\rho}^2} \left(\bar{z} \frac{\partial r}{\partial \bar{r}} K_{r \varphi} -\frac{\bar{\rho}}{\bar{r}} K_{\theta \varphi} \right)\\
+K_{\bar{y} \bar{y}} &= -K_{\bar{x} \bar{z}} \\
+K_{\bar{y} \bar{z}} &= -\frac{\bar{x}}{\bar{y}} K_{\bar{x} \bar{z}} \\
+K_{\bar{z} \bar{z}} &= 0
+\end{align}
+Same as above, the components of Maxwell components in Cartesian like coordinates are
+\begin{align}
+F_{t \bar{x}} &= \frac{ \bar{x} }{\bar{r} \bar{\rho}} \left(\bar{\rho} \frac{\partial r}{\partial \bar{r}} F_{t r} + \frac{\bar{z}}{\bar{r}} F_{t \theta} \right) \\
+F_{t \bar{y}} &= \frac{\bar{y}}{\bar{x}} F_{t \bar{x}}\\
+F_{t \bar{z}} &= \frac{1}{\bar{r}} \left(\bar{z} \frac{\partial r}{\partial \bar{r}} F_{t r} - \frac{\bar{\rho}}{\bar{r}} F_{t \theta} \right) \\
+\end{align}
+Note that these components refer to E field. Remaining components are (implies B field)
+\begin{align}
+F_{\bar{x} \bar{y}} &= \frac{1}{\bar{r} \bar{\rho}} \left(\bar{\rho} \frac{\partial r}{\partial \bar{r}} F_{r \varphi} + \frac{\bar{z}}{\bar{r}} F_{\theta \varphi} \right) \\
+F_{\bar{x} \bar{z}} &= \frac{\bar{y}}{\bar{r} \bar{\rho}} \left(\bar{z} \frac{\partial r}{\partial \bar{r}} F_{r \varphi} - \frac{\bar{\rho}}{\bar{r}} F_{\theta \varphi} \right) \\
+F_{\bar{y} \bar{z}} &= -\frac{\bar{x}}{\bar{y}} F_{\bar{x} \bar{z}}
+\end{align}
+The components of the shift vector are
+\begin{align}
+\beta^{\bar{x}} &= - \bar{y} \beta^{\varphi} \\
+\beta^{\bar{y} }&= \bar{x} \beta^{\varphi} \\
+\beta^{\bar{z}} &= 0
+\end{align}
+
+%KS end
+
+%GHS start
+
+\subsection{Garfinkle-Horowitz-Strominger Black Hole}
+
+From this paper (PhysRevD.43.3140), GHS constructs a charged EMD black hole ($\alpha_0 =1$). Consider magnetically charged black hole first. The solution to the static, spherically symmetric, EMD equations with a regular event horizon and magnetic charge takes the form in Schwarzschild like coordinates
+\begin{align}
+ds^2 &= - \left( 1-\frac{2M}{r} \right) dt^2 + \left(1-\frac{2M}{r} \right)^{-1} dr^2 + r \left(r - \frac{Q_m^2 e^{-2 \phi_0}}{M} \right) d\Omega^2 \\
+F_{\theta \varphi} &= Q_m \sin \theta \\
+e^{-2 \phi} &= e^{-2 \phi_0} \left(1 - \frac{Q_m^2 e^{-2 \phi_0}}{M r} \right)
+\end{align}
+where $Q_m$ is the magnetic charge, $M$ is the ADM mass, and $\phi_0$ is the asymptotic value of the dilaton. There is a curvature singularity at $r=Q^2_m e^{-2 \phi_0} /M$ and a regular horizon at $r=2M$ if $Q^2_m < 2 M^2 e^{2\phi_0}$ which becomes singular when the inequality is saturated, in other words, the extremal limit.
+
+There is a discrete electromagnetic duality in this theory which leaves the equations of motion unchanged although the action does change as the $F^2$ term picks up a minus sign. The transformation is (with $\alpha_0 = 1$)
+\begin{align}
+F_{ab} &\rightarrow \frac{1}{2} e^{-2\phi} \epsilon_{abcd} F^{cd} \\
+\phi &\rightarrow -\phi \\
+g_{ab} &\rightarrow g_{ab}
+\end{align}
+In this theory, this amounts to a means of generating new solutions. In particular, one can take the above magnetically charged solution and generate an electrically charged black hole solution that is also static and spherically symmetric. The solution is
+\begin{align}
+ds^2 &= - \left(1 - \frac{2M}{r} \right) dt^2 + \left(1-\frac{2M}{1}\right)^{-1} dr^2 + r \left(r-\frac{Q_e^2 e^{2 \phi_0}}{M} \right) d\Omega^2 \\
+F_{tr} &= \frac{Q_e}{r} \\
+e^{2\phi} &= e^{2\phi_0} \left(1-\frac{Q_e^2 e^{2\phi_0}}{Mr} \right)
+\end{align}
+where $Q_e$ is the electric charge, and $M$, $\phi_0$ are the AMD mass and asymptotic value of the dilaton which are same as magnetically charged case. There is a curvature singularity at $r=Q^2_e e^{-2 \phi_0} /M$ and a regular horizon at $r=2M$ if $Q^2_e < 2 M^2 e^{2\phi_0}$ which becomes singular in the extremal limit.
+
+Another generalization to consider is the case of these same black holes across theories i.e. with general $\alpha_0$. In this case, the solution to the static, spherically symmetric, EMD equations with a regular event horizon and magnetic charge takes the form (with $\beta = 2 \alpha_0^2 /(1+ \alpha_0^2)$) 
+\begin{align}
+ds^2 &= -\left(1-\frac{r_+}{r} \right) \left(1-\frac{r_-}{r} \right)^{1-\beta} dt^2 + \left(1-\frac{r_+}{r} \right)^{-1} \left(1-\frac{r_-}{r} \right)^{\beta-1} dr^2 + r^2 \left(1-\frac{r_-}{r}\right)^\beta d \Omega^2 \\
+F_{\theta \varphi} &= Q_m \sin \theta \\
+e^{- 2 \alpha_0 \phi} &= e^{-2 \alpha_0 \phi_0} \left(1-\frac{r_-}{r} \right)^\beta
+\end{align}
+where $r_+$ and $r_-$ gives the outer and inner event horizons and their combination give the ADM mass, $M$, magnetic charge, $Q_m$, and asymptotic dilaton value, $\phi_0$, as follows
+\begin{align}
+2M &= r_+ (1-\beta)r_- \\
+2Q_m^2 &= e^{2\alpha_0 \phi_0} r_+ r_- (2-\beta)
+\end{align}
+Note that for $\alpha_0$ ($\beta=0$) this reduces to Reissner-Nordstrom with a constant dilaton whilc $\alpha_0=1$($\beta=1$) reproduces the above magnetic solution for low energy string theory.
+
+Again, use a discrete electromagnetic duality to generate electrically charged solution. The transformation is
+\begin{align}
+F_{ab} &\rightarrow \frac{1}{2} e^{-2 \alpha_0 \phi} \epsilon_{abcd} F^{cd} \\
+\phi &\rightarrow -\phi \\
+g_{ab} &\rightarrow g_{ab}
+\end{align}
+taking the previous magnetically charged solution then we get
+\begin{align}
+ds^2 &= -\left(1-\frac{r_+}{r} \right) \left(1-\frac{r_-}{r} \right)^{1-\beta} dt^2 + \left(1-\frac{r_+}{r} \right)^{-1} \left(1-\frac{r_-}{r} \right)^{\beta-1} dr^2 + r^2 \left(1-\frac{r_-}{r}\right)^\beta d \Omega^2 \\
+F_{tr} &= \frac{Q_e}{r}  \\
+e^{-2 \alpha_0 \phi} &= e^{2 \alpha_0 \phi_0} \left(1-\frac{r_-}{r} \right)^\beta
+\end{align}
+where, again, $r_+$ and $r_-$ gives the outer and inner event horizons and their combination give the ADM mass, $M$, electric charge, $Q_e$, and asymptotic dilaton value, $\phi_0$, as follows
+\begin{align}
+2M &= r_+ (1-\beta)r_- \\
+2Q_e^2 &= e^{-2\alpha_0 \phi_0} r_+ r_- (2-\beta)
+\end{align}
+Now, express these solutions in isotropic coordinates. Define a new radial coordinate $\bar{r}$ such that
+\begin{align}
+\frac{d\bar{r}}{\bar{r}} = \frac{dr}{\sqrt{(r-r_+)(r-r_-)}}
+\end{align}
+Perform integration and letting $\bar{r}$ approach $r$ at spatial infinity, we get
+\begin{align}
+r=\frac{1}{\bar{r}} \left[ \left( \bar{r} + \frac{r_+ + r_-}{4} \right)^@ - \frac{r_+ r_-}{4} \right]
+\end{align}
+where we have
+\begin{align}
+r_+ &= M \left[1+\left(1-(1-\alpha_0^2) \frac{Q^2}{M^2} \right)^{1/2} \right] \\
+r_- &= \frac{Q^2}{M^2}(1+\alpha_0^2) \left[1+\left(1-(1-\alpha_0^2) \frac{Q^2}{M^2} \right)^{1/2} \right]^{-1}
+\end{align}
+where $Q^2 = Q_m^2 e^{-2 \alpha_0 \phi_0}$ for the magnetic case and $Q^2 = Q_e^2 e^{2 \alpha_0 \phi_0}$ for the electric case.
+
+With this isotropic, radial coordinate, the metric for both magnetic and electric solutions takes the form
+\begin{align}
+ds^2 &= - \alpha^2 dt^2 + \chi^{-1} (d\bar{r}^2 + \bar{r}^2 d\Omega^2) \nonumber \\
+        &= -\frac{(\bar{r} - \bar{r}_H)^2 (\bar{r}+\bar{r}_H)^{2(1-\beta)}}{(\bar{r}+\bar{r}_H)^{2-\beta} (\bar{r}+\bar{r}_2)^{2-\beta}} dt^2 + \frac{1}{\bar{r}^4}(\bar{r}+\bar{r}_1)^{2-\beta} (\bar{r}+\bar{r}_2)^{2-\beta} (\bar{r} + \bar{r}_H)^{2\beta} [ d\bar{r}^2 + \bar{r}^2 d\Omega^2]
+\end{align}
+where we defined
+\begin{align}
+\bar{r}_1 = \frac{1}{4} (\sqrt{r_+} - \sqrt{r_-})^2 \\
+\bar{r}_2 = \frac{1}{4} (\sqrt{r_+} + \sqrt{r_-})^2 \\
+\bar{r}_H = \frac{1}{2} (r_+ - r_-)
+\end{align}
+with $\bar{r}_H$ is the radial location of the horizon in these coordinates.
+
+In the magnetically charged case, the EM and dilaton fields take the form
+\begin{align}
+F_{\theta \varphi} &= Q_m \sin \theta \\
+\bot B^{\bar{r}} &= Q_m \frac{\bar{r}^4}{(\bar{r} + \bar{r}_1)^3 (\bar{r}+\bar{r}_2)^3} \left[\frac{(\bar{r}+\bar{r}_1)(\bar{r}+\bar{r}_2)}{(\bar{r}+\bar{r}_H)^2} \right]^{3\beta/2} = \frac{Q_m}{\bar{r}^2} \chi^{3/2} \\
+e^{-2 \alpha_0 \phi} &= e^{-2 \alpha_0 \phi_0} \frac{(\bar{r}+\bar{r}_H)^{2 \beta}}{(\bar{r}+\bar{r}_1)^\beta (\bar{r} + \bar{r}_2)^\beta}
+\end{align}
+
+In the electrically charged case, the EM and dilaton fields take the form
+\begin{align}
+F_{t \bar{r}} &= Q_e \frac{(\bar{r}^2 - \bar{r}_H^2}{(\bar{r}+\bar{r}_1)^2 (\bar{r}+\bar{r}_H)^2} \\
+\bot E^{\bar{r}} &= -Q_e \frac{\bar{r}^4}{(\bar{r} + \bar{r}_1)^3 (\bar{r}+\bar{r}_2)^3} \left[\frac{(\bar{r}+\bar{r}_1)(\bar{r}+\bar{r}_2)}{(\bar{r}+\bar{r}_H)^2} \right]^{\beta/2} = -Q_e \frac{\bar{r}^2}{(\bar{r}+\bar{r}_1)^2(\bar{r}+\bar{r}_2)^2} \chi^{1/2} \\
+e^{2 \alpha_0 \phi} &= e^{2 \alpha_0 \phi_0} \frac{(\bar{r}+\bar{r}_H)^{2 \beta}}{(\bar{r}+\bar{r}_1)^\beta (\bar{r} + \bar{r}_2)^\beta}
+\end{align}
+GHS define a dilaton charge according to
+\begin{align}
+D = \frac{1}{4\pi} \int d\Sigma^a \nabla_a \phi
+\end{align}
+where the integral is over an $S^2$ at infinity. In the spherically symmetric magnetic case with $\alpha_0=1$ and a nonzero asymptotic value for the dilaton, this becomes
+\begin{align}
+D = \frac{1}{4\pi} \lim_{r \to \infty} \int_{S^2} \partial_r \phi \left[ r \left(r-\frac{Q_m^2 e^{-2\phi_0}}{M} \right) \right] \sin \theta d \theta d \varphi = -\frac{Q_m^2 e^{-2 \phi_0}}{2M}
+\end{align}
+For electric case
+\begin{align}
+D = - \frac{1}{4\pi} \lim_{r \to \infty} \int_{S^2} \partial_r \phi \left[ r \left(r-\frac{Q_e^2 e^{2\phi_0}}{M} \right) \right] \sin \theta d \theta d \varphi = \frac{Q_e^2 e^{2 \phi_0}}{2M}
+\end{align}
+We can extend this with general $\alpha_0$. For magnetic case, the dilaton charge is
+\begin{align}
+D = -\frac{\alpha_0 Q_m^2}{M} \frac{1}{1+\sqrt{1+(\alpha_0-1)Q^2_m/M^2}}
+\end{align}
+For electric case,
+\begin{align}
+D = \frac{\alpha_0 Q_e^2}{M} \frac{1}{1+\sqrt{1+(\alpha_0-1)Q^2_e/M^2}}
+\end{align}
+Note that as $\alpha_0 \rightarrow \infty$, the dilaton charge is just the EM charge
+\begin{align}
+\lim_{\alpha_0 \to \infty} D = - | Q_m |
+\end{align}
+(or use $Q_e$ for electrically charged case). As well, in the limit of infinite $\alpha_0$, the spherically symmetric metric becomes (with $\beta \rightarrow 2$)
+\begin{align}
+ds^2 = - \left( 1 - \frac{r_+}{r} \right) \left(1 - \frac{r_-}{r} \right)^{-1} dt^2 + \left( 1 - \frac{r_+}{r} \right)^{-1} \left(1 - \frac{r_-}{r} \right) dr^2 + (r-r_-)^2 d\Omega^2
+\end{align}
+while the dilaton become $\phi = \phi_0$. The form for the EM field in either the electric or magnetic case is unchanged. However, the charge in each case is proportional to $2-\beta$ which goes to zero in the limit. Thus, the EM field vanishes. Also note that consider to define $r_s = r - r_-$ with $r_+ - r_- = 2M$. Then we can identify this metric is Schwarzschild metric with respect to the Schwarzschild radial coordinate $r_s$.
+
+%GSH end
+
+%HHKK black hole start
+\subsection{Horne-Horowitz-Kaluza-Klein Black Hole}
+The Horne-Horowitz-Kaluza-Klein (HHKK) black hole is constructed in the following way (https://arxiv.org/pdf/hep-th/9203083.pdf). Begin by taking a product of 4D Kerr with $\mathbb{R}$. The resulting 5D manifold is a vacuum solution to the 5D Einstein equations. Now take it and make a simple Lorentz boost in the extra dimension (denote it $x^5$)
+\begin{align}
+t^\prime &= \gamma (t - v x^5) \\
+x^\prime &= \gamma (x^5 - v t)
+\end{align}
+The electrically charged solution is
+\begin{align}
+ds^2 &= -\frac{B \rho^2}{\Sigma} dt^2 + \frac{\Sigma}{B \rho^2} \sin^2 \theta \left[d \varphi - \frac{2 a m r}{\Sigma \sqrt{1-v^2}} dt \right] + B \rho^2 \left(\frac{d r^2}{\Delta} + d \theta^2 \right) \\
+A_a dx^a &= \frac{v}{2(1-v^2)} \frac{2 m r}{B^2 \rho^2} dt - \frac{a v}{2 \sqrt{1-v^2}} \frac{2mr}{B^2 \rho^2} \sin^2 \theta d \varphi \\
+\phi &= -\frac{\sqrt{3}}{2} \ln B
+\end{align}
+where each quantities are define in BL type coordinate
+\begin{align}
+\rho^2 &= r^2 + a^2 \cos^2 \theta \\
+\Delta &= r^2 -2mr + a^2 \\
+B^2 &= 1+ \frac{v^2}{1-v^2} \frac{2mr}{\rho^2}\\
+\Sigma &= B^2 \rho^2 (r^2 + a^2) + 2 m r a^2 \sin^2 \theta
+\end{align}
+Here, the constants $m$, $a$, and $v$ are parameters carried over from the 4D Kerr solution and the subsequent boost. The ADM mass and spin parameters of this BH solution are
+\begin{align}
+M &= m \left[ 1+\frac{v^2}{2(1-v^2)} \right] \\
+Q_e &= \frac{mv}{1-v^2} \\
+J &= \frac{ma}{\sqrt{1-v^2}}
+\end{align}
+The event horizon and ergo sphere are in the same coordinate locations as in Kerr, i.e. $\Delta = 0$ and $\Delta = a^2 \sin^2 \theta$ respectively. The radial isotropic coordinate is defined by
+\begin{align}
+\int \frac{d \bar{r}}{\bar{r}} = \int \frac{dr}{\sqrt{\Delta}}
+\end{align}
+so
+\begin{align}
+r = \frac{1}{\bar{r}} \left[ \left(\bar{r} + \frac{m}{2} \right)^2 - \frac{a^2}{4} \right]
+\end{align}
+The metric determinant remains $\sqrt{-g} = B \rho^2 \sin \theta$ while the components of the inverse metric are
+\begin{align}
+g^{tt} &= - \frac{\Sigma}{\Delta B \rho^2} \\
+g^{t \varphi} &= - \frac{2 a m r}{\Delta B \rho^2 \sqrt{1-v^2}} \\
+g^{\varphi \varphi} &= \frac{1}{B \Delta \sin^2 \theta} \left(1-\frac{2mr}{\rho^2} \right) \\
+g^{rr} &= \frac{\Delta}{B \rho^2} \\
+g^{\theta \theta} &= \frac{1}{B \rho^2}
+\end{align}
+The nonzero components of the extrinsic curvature are
+\begin{align}
+K_{r \varphi} &= \frac{a m \sin^2 \theta}{\sqrt{1-v^2}} \frac{1}{B \rho^2} \frac{(\partial_r \Sigma) r - \Sigma}{\sqrt{\Delta B \rho^2 \Sigma}} \\
+K_{\theta \varphi} &= \frac{a m \sin^2 \theta}{\sqrt{1-v^2}} \frac{1}{B \rho^2} \frac{\partial_\theta \Sigma }{\sqrt{\Delta B \rho^2 \Sigma}} 
+\end{align}
+The nonzero components of the Maxwell tensor are
+\begin{align}
+F_{tr} &= \frac{mv}{1-v^2} \frac{2r^2 - \rho^2}{B^4 \rho^4} \\
+F_{t \theta} &= - \frac{mv}{1-v^2} \frac{2r}{B^4 \rho^4} a^2 \sin \theta \cos \theta \\
+F_{r \varphi} &= \frac{amv}{\sqrt{1-v^2}} \frac{2r^4 - \rho^2}{B^4 \rho^4} \sin^2 \theta \\
+F_{\theta \varphi} &= -\frac{2amrv}{\sqrt{1-v^2}} \frac{1}{B^4 \rho^4} (B^2 \rho^2 + a^2 \sin^2 \theta) \sin \theta \cos \theta
+\end{align}
+We can rewrite these quantities into Cartesian like coordinates via Kerr-Sen way as described previous section.
+
+Because of the discrete electromagnetic duality present in EMD, we can also write down a magnetically charged black hole solution as we could for the spherically symmetric case. The duality transformation is as before and the metric takes the same form as for the electric case. The Maxwell and dilaton fields in the magnetically charged case become
+\begin{align}
+A_a dx^2 &= -\frac{amv}{\sqrt{1-v^2}} \frac{\cos \theta}{\rho^2} dt + \frac{mv}{1-v^2} \frac{r^2 + a^2}{\rho^2} \cos \theta d \varphi \\
+\phi &= \frac{\sqrt{3}}{2} \ln B
+\end{align}
+And, the nonzero components of Maxwell tensors are
+\begin{align}
+F_{tr} &= -\frac{2amrv}{\sqrt{1-v^2}} \frac{\cos \theta}{\rho^4} \\
+F_{t \theta} &= \frac{amv}{\sqrt{1-v^2}} \frac{2r^2 - \rho^4}{\rho^4} \sin \theta \\
+F_{r \varphi} &= - \frac{2mrv}{1-v^2} \frac{a^2 \sin^2 \theta \cos \theta}{\rho^4} \\
+F_{\theta \varphi} &= - \frac{mv}{1-v^2} \frac{2r^2 -\rho^2}{\rho^4} (r^2 + a^2) \sin \theta
+\end{align}
+This represents a magnetic monopole with a radial field and magnetic charge $Q_m = -mv/(1-v^2)$. Radial and poloidal electric field components as well as a poloidal magnetic field component are generated by the rotation of the black hole
+%HHKK black hole end
+
+%RL black hole start
+\subsection{Rasheed-Larsen Black Hole}
+
+In the papers from Rasheed (arxiv/95055038) and Larsen (arxiv/9909102), there is discussions of generalization of rotating, charged, EMD black hole for $\alpha_0 = \sqrt{3}$. This solution has metric, dilaton and gauge potential such that 
+\begin{align}
+ds^2 &= -\frac{H_3}{\sqrt{H_1 H_2}} (dt + \tilde{B} d \phi)^2 + \sqrt{H_1 H_2} \left[ \frac{1}{\Delta} dr^2 + d \theta^2 + \frac{\Delta}{H_3} \sin^2 \theta d \varphi^2 \right] \\
+\phi &= -\frac{\sqrt{3}}{2} \ln \sqrt{\frac{H_2}{H_1}} \\
+A_a dx^a &= - \frac{1}{H_2} \left[Q \left(r + \frac{p-2m}{2} \right) + q \sqrt{\frac{q (p^2-4m^2)}{16m^2 (p+q)}} a \cos \theta\right] dt \nonumber \\
+	       &- \frac{1}{H_2} \left[ P (H_2 a^2 \sin^2 \theta) \cos \theta + \sqrt{\frac{p (q^2-4m^2)}{16m^2 (p+q)}} \left(pr-m(p-2m) \frac{q (p^2-4m^2)}{p+q} \right) a \sin^2 \theta \right] d\varphi
+\end{align}
+where each quantities are defined (in BL type coordinate)
+\begin{align}
+H_1 &= r^2 + a^2 \cos^2 \theta + r (p-2m) \frac{p(p-2m)(q-2m)}{2(p+q)}-\frac{p \sqrt{(q^2-4m)(p^2-4m)}}{2m(p+q)}a \cos \theta\\
+H_2 &= r^2 + a^2 \cos^2 \theta + r (q-2m) \frac{p(p-2m)(q-2m)}{2(p+q)}+\frac{q \sqrt{(q^2-4m)(p^2-4m)}}{2m(p+q)}a \cos \theta\\
+H_3 &= r^2 + a^2 \cos^2 \theta - 2 m r \\
+\tilde{B} &= \sqrt{pg} \frac{(pq+4m^2)r-m(p-2m)(q-2m)}{2m(p+q)H_3} a \sin^2 \theta \\
+\Delta &= r^2 + a^2 - 2mr
+\end{align}
+and the constants $m$ and $a$ are the mass and rotation parameters carried over from 4D Kerr solution. The constant $p$ and $q$ define the magnetic and electric charges
+\begin{align}
+P^2 = \frac{p (p^2-4m)}{4(p+q)} \\
+Q^2 = \frac{q (q^2-4m)}{4(p+q)}
+\end{align}
+Note that $p > 2m$ and $q > 2m$ to obtain real value of $P$ and $Q$, and zero magnetic or electric charge correspond to $p=2m$ and $q=2m$ respectively. The mass and angular momentum of this metric are
+\begin{align}
+M &= \frac{p+q}{4}\\
+J &= \sqrt{pq} \frac{pq + 4m^2}{4m (p+q)} a
+\end{align}
+
+Alternative forms of the metric can be written as
+\begin{align}
+ds^2 &= -\frac{\sqrt{H_1 H_2} \Delta}{\Sigma_{pq}} dt^2 + \frac{\Sigma_{pq} \sin^2 \theta}{\sqrt{H_1 H_2}} \left[d\varphi - \frac{a \sqrt{pq} (c_0 (r-m) +r)}{\Sigma_{pq}} dt \right]^2 + \sqrt{H_1 H_2} \left(\frac{dr^2}{\Delta} + d\theta^2 \right) \\
+        &=-\frac{\rho^2 - 2mr}{\sqrt{H_1 H_2}} dt^2 - \frac{2a \sin^2 \theta \sqrt{pq} (c_0(r-m) +r)}{\sqrt{H_1 H_2}} dt d\varphi + \sqrt{H_1 H_2} \left( \frac{dr^2}{\Delta} + d\theta^2 \right) + \frac{\Sigma_{pq} \sin^2 \theta}{\sqrt{H_1 H_2}} d\varphi^2
+\end{align}
+where we define
+\begin{align}
+\Sigma_{pq} &= (r^2 + a^2) \left[\rho^2 + r(q-2m) + r(p-2m) + \frac{1}{2} (p-2m)(q-2m) \right] + 2mra^2 \sin^2 \theta + \Delta c_1 (q-p) a \cos \theta \nonumber \\
+                    &+ (p-2m)(q-2m) \left[r^2 + \frac{r}{2(p+q)} (q(p-2m) + p(q-2m)) \right] + pq (c_0^2 m^2 - c_1^2 a^2)\\
+\rho^2 &= r^2 + a^2 \cos^2 \theta \\
+c_0 &= \frac{(p-2m)(q-2m)}{2m(p+q)} = \frac{pq +4m^2}{2m(p+q)} - 1 \\
+c_1 &=\frac{\sqrt{(p^2 - 4m^2)(q^2 - 4m^2)}}{2m(p+q)} = \sqrt{c0 (c0+2)} 
+\end{align}
+Here is a identity to perform evaluation.
+\begin{align}
+(\rho^2 - 2mr) \Sigma_{pq} + pq a^2 \sin^2 \theta(c_0 (r-m) +r)^2 = H_1 H_2 \Delta
+\end{align}
+
+Again, the event horizon and ergo sphere are in the same coordinate locations as in Kerr (like HHKK BH case). The radial isotropic coordinate is defined by
+\begin{align}
+\int \frac{d \bar{r}}{\bar{r}} = \int \frac{dr}{\sqrt{\Delta}}
+\end{align}
+so
+\begin{align}
+r = \frac{1}{\bar{r}} \left[ \left(\bar{r} + \frac{m}{2} \right)^2 - \frac{a^2}{4} \right]
+\end{align}
+The components of the inverse metric are
+\begin{align}
+g^{tt} &= -\frac{\Sigma_{pq}}{\Delta \sqrt{H_1 H_2}} \\
+g^{t \varphi} &= - \frac{a \sqrt{pq} (c_0 (r-m) + r)}{\Delta \sqrt{H_1 H_2}} \\
+g^{\varphi \varphi} &= \frac{\rho^2 - 2mr}{\Delta \sqrt{H_1 H_2} \sin^2 \theta} \\
+g^{rr} &= \frac{\Delta}{\sqrt{H_1 H_2}} \\
+g^{\theta \theta} &= \frac{1}{\sqrt{H_1 H_2}}
+\end{align}
+The nonzero components of the extrinsic curvature are
+\begin{align}
+K_{r \varphi} &= -\frac{a \sqrt{pq} \sin^2 \theta}{2 \sqrt{ \Delta \Sigma_{pq} \sqrt{H_1 H_2}}} \left[(c_0 +1) \Sigma_{pq} - (c_0 (r-m) +r) \partial_r \Sigma_{pq} \right]\\
+K_{\theta \varphi} &= -\frac{a \sqrt{pq} \sin^2 \theta}{2 \sqrt{ \Delta \Sigma_{pq} \sqrt{H_1 H_2}}} \frac{\partial_\theta \Sigma_{pq}}{\sqrt{H_1 H_2}} (c_0 (r-m) +r) 
+\end{align}
+The nonzero components of the Maxwell tensors are
+\begin{align}
+F_{tr} &= \frac{Q}{H_2} - \frac{\partial_r H_2}{(H_2)^2} \left[ Q \left(r+\frac{p-2m}{2} \right) + q \sqrt{\frac{q(p^2-4m)}{16m^2(p+q)}} a \cos \theta \right] \\
+F_{t \theta} &= - \frac{\partial_r H_\theta}{(H_2)^2} \left[ Q \left(r+\frac{p-2m}{2} \right) + q \sqrt{\frac{q(p^2-4m)}{16m^2(p+q)}} a \cos \theta \right] - \frac{q}{H_2} \sqrt{\frac{q(p^2-4m)}{16m^2(p+q)}} a \sin \theta\\
+F_{r \varphi} &= \frac{\partial_r H_2}{(H_2)^2} \left[P a^2 \sin^2 \theta \cos \theta + \sqrt{\frac{p(q^2-4m^2)}{16m^2(p+q)}} \left(pr - m (p-2m) +\frac{q(p^2-4m^2)}{p+q} \right) a \sin^2 \theta \right] \nonumber \\
+		    &-\frac{1}{H_2} p \sqrt{\frac{p(q^2-4m^2)}{16m^2(p+q)}} a \sin^2 \theta\\
+F_{\theta \varphi} &= P \sin \theta + \frac{1}{H_2} \Bigg[P a^2 \sin \theta (\sin^2 \theta - 2 \cos^2 \theta) 
+			- \sqrt{\frac{p(q^2-4m^2)}{16m^2(p+q)}} \left(pr - m (p-2m) +\frac{q(p^2-4m^2)}{p+q} \right) 2a \sin \theta \cos \theta \Bigg] \nonumber \\
+			&+\frac{\partial_\theta H_2}{(H_2)^2} \left[P a^2 \sin^2 \theta \cos \theta + \sqrt{\frac{p(q^2-4m^2)}{16m^2(p+q)}} \left(pr - m (p-2m) +\frac{q(p^2-4m^2)}{p+q} \right) a \sin^2 \theta \right]
+\end{align}
+
+where derivatives are	
+\begin{align}
+\partial_r H_1 &= 2r+p-2m \\
+\partial_r H_2 &= 2r+q-2m \\
+\partial_\theta H_1 &= -2a^2 \sin \theta \cos \theta + p c_1 a \sin \theta \\
+\partial_\theta H_2 &= -2a^2 \sin \theta \cos \theta - 1 c_1 a \sin \theta \\
+\partial_r \Sigma_{pq} &= 2r \left[\rho^2 + r(q-2m) + r(p-2m) + \frac{1}{2} (p-2m)(q-2m) \right] \nonumber \\
+					&+(r^2 + a^2)(2r+q+p-4m) + 2ma^2 \sin^2 \theta + 2(r-m)c_1(q-p) \cos \theta \nonumber \\
+					&+(p-2m)(q-2m) \left[2r + \frac{1}{2(p+q)} (q(p-2m) + p(q-2m)) \right] \\
+\partial_\theta \Sigma_{pq} &= -2(r^2+a^2) a^2 \sin \theta \cos \theta  + 4mra^2 \sin \theta \cos \theta - c_1(q-p) \Delta \sin \theta
+\end{align}
+Again, the BSSN variables are (same procedure as Kerr-Sen)
+\begin{align}
+ds^2 = -\alpha^2 dt^2 +e^{4\bar{\phi}} \tilde{\gamma}_{ij} (dx^i + \beta^i dt)(dx^j \beta^j dt)
+\end{align}
+where $\bar{\phi}$ is a conformal factor (same as BSSN section above) and $\det \tilde{\gamma} = 1$. From here, we have
+\begin{align}
+\alpha^2 &= \frac{\sqrt{H_1 H_2} \Delta}{\Sigma_{pq}} \\
+\beta^{\varphi} &= - \frac{a \sqrt{pq} (c_0 (r-m) + r)}{\Sigma_{pq}}
+\end{align}
+We can write the metric $\tilde{\gamma}_{ij}$ in Cartesian like coordinates (with $\bar{r}^2 = \bar{x}^2+\bar{y}^2 + \bar{z}^2$, $\bar{\rho}^2= \bar{x}^2+\bar{y}^2$)
+\begin{align}
+e^{12 \bar{\phi}} &= \frac{\sqrt{H_1 H_2} \Sigma_{pq}}{\bar{r}^6} \\
+\tilde{\gamma}_{\bar{x} \bar{x}} &=\frac{C^{-2/3}}{\bar{\rho}^2} (\bar{x}^2 C + \bar{y}^2) \\
+\tilde{\gamma}_{\bar{x} \bar{y}} &=\frac{\bar{x} \bar{y} C^{-2/3}}{\bar{\rho}^2} (C-1) \\
+\tilde{\gamma}_{\bar{y} \bar{y}} &=\frac{C^{-2/3}}{\bar{\rho}^2} (\bar{y}^2 C + \bar{x}^2)\\
+\tilde{\gamma}_{\bar{z} \bar{z}} &=C^{1/3}
+\end{align}
+where $C = H_1 H_2/\Sigma_{pq}$. The components of the inverse metric are
+\begin{align}
+\tilde{\gamma}^{\bar{x} \bar{x}} &=\frac{C^{-1/3}}{\bar{\rho}^2} (\bar{y}^2 C + \bar{x}^2) \\
+\tilde{\gamma}^{\bar{x} \bar{y}} &=\frac{\bar{x} \bar{y} C^{-1/3}}{\bar{\rho}^2} (1- C) \\
+\tilde{\gamma}^{\bar{y} \bar{y}} &=\frac{C^{-1/3}}{\bar{\rho}^2} (\bar{x}^2 C + \bar{y}^2)\\
+\tilde{\gamma}^{\bar{z} \bar{z}} &=C^{-1/3}
+\end{align}
+The components of conformal connection coefficients are
+\begin{align}
+\tilde{\Gamma}^{\bar{x}} &= -\bar{x} \left[\frac{C^{-1/3}}{\bar{\rho}^2}(3-C) + (\bar{r} \sin^2 \theta + \partial_{\bar{r}} + \sin \theta \cos \theta \partial_\theta)\frac{C^{-1/3}}{\bar{\rho}^2} \right] \\
+\tilde{\Gamma}^{\bar{y}} &= \frac{\bar{y}}{\bar{x}} \tilde{\Gamma}^{\bar{x}} \\
+\tilde{\Gamma}^{\bar{z}} &= - \partial_{\bar{z}} C^{-1/3}
+\end{align}
+
+
+We can rewrite other quantities such as extrinsic curvatures and Maxwell tensors into Cartesian like coordinates via Kerr-Sen way as described previous section.
+
+
+%RL black hole end
+
+Searching more black hole forms with respect to EMD and EMDA can give more parameterization of theories that we described so far.
+
+%Binary black holes start
+\subsection{Binary Black Hole}
+There is no simple way to express binary black hole system in EMD and EMDA theories.
+
+To extend this in binary black hole forms in numerical relativity, we need to consider this system in 3+1 decomposition form again. Such a formalism is puncture form in conformal-thin-sandwich (CTS).
+
+\begin{align}
+R + K^2 - K_{ij} K^{ij} &= 8 \pi J^i \\
+\nabla_j K^{ij} - \nabla^i K &= 16 \pi \rho 
+\end{align}
+$J^i$ and $\rho$ are defined in this theory thus we need to include this term when we solve constraints equation.
+%Binary black holes end
+
+\end{document}
