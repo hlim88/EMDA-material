@@ -1,0 +1,211 @@
+% ****** Start of file apssamp.tex ******
+%
+%   This file is part of the APS files in the REVTeX 4.1 distribution.
+%   Version 4.1r of REVTeX, August 2010
+%
+%   Copyright (c) 2009, 2010 The American Physical Society.
+%
+%   See the REVTeX 4 README file for restrictions and more information.
+%
+% TeX'ing this file requires that you have AMS-LaTeX 2.0 installed
+% as well as the rest of the prerequisites for REVTeX 4.1
+%
+% See the REVTeX 4 README file
+% It also requires running BibTeX. The commands are as follows:
+%
+%  1)  latex apssamp.tex
+%  2)  bibtex apssamp
+%  3)  latex apssamp.tex
+%  4)  latex apssamp.tex
+%
+\documentclass[%
+ reprint,
+%superscriptaddress,
+%groupedaddress,
+%unsortedaddress,
+%runinaddress,
+%frontmatterverbose, 
+%preprint,
+%showpacs,preprintnumbers,
+%nofootinbib,
+%nobibnotes,
+%bibnotes,
+ amsmath,amssymb,
+ aps,
+%pra,
+%prb,
+%rmp,
+%prstab,
+%prstper,
+%floatfix,
+]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\begin{document}
+
+\preprint{APS/123-QED}
+
+\title{Binary Black Holes Dynamics in Einstein-Maxwell-Dilaton-Axion Theory}% Force line breaks with \\
+
+\author{Hyun Lim$^1$}
+ %\email{hyun.lim@byu.edu}
+% \altaffiliation[Also at ]{Physics Department, XYZ University.}%Lines break automatically or can be forced with \\
+\author{Eric W. Hirschmann$^1$}%
+\author{Luis Lehner$^2$}
+\author{Steven L. Liebling$^3$}
+\author{Carlos Palenzuela$^4$}
+% \email{ehirsch@byu.edu}
+\affiliation{%
+1. Brigham Young University, Provo, UT 84602, USA\\
+2. Perimeter Institute for Theoretical Physics, Waterloo, ON, N2L2Y5, Canada\\
+3. Long Island University, Brookville, NY 11548, USA\\
+4. Universitat de Iles Balearas, Spain
+}%
+
+\date{\today}% It is always \today, today,
+             %  but any date may be explicitly specified
+
+\begin{abstract}
+Recent detections of gravitational waves from advanced LIGO promise a new channel with which to investigate the universe and test general relativity. In this work, we present black hole dynamics in a modified theory of gravity. Our particular model is Einstein-Maxwell-Dilaton-Axion (EMDA) theory. Using numerical simulations, we investigate dynamical black holes in EMDA theory. We consider a variety of initial data types in order to examine both stability of single black holes in this theory as well as possible alternate scalar and electromagnetic field channels for emission. We also investigate binary black hole mergers in order to probe deviations from the standard gravitational wave signatures of general relativity.
+\end{abstract}
+
+\pacs{Valid PACS appear here}% PACS, the Physics and Astronomy
+                             % Classification Scheme.
+%\keywords{Suggested keywords}%Use showkeys class option if keyword
+                              %display desired
+\maketitle
+
+%\tableofcontents
+
+\section{Introduction}
+
+Observing gravitational waves (GW) can tell us more than just existence of black holes in binary system. One particular interesting aspect from recent observations is the possibility of testing general relativity (GR). Previously, GR has been tested in weak field regime including the perihelion of Mercury and light bending. GR works well with these observations. However, in the strong/highly nonlinear regime such as two merging black holes, GR needs to be tested more. From recent black hole merger events~\cite{ligo.prl.2016, ligo.prl2.2016, ligo.prl3.2017, ligo.apj.2017, ligo.prl4.2017}, there is considerable literature~\cite{PhysRevLett.116.221101,PhysRevD.94.084002} discuss theoretical implication of GW observations.
+
+Accurate predictions of possible future GW signals are important to test alternative theories of GR and quantum gravity as well as help in future detections and next generation detectors. These tests would possibly indicate that nature deviates from GR. 
+
+In this work, we study black hole systems in the Einstein-Maxwell-Dilaton-Axion (EMDA) theory. This is extended work based on~\cite{PhysRevD.97.064032} which studies black hole dynamics in the Einstein-Maxwell-Dilaton (EMD) theory. This theory originates in the low energy limit of the bosonic sector of heterotic string theory. This theory allows for black holes that can have mass, angular momentum, charge and scalar hair together with scalar, vector, and tensor radiation channels. Further, its mathematical structure guarantees the definition of a well-posed initial value problem. Therefore, EMDA offers an interesting theoretical and computational model to explore possible deviations from the ``standard mode`` GR provides.
+
+The paper is organized as follow: Section 2 describes the theory and equations of motion for EMDA. Section 3 discuss description of known black hole solution in this theory. Section 4 presents results for both single and binary black hole. We conclude and discuss possible future direction in Section 5. Appendices contain more detail description about equations in EMDA and its black holes.
+
+\section{Equations}
+The particular theory in this work we consider has originated from heterotic bosonic sector of string theory. In low energy limit, we can have the action
+\begin{align}
+S&=\int d^4 x \sqrt{-g} \Bigg[R - 2 (\nabla \phi)^2 - e^{-2 \alpha_0 \phi} F^2 \nonumber \\
+   &-\frac{1}{2} e^{4 \alpha_1 \phi} (\nabla \kappa)^2 - \kappa F_{ab} ( \ast  F )^{ab} \Bigg]
+\end{align}
+where $\phi$ is the dilaton field, $\kappa$ is the axion field, and $\ast F$ means dual of the maxwell stress tensor. We include parameter $\alpha_0$ and $\alpha_1$ in order to parametrize a family of theories. Form this action, we can derive the equations of motion. 
+
+% EOMs
+For $\phi$:
+\begin{equation}
+\nabla_a \nabla^a \phi = -\frac{1}{2} \alpha_0 e^{-2 \alpha_0 \phi} F^2 + \frac{1}{2} \alpha_0 e^{4 \alpha_1 \phi} (\nabla \kappa)^2
+\end{equation}
+
+For $\kappa$:
+\begin{equation}\
+\nabla_a \left(e^{4 \alpha_1 \phi} \nabla^a \kappa \right) = F_{ab} (\ast F)^{ab}
+\end{equation}
+
+For EM field:
+\begin{equation}
+\nabla_a \left(e^{-2 \alpha_0 \phi} F^{ab}\right) = - (\nabla_a \kappa) (\ast F)^{ab}
+\end{equation}
+
+For metric(i.e. Einstein Field equation)
+\begin{align}
+R_{ab} -\frac{1}{2} g_{ab} R &= 2 \nabla_a \phi \nabla_b \phi - g_{ab} \nabla_a \phi \nabla^a \phi \nonumber \\
+					   &+ 2 e^{-2 \alpha_0 \phi} ( F_{ac} F_b^c -\frac{1}{4} g_{ab} F^2)\nonumber \\
+					   & + \frac{1}{2} e^{4 \alpha_0 \phi} (\nabla_a \kappa \nabla_b \kappa -\frac{1}{2} g_{ab} \nabla_a \kappa \nabla^a \kappa) 
+\end{align}
+%Chern-Simon term does not depend on metric explicitly
+Note that in the Chern-Simon term, $\mathcal{L}^{CS}= - \sqrt{-g} \kappa F_{ab} (\ast F)^{ab}$, there is no metric variation because 
+\begin{align}
+\mathcal{L}^{CS} &= - \sqrt{-g} \kappa F_{ab} (\ast F)^{ab} \nonumber \\
+			   &=	- \sqrt{-g} \epsilon^{abcd}\kappa F_{ab} F_{cd} \nonumber \\
+			   & =- \sqrt{-g} \frac{1}{\sqrt{-g}} \left[abcd\right] \kappa F_{ab} F_{cd} \nonumber \\
+			   & =- \left[abcd\right] \kappa F_{ab} F_{cd} \nonumber
+\end{align}
+Thus, the Lagrangian density does not contain metric explicitly. i.e. independent of choosing the metric. This term is also called the topological term
+
+
+\section{Black Holes in EMDA}
+There are several 
+
+\section{Results}
+\subsection{Single Black Hole}
+\subsection{Binary Black Hole}
+
+\section{Conclusion}
+In this work, 
+
+Another possible interesting project will be considering to couple massive vector file, Proca field, instead of Maxwell field.
+
+
+%\begin{acknowledgments}
+%Authors thank to
+%\end{acknowledgments}
+
+\appendix
+
+\section{BSSN Equations in EMDA}
+Rewrite down the equations for dilaton, axion, and EM in BSSN form 
+\begin{widetext}
+\begin{align}
+\partial_t \phi &= \beta^a \partial_a \phi - \alpha \Pi \\
+\partial_t \kappa &= \beta^a \partial_a \kappa - \alpha \Xi  \\
+\partial_t \Pi &= \beta^a \partial_a \Pi - \alpha \chi [ \tilde{\gamma}^{ij} \partial_i \partial_j \phi +   \tilde{\gamma}^{ij} (\partial_i \ln \alpha) \partial_j \phi -  \tilde{\Gamma}^i \partial_i \phi - \frac{1}{2} \tilde{\gamma}^{ij} \partial_i \phi \partial_j \ln \chi ] + \alpha K \Pi  \nonumber \\
+		   &\indent -\alpha_0 \alpha e^{-2 \alpha_0 \phi}  [ (\bot B)^2 - (\bot E)^2)] + \frac{1}{2} \alpha_0 \alpha e^{4 \alpha_1 \phi} (\partial^a \kappa \partial_a \kappa - (\Xi)^2)  \\
+\partial_t \Xi &= \beta^a \partial_a \Xi - \alpha \chi [ \tilde{\gamma}^{ij} \partial_i \partial_j \kappa +   \tilde{\gamma}^{ij} (\partial_i \ln \alpha) \partial_j \kappa -  \tilde{\Gamma}^i \partial_i \kappa - \frac{1}{2} \tilde{\gamma}^{ij} \partial_i \kappa \partial_j \ln \chi ] \nonumber \\
+&\indent +  \alpha K \Xi +4 \alpha \alpha_1 \partial^a \kappa \partial_a \phi + 4 \alpha \alpha_1 \Pi \Xi + 4 \alpha e^{-4 \alpha_1 \phi} \bot B^c \bot E_c \\
+\partial_t \Psi &= \beta^a \partial_a \Psi - \alpha \left(\partial_a \bot E^a - \frac{3}{2 \chi}  \bot E^a \, \partial_a \chi \right) + 2 \alpha  \alpha_0 (\partial_c \phi) \bot E^c + \alpha  e^{2 \alpha_0 \phi} (\partial_c \kappa) \bot B^c  - \alpha \eta_1 \Psi \\
+\partial_t \Phi &=  \beta^a \partial_a \Phi +\alpha \left(\partial_a \bot B^a - \frac{3}{2 \chi} \bot B^a \, \partial_a \chi  \right)  - \alpha  \eta_2 \Phi \\
+\partial_t \bot E^a &= \beta^i \partial_i \bot E^a - \bot E^b \partial_b \beta^a - \chi^{1/2} \epsilon^{abc} \bigg \{ \alpha [\partial_b \tilde{\gamma}_{cd} \bot B^d + \tilde{\gamma}_{cd} \partial_b \bot B^d] + \tilde{\gamma}_{cd} \bot B^d \left[ \partial_b \alpha - \alpha \frac{\partial_b \chi}{\chi} \right] \bigg \} \nonumber \\
+			    & \indent + \alpha K \bot E^a - \alpha \chi \tilde{\gamma}^{ab} \partial_b \Psi - 2 \alpha \alpha_0 [ \Pi \bot E^a - \epsilon^{abc} \chi^{1/2} \partial_b \phi \tilde{\gamma}_{cd} \bot B^d] \nonumber \\
+			    & \indent - \alpha e^{2 \alpha_0 \phi} [ \Xi \bot B^a + \epsilon^{abc} \chi^{1/2} \partial_b K \tilde{\gamma}_{cd} E^d] \\
+\partial_t \bot B^a &= \beta^i \partial_i \bot B^a - \bot B^b \partial_b \beta^a - \chi^{1/2} \epsilon^{abc} \bigg \{ \alpha [\partial_b \tilde{\gamma}_{cd} \bot E^d + \tilde{\gamma}_{cd} \partial_b \bot E^d] + \tilde{\gamma}_{cd} \bot E^d \left[ \partial_b \alpha - \alpha \frac{\partial_b \chi}{\chi} \right] \bigg \} \nonumber \\
+			    & \indent + \alpha K \bot B^a + \alpha \chi \tilde{\gamma}^{ab} \partial_b \Phi
+%Need to check this and we need to write this up index
+%\partial_t \bot E_c &= \beta^a \partial_a \bot E_c - \alpha e^{8 \bar{\phi}} \tilde{\gamma}_{bc} \tilde{D}_a \bot F^{ab}  - \alpha e^{4 \bar{\phi}} \left(\tilde{A}_{ac} + \frac{1}{3} \tilde{\gamma}_{ac} K \right) \bot E^a - \alpha \bot F_c^a D_a \ln \alpha   \nonumber \\
+%			    &\indent - \alpha K  \bot E_c  + 2 \alpha \alpha_0 e^{4 \bar{\phi}} \tilde{\gamma}_{bc} \Pi \bot E^a + \alpha e^{4 \bar{\phi}} \tilde{\gamma}_{bc} e^{2 \alpha_0 \phi} \Xi \bot B^a - \alpha e^{4 \bar{\phi}} \tilde{D}_c \Psi \\
+%\partial_t \bot B_c &= \beta^a \partial_a + \alpha e^{-4 \bar{\phi}} \tilde{\gamma}_{bc} \tilde{D}_a \bot \tilde{(\ast F)}^{ab}  - \alpha  e^{4 \bar{\phi}} \left(\tilde{A}_{ac} + \frac{1}{3} \tilde{\gamma}_{ac} K \right) \bot B^a + \alpha  \bot (\ast F)_c^a e^{4 \bar{\phi}}  \tilde{D}_a \ln \alpha \nonumber  \\
+%			     &\indent - \alpha K \bot B_c + \alpha e^{4 \bar{\phi}} \tilde{D}_c \Phi 
+\end{align}
+\end{widetext}
+
+The evolution equation for the variable, $\tilde{\gamma}_{ij}$, $\tilde{\Gamma}^i$, $\tilde{A}_{ij}$, $\bar{\phi}$, and $K$ can be obtained from the decomposition of the Einstein tensor
+\begin{widetext}
+\begin{align}
+\partial_t \tilde{\gamma}_{ij} &= \beta^k \partial_k \tilde{\gamma}_{ij} + \tilde{\gamma}_{kj} \partial_i \beta^k -\frac{2}{3} \tilde{\gamma}_{ij} \partial_k \beta^k - 2 \alpha \tilde{A}_{ij} \\
+\partial_t \bar{\phi} &= \beta^k \partial_k \bar{\phi} + \frac{1}{6} \partial_k \beta^k - \frac{1}{6} \alpha K \\
+\partial_t \tilde{A}_{ij} &= \beta^k \partial_k \tilde{A}_{ij} + \tilde{A}_{kj} \partial_j \beta^k -\frac{2}{3} \tilde{A}_{ij} \partial_k \beta^k + e^{-4 \bar{\phi}} \left[ - D_i D_j \alpha + \alpha ^{(3)}R_{ij} - 8 \pi G \alpha \bot T_{ij}\right]^{TF} \nonumber \\
+				&\indent + \alpha \left( K \tilde{A}_{ij} - 2 \tilde{A}_{ik} \tilde{A}_{j}^k \right) \\
+\partial_t K &= \beta^k \partial_k K - D_i D^i \alpha + \alpha \left(\tilde{A}_{ij} \tilde{A}^{ij} + \frac{1}{3} K^2 \right) + 4 \pi G \alpha ( \rho + \bot T) \\
+\partial_t \tilde{\Gamma}^i &= \beta^j \partial_j \tilde{\Gamma}^i - \tilde{\Gamma}^j \partial_j \beta^i+ \frac{2}{3} \tilde{\Gamma}^i \partial_j \beta^j + \tilde{\gamma}^{jk} \partial_j \partial_k \beta^i + \frac{1}{3} \tilde{\gamma}^{ij} \partial_j \partial_k \beta^k \nonumber \\
+					&\indent - 2 \tilde{A}^{ij} \partial_j \alpha + 2 \alpha \left(\tilde{\Gamma}_{jk}^i \tilde{A}^{jk} + 6 \tilde{A}^{jk} -\frac{2}{3} \tilde{\gamma}^{ij} \partial_j K - 8 \pi G e^{4 \bar{\phi}} J^i \right)
+\end{align}
+\end{widetext}
+where TF means trace free part. The $\rho$, $J^i$, and $\bot T_{ij}$ are obtained previously and $\bot T = \bot T_i^i$
+
+\section{Black Hole Initial Data}
+
+
+
+\bibliography{bio}% Produces the bibliography via BibTeX.
+
+\end{document}
+%
+% ****** End of file apssamp.tex ******
