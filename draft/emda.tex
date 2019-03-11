@@ -47,6 +47,40 @@
 %\usepackage[mathlines]{lineno}% Enable numbering of text and display math
 %\linenumbers\relax % Commence numbering lines
 
+\usepackage{amsmath}
+\usepackage{grffile}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{epsfig}
+\usepackage{mathrsfs}  %  package for the "curly" fonts 
+\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{algorithmicx}
+\usepackage{amssymb}
+\usepackage{tensor}
+\usepackage[math]{cellspace}
+\usepackage{bookmark}
+
+
+\newcommand*\apost{\textsc{\char13}}
+\newcommand*{\myprime}{^{\prime}\mkern-1.2mu}
+\newcommand*{\mydprime}{^{\prime\prime}\mkern-1.2mu}
+\newcommand*{\mytrprime}{^{\prime\prime\prime}\mkern-1.2mu}
+
+
+\makeatletter
+\renewcommand*\env@matrix[1][\arraystretch]{%
+  \edef\arraystretch{#1}%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{*\c@MaxMatrixCols c}}
+\makeatother
+
+\graphicspath{{Figures/}}
+
+
 %\usepackage[showframe,%Uncomment any one of the following lines to test 
 %%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
 %%text={7in,10in},centering,
@@ -59,21 +93,22 @@
 
 \preprint{APS/123-QED}
 
-\title{Binary Black Holes Dynamics in Einstein-Maxwell-Dilaton-Axion Theory}% Force line breaks with \\
+\title{Black Holes Dynamics in Einstein-Maxwell-Dilaton-Axion Theory}% Force line breaks with \\
 
-\author{Hyun Lim$^1$}
+\author{Hyun Lim$^{1,2}$}
  %\email{hyun.lim@byu.edu}
 % \altaffiliation[Also at ]{Physics Department, XYZ University.}%Lines break automatically or can be forced with \\
 \author{Eric W. Hirschmann$^1$}%
-\author{Luis Lehner$^2$}
-\author{Steven L. Liebling$^3$}
-\author{Carlos Palenzuela$^4$}
+\author{Luis Lehner$^3$}
+\author{Steven L. Liebling$^4$}
+\author{Carlos Palenzuela$^5$}
 % \email{ehirsch@byu.edu}
 \affiliation{%
 1. Brigham Young University, Provo, UT 84602, USA\\
-2. Perimeter Institute for Theoretical Physics, Waterloo, ON, N2L2Y5, Canada\\
-3. Long Island University, Brookville, NY 11548, USA\\
-4. Universitat de Iles Balearas, Spain
+2. Center for Theoretical Astrophysics and CCS-2, Los Alamos National Lab, Los Alamos, NM 87544, USA\\
+3. Perimeter Institute for Theoretical Physics, Waterloo, ON, N2L 2Y5, Canada\\
+4. Long Island University, Brookville, NY 11548, USA\\
+5. Universitat de Iles Balearas, Spain
 }%
 
 \date{\today}% It is always \today, today,
@@ -146,8 +181,14 @@ Thus, the Lagrangian density does not contain metric explicitly. i.e. independen
 There are several 
 
 \section{Results}
+In this section, we present results for both single
+and binary black holes.
+
 \subsection{Single Black Hole}
+
 \subsection{Binary Black Hole}
+
+
 
 \section{Conclusion}
 In this work, 
@@ -155,9 +196,9 @@ In this work,
 Another possible interesting project will be considering to couple massive vector file, Proca field, instead of Maxwell field.
 
 
-%\begin{acknowledgments}
-%Authors thank to
-%\end{acknowledgments}
+\begin{acknowledgments}
+Authors thank to
+\end{acknowledgments}
 
 \appendix
 
@@ -201,6 +242,561 @@ The evolution equation for the variable, $\tilde{\gamma}_{ij}$, $\tilde{\Gamma}^
 where TF means trace free part. The $\rho$, $J^i$, and $\bot T_{ij}$ are obtained previously and $\bot T = \bot T_i^i$
 
 \section{Black Hole Initial Data}
+\subsection{Single Black Hole}
+
+\subsubsection{Kerr-Sen Initial Data}
+Kerr-Sen black hole is 
+\begin{align}
+ds^2 &= - \frac{\Delta \rho^2}{\Sigma} dt^2 + \rho^2 \left( \frac{dr^2}{\Delta} + d \theta^2 \right) \nonumber \\
+& + \frac{\Sigma \sin^2 \theta}{\rho^2} \left(d \varphi - \frac{2 a m r \cosh^2 \alpha}{\Sigma} dt \right)^2
+\end{align}
+where
+\begin{align}
+\Delta &=r^2 - 2mr + a^2 \\
+\rho^2 &=\Delta - a^2 \sin^2 \theta + 2mr \cosh^2 \alpha \\
+\Sigma &= (\rho^2 + a^2 \sin^2 \theta)^2 - \Delta a^2 \sin^2 \theta
+\end{align}
+Here we use a algebraic calculation trick
+\begin{align}
+\rho^4 \Delta &=(\rho^2 - 2 m r \cosh^2 \alpha) \Sigma + a^2 \sin^2 \theta(2 m r \cosh^2 \alpha)^2
+\end{align}
+with associated gauge field, dilaton and two-form field are
+\begin{align}
+A_a dx^a &= \frac{m r \sinh 2 \alpha}{\sqrt{2} \rho^2} (dt - a \sin^2 \theta d \varphi) \\
+e^{-\Phi} &= e^{-2 \phi} = \frac{\rho^2}{r^2 + a^2 \cos^2 \theta} \\
+B_{t \varphi} &= \frac{2 m a r \sinh^2 \alpha}{\rho^2} \sin^2 \theta
+\end{align}
+The quantities $m$, $\alpha$, and $a$ are integration parameters. Thus, we can define mass, electric charge, angular momentum, and magnetic dipole momentum of spacetime can be expressed in terms of these parameters as we described above (notation is slightly changed). Also, the inverse relations are same as above.
+
+We use the axion rather than the 3 form field $H$, we need to find the expression of 2 form field in terms of axion field $\kappa$. To do that, we need to solve
+\begin{align}
+H_{abc} = \frac{1}{2} e^{4 \phi} \epsilon_{abc}^{\; \; \; \; \; d} \partial_d \kappa
+\end{align}
+where we need to know what the 3 form $H_{abc}$, is in terms of its potential, the 2 form $B_{ab}$.  For instance, in Sen?s paper, the action in String frame
+\begin{align}
+\int d^4 x \sqrt{-g_{str}} e^{-2 \phi} \left(R+4 (\nabla \phi)^2 -\frac{1}{12} H^2 - F^2 \right)
+\end{align}
+Performing the conformal transformation give the Einstein frame such that
+\begin{align}
+\int d^4 x \sqrt{-g}\left(R - 2 (\nabla \phi)^2 -\frac{1}{12} e^{-4 \phi} H^2 - e^{-2\phi}F^2 \right)
+\end{align}
+For the normalization in the current action, 3 form $H_{abc}$ is given as
+\begin{align}
+H_{abc} = \partial_a B_{bc} + \partial_b B_{ca} + \partial_c B_{ab} - 2( A_a F_{bc} + A_b F_{ca} + A_c F_{ab} )
+\end{align}
+From this, we obtain these integrability conditions for axion field $\kappa$ 
+\begin{align}
+\partial_\theta \kappa &= 2 e^{-4 \phi} \frac{1}{\sqrt{-g}} \frac{1}{g^{\theta \theta}} \partial_r B_{t \phi} \\
+\partial_r \kappa &= - 2 e^{-4 \phi} \frac{1}{\sqrt{-g}} \frac{1}{g^{rr}} \left( \partial_\theta B_{t \varphi} + 2 A_t^2 \partial_\theta \frac{A_\varphi}{A_t} \right)
+\end{align}
+Integrate both above expressions that gives
+\begin{align}
+\kappa = 4 m a \sinh^2 \alpha \frac{\cos \theta}{r^2 + a^2 \cos^2 \theta}
+\end{align}
+This shows self-consistency of field and this suggests that the definition above for the $H$ field in terms of $B$ and $A$ is correct.
+
+Next things we need to consider above forms in quasi-isotropic coordinate (say, redundant but more suitable for code up in our case).  Consider $(r,\theta)$ part of the metric which is conformally related to
+\begin{align}
+\frac{dr^2}{\Delta(r)} + d\theta^2
+\end{align}
+Denote $\bar{r}$ is a new radial coordinate which can be used to express the 2 metric as conformally flat and with respect to standard circular type coordinates in the form
+\begin{align}
+\frac{dr^2}{\Delta(r)} + d\theta^2 = \frac{1}{\bar{r}^2} (d \bar{r}^2 + \bar{r}^2 d \theta^2)
+\end{align}
+This implies a coordinate transformation defined as
+\begin{align}
+\int \frac{d \bar{r}}{\bar{r}} = \int \frac{dr}{\sqrt{\Delta}}
+\end{align}
+such that $\bar{r} \rightarrow r$ as $\bar{r} \rightarrow \infty$, then we get the below form 
+\begin{align}
+\bar{r} = \frac{1}{2} ( r-m \pm \sqrt{(r-m)^2 - (m^2 - a^2)})
+\end{align}
+This is the quasi-isotropic coordinates for this case. The inverse should be obtained by
+\begin{align}
+r &= \bar{r} + m + \frac{m^2 - a^2}{4 \bar{r}} \nonumber \\
+  &= \frac{1}{\bar{r}} \left[ \left(\bar{r} +\frac{m}{2} \right)^2 - \frac{a^2}{4} \right] \nonumber \\
+  &= \frac{1}{\bar{r}} (\bar{r} + \bar{r}_1)(\bar{r} + \bar{r}_2)
+\end{align}
+where $r_{1,2} = (m \pm a)/2$ such that $\bar{r}_1 < \bar{r}_2$. The metric with respect to the isotropic coordinate becomes
+\begin{align}
+ds^2 &= - \frac{\Delta \rho^2}{\Sigma} dt^2 + \frac{\rho^2}{\bar{r}^2} (d \bar{r}^2 + \bar{r}^2 d \theta^2) \nonumber \\
+&+ \frac{\Sigma \sin^2 \theta}{\rho^2} \left(d \phi - \frac{2 a m r \cosh^2 \alpha}{\Sigma} dt \right)^2
+\end{align}
+Note that now $r$ is a function of $\bar{r}$ i.e. $r(\bar{r})$. All metric components depend on the isotropic coordinate, $\bar{r}$
+\begin{align}
+\Delta(\bar{r}) &=r^2 - 2mr + a^2 = (r-m)^2 - (m^2 - a^2) \nonumber \\
+		      &= \left(\bar{r} + \frac{m^2 - a^2}{4 \bar{r}} \right)^2 - (m^2 - a^2) = \left(\bar{r} + \frac{\bar{r}_1 \bar{r}_2}{ \bar{r}} \right)^2 - 4 \bar{r}_1 \bar{r}_2 \nonumber \\
+		      &= \bar{r}^2 - 2 \bar{r}_1 \bar{r}_2 + \frac{\bar{r}_1^2 \bar{r}_2^2}{\bar{r}^2}  \nonumber \\
+		      & = \left(\bar{r} - \frac{\bar{r}_1 \bar{r}_2}{ \bar{r}} \right)^2 = \frac{1}{\bar{r}^2} (\bar{r}^2 - \bar{r}_1 \bar{r}_2)^2 \\
+\rho^2(\bar{r}) &=\Delta - a^2 \sin^2 \theta + 2mr \cosh^2 \alpha \nonumber \\
+	   &= r^2 + a^2 \cos^2 \theta + 2mr \sinh^2 \alpha \nonumber \\
+	   &= \frac{1}{\bar{r}^2} (\bar{r} + \bar{r}_1)^2(\bar{r} + \bar{r}_2)^2 + a^2 \cos^2 \theta  \nonumber \\
+	   &+ \frac{2 m}{\bar{r}} (\bar{r} + \bar{r}_1)(\bar{r} + \bar{r}_2) \sinh^2 \alpha\\
+\Sigma(\bar{r}) &= (\rho^2(\bar{r}) + a^2 \sin^2 \theta)^2 - \Delta(\bar{r}) a^2 \sin^2 \theta
+\end{align}
+
+With these metric, we need several calculations of quantities that are required in the evolution scheme that include
+\begin{itemize}
+\item The inverse metric, $g^{ab}$
+\item The components of the Maxwell field, $F_{ab} = \partial_a A_b - \partial_b A_a$
+\item The components of the extrinsic curvature, $K_{ab} = -\nabla_a n_b - n_a n_b$
+\end{itemize}
+
+The nonzero components of the inverse metric are
+\begin{align}
+g^{tt} &= -\frac{\Sigma}{\Delta \rho^2} \\
+g^{t \phi} &= -\frac{2 a m r \cosh^2 \alpha}{\Delta \rho^2} \\
+g^{\varphi \varphi} &= \frac{1}{\Delta \sin^2 \theta} \left(1-\frac{2 m r \cosh^2 \alpha}{\rho^2} \right) \\
+g^{rr} &= \frac{\Delta}{\rho^2} \\
+g^{\theta \theta} &= \frac{1}{\rho^2}
+\end{align}
+
+The nonzero components of extrinsic curvature are
+\begin{align}
+K_{r \varphi} &= a m \sin^2 \theta \cosh^2 \alpha \frac{ (\partial_r \Sigma)r - \Sigma}{\rho^2 \sqrt{\Delta \rho^2 \Sigma}} \\
+K_{r \varphi} &= a m \sin^2 \theta \cosh^2 \alpha \frac{ \partial_\theta \Sigma}{\rho^2 \sqrt{\Delta \rho^2 \Sigma}} 
+\end{align}
+
+The nonzero components of the Maxwell fields are
+\begin{align}
+F_{tr} &= \frac{m}{\sqrt{2}} \sinh 2 \alpha \left( \frac{r^2 - a^2 \cos^2 \theta}{\rho^4} \right) \\
+F_{t \theta} &= - \sqrt{2} m \sinh 2 \alpha \left(\frac{r}{\rho^4} \right) a^2 \sin \theta \cos \theta \\
+F_{r \varphi} &= \frac{a m}{\sqrt{2}} \sinh 2 \alpha \left( \frac{r^2 - a^2 \cos^2 \theta}{\rho^4} \right) \sin^2 \theta \\
+F_{\theta \varphi} &= - \sqrt{2} m a \sinh 2 \alpha \left(\frac{r}{\rho^4} \right) (r^2 + a^2 2 m r \sinh^2 \alpha) \sin \theta \cos \theta
+\end{align}
+
+In the code, the BSSN variables are written with respect to a Cartesian coordinate (denote $\bar{x}, \bar{y}, \bar{z}$) of the isotropic radial coordinate ($\bar{r}$). We still keep the Boyer-Lindquist type $r$ for convenience (If we write down everything in isotropic coordinate, this requires a bunch of algebras). The BSSN variables are written such that
+\begin{align}
+ds^2 = -\alpha^2 dt^2 +e^{4\bar{\phi}} \tilde{\gamma}_{ij} (dx^i + \beta^i dt)(dx^j \beta^j dt)
+\end{align}
+where $\bar{\phi}$ is a conformal factor (same as BSSN section above) and $\det \tilde{\gamma} = 1$. From here, we have
+\begin{align}
+\alpha^2 &= \frac{\Delta \rho^2}{\Sigma} \\
+\beta^{\varphi} &= - \frac{2 a m r \cosh^2 \alpha}{\Sigma}
+\end{align}
+with respect to the radial isotropic coordinates. Calculate derivatives of metric quantities that we need in several places
+\begin{align}
+\partial_r (\rho^2) &= 2r + 2m\sinh^2 \alpha\\
+\partial_\theta (\rho^2) &= - 2a^2 \sin \theta \cos \theta \\
+\partial_r \Sigma &= 4 \rho^2 (r + m \sinh^2 \alpha) + 2a^2 \sin^2 \theta ( r + m \cosh 2 \alpha) \\
+\partial_\theta \Sigma &= -2 \Delta a^2 \sin \theta \cos \theta
+\end{align}
+
+We can write the metric $\tilde{\gamma}_{ij}$ in Cartesian like coordinates (with $\bar{r}^2 = \bar{x}^2+\bar{y}^2 + \bar{z}^2$, $\bar{\rho}^2= \bar{x}^2+\bar{y}^2$)
+\begin{align}
+e^{12 \bar{\phi}} &= \frac{\rho^2 \Sigma}{\bar{r}^6} \\
+\tilde{\gamma}_{\bar{x} \bar{x}} &=\frac{C^{-2/3}}{\bar{\rho}^2} (\bar{x}^2 C + \bar{y}^2) \\
+\tilde{\gamma}_{\bar{x} \bar{y}} &=\frac{\bar{x} \bar{y} C^{-2/3}}{\bar{\rho}^2} (C-1) \\
+\tilde{\gamma}_{\bar{y} \bar{y}} &=\frac{C^{-2/3}}{\bar{\rho}^2} (\bar{y}^2 C + \bar{x}^2)\\
+\tilde{\gamma}_{\bar{z} \bar{z}} &=C^{1/3}
+\end{align}
+where $C = \rho^4/\Sigma$. The components of the inverse metric are
+\begin{align}
+\tilde{\gamma}^{\bar{x} \bar{x}} &=\frac{C^{-1/3}}{\bar{\rho}^2} (\bar{y}^2 C + \bar{x}^2) \\
+\tilde{\gamma}^{\bar{x} \bar{y}} &=\frac{\bar{x} \bar{y} C^{-1/3}}{\bar{\rho}^2} (1- C) \\
+\tilde{\gamma}^{\bar{y} \bar{y}} &=\frac{C^{-1/3}}{\bar{\rho}^2} (\bar{x}^2 C + \bar{y}^2)\\
+\tilde{\gamma}^{\bar{z} \bar{z}} &=C^{-1/3}
+\end{align}
+The components of conformal connection coefficients are
+\begin{align}
+\tilde{\Gamma}^{\bar{x}} &= -\bar{x} \left[\frac{C^{-1/3}}{\bar{\rho}^2}(3-C) + (\bar{r} \sin^2 \theta + \partial_{\bar{r}} + \sin \theta \cos \theta \partial_\theta)\frac{C^{-1/3}}{\bar{\rho}^2} \right] \\
+\tilde{\Gamma}^{\bar{y}} &= \frac{\bar{y}}{\bar{x}} \tilde{\Gamma}^{\bar{x}} \\
+\tilde{\Gamma}^{\bar{z}} &= - \partial_{\bar{z}} C^{-1/3}
+\end{align}
+We could rewrite the components of extrinsic curvature in Cartesian like coordinates ($\bar{x}, \bar{y}, \bar{z}$)
+\begin{align}
+K_{\bar{x} \bar{x}} &= - \frac{2 \bar{x} \bar{y}}{\bar{r} \bar{\rho}^3} \left(\bar{\rho} \frac{\partial r}{\partial \bar{r}} K_{r \varphi} + \frac{\bar{z}}{\bar{r}} K_{\theta \varphi} \right)\\
+K_{\bar{x} \bar{y}} &= - \frac{\bar{x}^2 - \bar{y}^2}{\bar{r} \bar{\rho}^3} \left(\bar{\rho} \frac{\partial r}{\partial \bar{r}} K_{r \varphi} + \frac{\bar{z}}{\bar{r}} K_{\theta \varphi} \right)\\
+K_{\bar{x} \bar{z}} &= - \frac{\bar{y}}{\bar{r} \bar{\rho}^2} \left(\bar{z} \frac{\partial r}{\partial \bar{r}} K_{r \varphi} -\frac{\bar{\rho}}{\bar{r}} K_{\theta \varphi} \right)\\
+K_{\bar{y} \bar{y}} &= -K_{\bar{x} \bar{z}} \\
+K_{\bar{y} \bar{z}} &= -\frac{\bar{x}}{\bar{y}} K_{\bar{x} \bar{z}} \\
+K_{\bar{z} \bar{z}} &= 0
+\end{align}
+Same as above, the components of Maxwell components in Cartesian like coordinates are
+\begin{align}
+F_{t \bar{x}} &= \frac{ \bar{x} }{\bar{r} \bar{\rho}} \left(\bar{\rho} \frac{\partial r}{\partial \bar{r}} F_{t r} + \frac{\bar{z}}{\bar{r}} F_{t \theta} \right) \\
+F_{t \bar{y}} &= \frac{\bar{y}}{\bar{x}} F_{t \bar{x}}\\
+F_{t \bar{z}} &= \frac{1}{\bar{r}} \left(\bar{z} \frac{\partial r}{\partial \bar{r}} F_{t r} - \frac{\bar{\rho}}{\bar{r}} F_{t \theta} \right) \\
+\end{align}
+Note that these components refer to E field. Remaining components are (implies B field)
+\begin{align}
+F_{\bar{x} \bar{y}} &= \frac{1}{\bar{r} \bar{\rho}} \left(\bar{\rho} \frac{\partial r}{\partial \bar{r}} F_{r \varphi} + \frac{\bar{z}}{\bar{r}} F_{\theta \varphi} \right) \\
+F_{\bar{x} \bar{z}} &= \frac{\bar{y}}{\bar{r} \bar{\rho}} \left(\bar{z} \frac{\partial r}{\partial \bar{r}} F_{r \varphi} - \frac{\bar{\rho}}{\bar{r}} F_{\theta \varphi} \right) \\
+F_{\bar{y} \bar{z}} &= -\frac{\bar{x}}{\bar{y}} F_{\bar{x} \bar{z}}
+\end{align}
+The components of the shift vector are
+\begin{align}
+\beta^{\bar{x}} &= - \bar{y} \beta^{\varphi} \\
+\beta^{\bar{y} }&= \bar{x} \beta^{\varphi} \\
+\beta^{\bar{z}} &= 0
+\end{align}
+
+%KS end
+
+%GHS start
+
+\subsubsection{Garfinkle-Horowitz-Strominger Black Hole}
+
+From this paper (PhysRevD.43.3140), GHS constructs a charged EMD black hole ($\alpha_0 =1$). Consider magnetically charged black hole first. The solution to the static, spherically symmetric, EMD equations with a regular event horizon and magnetic charge takes the form in Schwarzschild like coordinates
+\begin{align}
+ds^2 &= - \left( 1-\frac{2M}{r} \right) dt^2 + \left(1-\frac{2M}{r} \right)^{-1} dr^2 \nonumber \\
+&+ r \left(r - \frac{Q_m^2 e^{-2 \phi_0}}{M} \right) d\Omega^2 \\
+F_{\theta \varphi} &= Q_m \sin \theta \\
+e^{-2 \phi} &= e^{-2 \phi_0} \left(1 - \frac{Q_m^2 e^{-2 \phi_0}}{M r} \right)
+\end{align}
+where $Q_m$ is the magnetic charge, $M$ is the ADM mass, and $\phi_0$ is the asymptotic value of the dilaton. There is a curvature singularity at $r=Q^2_m e^{-2 \phi_0} /M$ and a regular horizon at $r=2M$ if $Q^2_m < 2 M^2 e^{2\phi_0}$ which becomes singular when the inequality is saturated, in other words, the extremal limit.
+
+There is a discrete electromagnetic duality in this theory which leaves the equations of motion unchanged although the action does change as the $F^2$ term picks up a minus sign. The transformation is (with $\alpha_0 = 1$)
+\begin{align}
+F_{ab} &\rightarrow \frac{1}{2} e^{-2\phi} \epsilon_{abcd} F^{cd} \\
+\phi &\rightarrow -\phi \\
+g_{ab} &\rightarrow g_{ab}
+\end{align}
+In this theory, this amounts to a means of generating new solutions. In particular, one can take the above magnetically charged solution and generate an electrically charged black hole solution that is also static and spherically symmetric. The solution is
+\begin{align}
+ds^2 &= - \left(1 - \frac{2M}{r} \right) dt^2 + \left(1-\frac{2M}{1}\right)^{-1} dr^2 \nonumber \\
+&+ r \left(r-\frac{Q_e^2 e^{2 \phi_0}}{M} \right) d\Omega^2 \\
+F_{tr} &= \frac{Q_e}{r} \\
+e^{2\phi} &= e^{2\phi_0} \left(1-\frac{Q_e^2 e^{2\phi_0}}{Mr} \right)
+\end{align}
+where $Q_e$ is the electric charge, and $M$, $\phi_0$ are the AMD mass and asymptotic value of the dilaton which are same as magnetically charged case. There is a curvature singularity at $r=Q^2_e e^{-2 \phi_0} /M$ and a regular horizon at $r=2M$ if $Q^2_e < 2 M^2 e^{2\phi_0}$ which becomes singular in the extremal limit.
+
+Another generalization to consider is the case of these same black holes across theories i.e. with general $\alpha_0$. In this case, the solution to the static, spherically symmetric, EMD equations with a regular event horizon and magnetic charge takes the form (with $\beta = 2 \alpha_0^2 /(1+ \alpha_0^2)$) 
+\begin{align}
+ds^2 &= -\left(1-\frac{r_+}{r} \right) \left(1-\frac{r_-}{r} \right)^{1-\beta} dt^2 \nonumber \\
+&+ \left(1-\frac{r_+}{r} \right)^{-1} \left(1-\frac{r_-}{r} \right)^{\beta-1} dr^2 \nonumber \\
+&+ r^2 \left(1-\frac{r_-}{r}\right)^\beta d \Omega^2 \\
+F_{\theta \varphi} &= Q_m \sin \theta \\
+e^{- 2 \alpha_0 \phi} &= e^{-2 \alpha_0 \phi_0} \left(1-\frac{r_-}{r} \right)^\beta
+\end{align}
+where $r_+$ and $r_-$ gives the outer and inner event horizons and their combination give the ADM mass, $M$, magnetic charge, $Q_m$, and asymptotic dilaton value, $\phi_0$, as follows
+\begin{align}
+2M &= r_+ (1-\beta)r_- \\
+2Q_m^2 &= e^{2\alpha_0 \phi_0} r_+ r_- (2-\beta)
+\end{align}
+Note that for $\alpha_0$ ($\beta=0$) this reduces to Reissner-Nordstrom with a constant dilaton whilc $\alpha_0=1$($\beta=1$) reproduces the above magnetic solution for low energy string theory.
+
+Again, use a discrete electromagnetic duality to generate electrically charged solution. The transformation is
+\begin{align}
+F_{ab} &\rightarrow \frac{1}{2} e^{-2 \alpha_0 \phi} \epsilon_{abcd} F^{cd} \\
+\phi &\rightarrow -\phi \\
+g_{ab} &\rightarrow g_{ab}
+\end{align}
+taking the previous magnetically charged solution then we get
+\begin{align}
+ds^2 &= -\left(1-\frac{r_+}{r} \right) \left(1-\frac{r_-}{r} \right)^{1-\beta} dt^2 \nonumber \\
+&+ \left(1-\frac{r_+}{r} \right)^{-1} \left(1-\frac{r_-}{r} \right)^{\beta-1} dr^2 \nonumber \\
+&+ r^2 \left(1-\frac{r_-}{r}\right)^\beta d \Omega^2 \\
+F_{tr} &= \frac{Q_e}{r}  \\
+e^{-2 \alpha_0 \phi} &= e^{2 \alpha_0 \phi_0} \left(1-\frac{r_-}{r} \right)^\beta
+\end{align}
+where, again, $r_+$ and $r_-$ gives the outer and inner event horizons and their combination give the ADM mass, $M$, electric charge, $Q_e$, and asymptotic dilaton value, $\phi_0$, as follows
+\begin{align}
+2M &= r_+ (1-\beta)r_- \\
+2Q_e^2 &= e^{-2\alpha_0 \phi_0} r_+ r_- (2-\beta)
+\end{align}
+Now, express these solutions in isotropic coordinates. Define a new radial coordinate $\bar{r}$ such that
+\begin{align}
+\frac{d\bar{r}}{\bar{r}} = \frac{dr}{\sqrt{(r-r_+)(r-r_-)}}
+\end{align}
+Perform integration and letting $\bar{r}$ approach $r$ at spatial infinity, we get
+\begin{align}
+r=\frac{1}{\bar{r}} \left[ \left( \bar{r} + \frac{r_+ + r_-}{4} \right)^@ - \frac{r_+ r_-}{4} \right]
+\end{align}
+where we have
+\begin{align}
+r_+ &= M \left[1+\left(1-(1-\alpha_0^2) \frac{Q^2}{M^2} \right)^{1/2} \right] \\
+r_- &= \frac{Q^2}{M^2}(1+\alpha_0^2) \left[1+\left(1-(1-\alpha_0^2) \frac{Q^2}{M^2} \right)^{1/2} \right]^{-1}
+\end{align}
+where $Q^2 = Q_m^2 e^{-2 \alpha_0 \phi_0}$ for the magnetic case and $Q^2 = Q_e^2 e^{2 \alpha_0 \phi_0}$ for the electric case.
+
+With this isotropic, radial coordinate, the metric for both magnetic and electric solutions takes the form
+\begin{align}
+ds^2 &= - \alpha^2 dt^2 + \chi^{-1} (d\bar{r}^2 + \bar{r}^2 d\Omega^2) \nonumber \\
+        &= -\frac{(\bar{r} - \bar{r}_H)^2 (\bar{r}+\bar{r}_H)^{2(1-\beta)}}{(\bar{r}+\bar{r}_H)^{2-\beta} (\bar{r}+\bar{r}_2)^{2-\beta}} dt^2 \nonumber \\
+        &+ \frac{1}{\bar{r}^4}(\bar{r}+\bar{r}_1)^{2-\beta} (\bar{r}+\bar{r}_2)^{2-\beta} (\bar{r} + \bar{r}_H)^{2\beta} [ d\bar{r}^2 + \bar{r}^2 d\Omega^2]
+\end{align}
+where we defined
+\begin{align}
+\bar{r}_1 = \frac{1}{4} (\sqrt{r_+} - \sqrt{r_-})^2 \\
+\bar{r}_2 = \frac{1}{4} (\sqrt{r_+} + \sqrt{r_-})^2 \\
+\bar{r}_H = \frac{1}{2} (r_+ - r_-)
+\end{align}
+with $\bar{r}_H$ is the radial location of the horizon in these coordinates.
+
+In the magnetically charged case, the EM and dilaton fields take the form
+\begin{align}
+F_{\theta \varphi} &= Q_m \sin \theta \\
+\bot B^{\bar{r}} &= Q_m \frac{\bar{r}^4}{(\bar{r} + \bar{r}_1)^3 (\bar{r}+\bar{r}_2)^3} \left[\frac{(\bar{r}+\bar{r}_1)(\bar{r}+\bar{r}_2)}{(\bar{r}+\bar{r}_H)^2} \right]^{3\beta/2} \nonumber \\
+&= \frac{Q_m}{\bar{r}^2} \chi^{3/2} \\
+e^{-2 \alpha_0 \phi} &= e^{-2 \alpha_0 \phi_0} \frac{(\bar{r}+\bar{r}_H)^{2 \beta}}{(\bar{r}+\bar{r}_1)^\beta (\bar{r} + \bar{r}_2)^\beta}
+\end{align}
+
+In the electrically charged case, the EM and dilaton fields take the form
+\begin{align}
+F_{t \bar{r}} &= Q_e \frac{(\bar{r}^2 - \bar{r}_H^2}{(\bar{r}+\bar{r}_1)^2 (\bar{r}+\bar{r}_H)^2} \\
+\bot E^{\bar{r}} &= -Q_e \frac{\bar{r}^4}{(\bar{r} + \bar{r}_1)^3 (\bar{r}+\bar{r}_2)^3} \left[\frac{(\bar{r}+\bar{r}_1)(\bar{r}+\bar{r}_2)}{(\bar{r}+\bar{r}_H)^2} \right]^{\beta/2} \nonumber \\
+&= -Q_e \frac{\bar{r}^2}{(\bar{r}+\bar{r}_1)^2(\bar{r}+\bar{r}_2)^2} \chi^{1/2} \\
+e^{2 \alpha_0 \phi} &= e^{2 \alpha_0 \phi_0} \frac{(\bar{r}+\bar{r}_H)^{2 \beta}}{(\bar{r}+\bar{r}_1)^\beta (\bar{r} + \bar{r}_2)^\beta}
+\end{align}
+GHS define a dilaton charge according to
+\begin{align}
+D = \frac{1}{4\pi} \int d\Sigma^a \nabla_a \phi
+\end{align}
+where the integral is over an $S^2$ at infinity. In the spherically symmetric magnetic case with $\alpha_0=1$ and a nonzero asymptotic value for the dilaton, this becomes
+\begin{align}
+D &= \frac{1}{4\pi} \lim_{r \to \infty} \int_{S^2} \partial_r \phi \left[ r \left(r-\frac{Q_m^2 e^{-2\phi_0}}{M} \right) \right] \sin \theta d \theta d \varphi \nonumber \\
+&= -\frac{Q_m^2 e^{-2 \phi_0}}{2M}
+\end{align}
+For electric case
+\begin{align}
+D &= - \frac{1}{4\pi} \lim_{r \to \infty} \int_{S^2} \partial_r \phi \left[ r \left(r-\frac{Q_e^2 e^{2\phi_0}}{M} \right) \right] \sin \theta d \theta d \varphi \nonumber \\
+&= \frac{Q_e^2 e^{2 \phi_0}}{2M}
+\end{align}
+We can extend this with general $\alpha_0$. For magnetic case, the dilaton charge is
+\begin{align}
+D = -\frac{\alpha_0 Q_m^2}{M} \frac{1}{1+\sqrt{1+(\alpha_0-1)Q^2_m/M^2}}
+\end{align}
+For electric case,
+\begin{align}
+D = \frac{\alpha_0 Q_e^2}{M} \frac{1}{1+\sqrt{1+(\alpha_0-1)Q^2_e/M^2}}
+\end{align}
+Note that as $\alpha_0 \rightarrow \infty$, the dilaton charge is just the EM charge
+\begin{align}
+\lim_{\alpha_0 \to \infty} D = - | Q_m |
+\end{align}
+(or use $Q_e$ for electrically charged case). As well, in the limit of infinite $\alpha_0$, the spherically symmetric metric becomes (with $\beta \rightarrow 2$)
+\begin{align}
+ds^2 &= - \left( 1 - \frac{r_+}{r} \right) \left(1 - \frac{r_-}{r} \right)^{-1} dt^2 \nonumber \\
+&+ \left( 1 - \frac{r_+}{r} \right)^{-1} \left(1 - \frac{r_-}{r} \right) dr^2 + (r-r_-)^2 d\Omega^2
+\end{align}
+while the dilaton become $\phi = \phi_0$. The form for the EM field in either the electric or magnetic case is unchanged. However, the charge in each case is proportional to $2-\beta$ which goes to zero in the limit. Thus, the EM field vanishes. Also note that consider to define $r_s = r - r_-$ with $r_+ - r_- = 2M$. Then we can identify this metric is Schwarzschild metric with respect to the Schwarzschild radial coordinate $r_s$.
+
+%GSH end
+
+%HHKK black hole start
+\subsubsection{Horne-Horowitz-Kaluza-Klein Black Hole}
+The Horne-Horowitz-Kaluza-Klein (HHKK) black hole is constructed in the following way (https://arxiv.org/pdf/hep-th/9203083.pdf). Begin by taking a product of 4D Kerr with $\mathbb{R}$. The resulting 5D manifold is a vacuum solution to the 5D Einstein equations. Now take it and make a simple Lorentz boost in the extra dimension (denote it $x^5$)
+\begin{align}
+t^\prime &= \gamma (t - v x^5) \\
+x^\prime &= \gamma (x^5 - v t)
+\end{align}
+The electrically charged solution is
+\begin{align}
+ds^2 &= -\frac{B \rho^2}{\Sigma} dt^2 + \frac{\Sigma}{B \rho^2} \sin^2 \theta \left[d \varphi - \frac{2 a m r}{\Sigma \sqrt{1-v^2}} dt \right] \nonumber \\
+&+ B \rho^2 \left(\frac{d r^2}{\Delta} + d \theta^2 \right) \\
+A_a dx^a &= \frac{v}{2(1-v^2)} \frac{2 m r}{B^2 \rho^2} dt - \frac{a v}{2 \sqrt{1-v^2}} \frac{2mr}{B^2 \rho^2} \sin^2 \theta d \varphi \\
+\phi &= -\frac{\sqrt{3}}{2} \ln B
+\end{align}
+where each quantities are define in BL type coordinate
+\begin{align}
+\rho^2 &= r^2 + a^2 \cos^2 \theta \\
+\Delta &= r^2 -2mr + a^2 \\
+B^2 &= 1+ \frac{v^2}{1-v^2} \frac{2mr}{\rho^2}\\
+\Sigma &= B^2 \rho^2 (r^2 + a^2) + 2 m r a^2 \sin^2 \theta
+\end{align}
+Here, the constants $m$, $a$, and $v$ are parameters carried over from the 4D Kerr solution and the subsequent boost. The ADM mass and spin parameters of this BH solution are
+\begin{align}
+M &= m \left[ 1+\frac{v^2}{2(1-v^2)} \right] \\
+Q_e &= \frac{mv}{1-v^2} \\
+J &= \frac{ma}{\sqrt{1-v^2}}
+\end{align}
+The event horizon and ergo sphere are in the same coordinate locations as in Kerr, i.e. $\Delta = 0$ and $\Delta = a^2 \sin^2 \theta$ respectively. The radial isotropic coordinate is defined by
+\begin{align}
+\int \frac{d \bar{r}}{\bar{r}} = \int \frac{dr}{\sqrt{\Delta}}
+\end{align}
+so
+\begin{align}
+r = \frac{1}{\bar{r}} \left[ \left(\bar{r} + \frac{m}{2} \right)^2 - \frac{a^2}{4} \right]
+\end{align}
+The metric determinant remains $\sqrt{-g} = B \rho^2 \sin \theta$ while the components of the inverse metric are
+\begin{align}
+g^{tt} &= - \frac{\Sigma}{\Delta B \rho^2} \\
+g^{t \varphi} &= - \frac{2 a m r}{\Delta B \rho^2 \sqrt{1-v^2}} \\
+g^{\varphi \varphi} &= \frac{1}{B \Delta \sin^2 \theta} \left(1-\frac{2mr}{\rho^2} \right) \\
+g^{rr} &= \frac{\Delta}{B \rho^2} \\
+g^{\theta \theta} &= \frac{1}{B \rho^2}
+\end{align}
+The nonzero components of the extrinsic curvature are
+\begin{align}
+K_{r \varphi} &= \frac{a m \sin^2 \theta}{\sqrt{1-v^2}} \frac{1}{B \rho^2} \frac{(\partial_r \Sigma) r - \Sigma}{\sqrt{\Delta B \rho^2 \Sigma}} \\
+K_{\theta \varphi} &= \frac{a m \sin^2 \theta}{\sqrt{1-v^2}} \frac{1}{B \rho^2} \frac{\partial_\theta \Sigma }{\sqrt{\Delta B \rho^2 \Sigma}} 
+\end{align}
+The nonzero components of the Maxwell tensor are
+\begin{align}
+F_{tr} &= \frac{mv}{1-v^2} \frac{2r^2 - \rho^2}{B^4 \rho^4} \\
+F_{t \theta} &= - \frac{mv}{1-v^2} \frac{2r}{B^4 \rho^4} a^2 \sin \theta \cos \theta \\
+F_{r \varphi} &= \frac{amv}{\sqrt{1-v^2}} \frac{2r^4 - \rho^2}{B^4 \rho^4} \sin^2 \theta \\
+F_{\theta \varphi} &= -\frac{2amrv}{\sqrt{1-v^2}} \frac{1}{B^4 \rho^4} (B^2 \rho^2 + a^2 \sin^2 \theta) \sin \theta \cos \theta
+\end{align}
+We can rewrite these quantities into Cartesian like coordinates via Kerr-Sen way as described previous section.
+
+Because of the discrete electromagnetic duality present in EMD, we can also write down a magnetically charged black hole solution as we could for the spherically symmetric case. The duality transformation is as before and the metric takes the same form as for the electric case. The Maxwell and dilaton fields in the magnetically charged case become
+\begin{align}
+A_a dx^2 &= -\frac{amv}{\sqrt{1-v^2}} \frac{\cos \theta}{\rho^2} dt + \frac{mv}{1-v^2} \frac{r^2 + a^2}{\rho^2} \cos \theta d \varphi \\
+\phi &= \frac{\sqrt{3}}{2} \ln B
+\end{align}
+And, the nonzero components of Maxwell tensors are
+\begin{align}
+F_{tr} &= -\frac{2amrv}{\sqrt{1-v^2}} \frac{\cos \theta}{\rho^4} \\
+F_{t \theta} &= \frac{amv}{\sqrt{1-v^2}} \frac{2r^2 - \rho^4}{\rho^4} \sin \theta \\
+F_{r \varphi} &= - \frac{2mrv}{1-v^2} \frac{a^2 \sin^2 \theta \cos \theta}{\rho^4} \\
+F_{\theta \varphi} &= - \frac{mv}{1-v^2} \frac{2r^2 -\rho^2}{\rho^4} (r^2 + a^2) \sin \theta
+\end{align}
+This represents a magnetic monopole with a radial field and magnetic charge $Q_m = -mv/(1-v^2)$. Radial and poloidal electric field components as well as a poloidal magnetic field component are generated by the rotation of the black hole
+%HHKK black hole end
+
+%RL black hole start
+\subsubsection{Rasheed-Larsen Black Hole}
+
+In the papers from Rasheed (arxiv/95055038) and Larsen (arxiv/9909102), there is discussions of generalization of rotating, charged, EMD black hole for $\alpha_0 = \sqrt{3}$. This solution has metric, dilaton and gauge potential such that 
+\begin{align}
+ds^2 &= -\frac{H_3}{\sqrt{H_1 H_2}} (dt + \tilde{B} d \phi)^2 \nonumber \\
+&+ \sqrt{H_1 H_2} \left[ \frac{1}{\Delta} dr^2 + d \theta^2 + \frac{\Delta}{H_3} \sin^2 \theta d \varphi^2 \right] \\
+\phi &= -\frac{\sqrt{3}}{2} \ln \sqrt{\frac{H_2}{H_1}} \\
+\end{align}
+\begin{widetext}
+\begin{align}
+A_a dx^a &= - \frac{1}{H_2} \left[Q \left(r + \frac{p-2m}{2} \right) + q \sqrt{\frac{q (p^2-4m^2)}{16m^2 (p+q)}} a \cos \theta\right] dt \nonumber \\
+	       &- \frac{1}{H_2} \left[ P (H_2 a^2 \sin^2 \theta) \cos \theta + \sqrt{\frac{p (q^2-4m^2)}{16m^2 (p+q)}} \left(pr-m(p-2m) \frac{q (p^2-4m^2)}{p+q} \right) a \sin^2 \theta \right] d\varphi
+\end{align}
+\end{widetext}
+where each quantities are defined (in BL type coordinate)
+\begin{align}
+H_1 &= r^2 + a^2 \cos^2 \theta + r (p-2m) \frac{p(p-2m)(q-2m)}{2(p+q)}\nonumber \\
+&-\frac{p \sqrt{(q^2-4m)(p^2-4m)}}{2m(p+q)}a \cos \theta\\
+H_2 &= r^2 + a^2 \cos^2 \theta + r (q-2m) \frac{p(p-2m)(q-2m)}{2(p+q)}\nonumber \\
+&+\frac{q \sqrt{(q^2-4m)(p^2-4m)}}{2m(p+q)}a \cos \theta\\
+H_3 &= r^2 + a^2 \cos^2 \theta - 2 m r \\
+\tilde{B} &= \sqrt{pg} \frac{(pq+4m^2)r-m(p-2m)(q-2m)}{2m(p+q)H_3} a \sin^2 \theta \\
+\Delta &= r^2 + a^2 - 2mr
+\end{align}
+and the constants $m$ and $a$ are the mass and rotation parameters carried over from 4D Kerr solution. The constant $p$ and $q$ define the magnetic and electric charges
+\begin{align}
+P^2 = \frac{p (p^2-4m)}{4(p+q)} \\
+Q^2 = \frac{q (q^2-4m)}{4(p+q)}
+\end{align}
+Note that $p > 2m$ and $q > 2m$ to obtain real value of $P$ and $Q$, and zero magnetic or electric charge correspond to $p=2m$ and $q=2m$ respectively. The mass and angular momentum of this metric are
+\begin{align}
+M &= \frac{p+q}{4}\\
+J &= \sqrt{pq} \frac{pq + 4m^2}{4m (p+q)} a
+\end{align}
+
+Alternative forms of the metric can be written as
+\begin{widetext}
+\begin{align}
+ds^2 &= -\frac{\sqrt{H_1 H_2} \Delta}{\Sigma_{pq}} dt^2 + \frac{\Sigma_{pq} \sin^2 \theta}{\sqrt{H_1 H_2}} \left[d\varphi - \frac{a \sqrt{pq} (c_0 (r-m) +r)}{\Sigma_{pq}} dt \right]^2 + \sqrt{H_1 H_2} \left(\frac{dr^2}{\Delta} + d\theta^2 \right) \\
+        &=-\frac{\rho^2 - 2mr}{\sqrt{H_1 H_2}} dt^2 - \frac{2a \sin^2 \theta \sqrt{pq} (c_0(r-m) +r)}{\sqrt{H_1 H_2}} dt d\varphi + \sqrt{H_1 H_2} \left( \frac{dr^2}{\Delta} + d\theta^2 \right) + \frac{\Sigma_{pq} \sin^2 \theta}{\sqrt{H_1 H_2}} d\varphi^2
+\end{align}
+\end{widetext}
+where we define
+\begin{widetext}
+\begin{align}
+\Sigma_{pq} &= (r^2 + a^2) \left[\rho^2 + r(q-2m) + r(p-2m) + \frac{1}{2} (p-2m)(q-2m) \right] + 2mra^2 \sin^2 \theta + \Delta c_1 (q-p) a \cos \theta \nonumber \\
+                    &+ (p-2m)(q-2m) \left[r^2 + \frac{r}{2(p+q)} (q(p-2m) + p(q-2m)) \right] + pq (c_0^2 m^2 - c_1^2 a^2)\\
+\rho^2 &= r^2 + a^2 \cos^2 \theta \\
+c_0 &= \frac{(p-2m)(q-2m)}{2m(p+q)} = \frac{pq +4m^2}{2m(p+q)} - 1 \\
+c_1 &=\frac{\sqrt{(p^2 - 4m^2)(q^2 - 4m^2)}}{2m(p+q)} = \sqrt{c0 (c0+2)} 
+\end{align}
+\end{widetext}
+Here is a identity to perform evaluation.
+\begin{align}
+(\rho^2 - 2mr) \Sigma_{pq} + pq a^2 \sin^2 \theta(c_0 (r-m) +r)^2 = H_1 H_2 \Delta
+\end{align}
+
+Again, the event horizon and ergo sphere are in the same coordinate locations as in Kerr (like HHKK BH case). The radial isotropic coordinate is defined by
+\begin{align}
+\int \frac{d \bar{r}}{\bar{r}} = \int \frac{dr}{\sqrt{\Delta}}
+\end{align}
+so
+\begin{align}
+r = \frac{1}{\bar{r}} \left[ \left(\bar{r} + \frac{m}{2} \right)^2 - \frac{a^2}{4} \right]
+\end{align}
+The components of the inverse metric are
+\begin{align}
+g^{tt} &= -\frac{\Sigma_{pq}}{\Delta \sqrt{H_1 H_2}} \\
+g^{t \varphi} &= - \frac{a \sqrt{pq} (c_0 (r-m) + r)}{\Delta \sqrt{H_1 H_2}} \\
+g^{\varphi \varphi} &= \frac{\rho^2 - 2mr}{\Delta \sqrt{H_1 H_2} \sin^2 \theta} \\
+g^{rr} &= \frac{\Delta}{\sqrt{H_1 H_2}} \\
+g^{\theta \theta} &= \frac{1}{\sqrt{H_1 H_2}}
+\end{align}
+The nonzero components of the extrinsic curvature are
+\begin{align}
+K_{r \varphi} &= -\frac{a \sqrt{pq} \sin^2 \theta}{2 \sqrt{ \Delta \Sigma_{pq} \sqrt{H_1 H_2}}} [(c_0 +1) \Sigma_{pq} \nonumber\\
+& - (c_0 (r-m) +r) \partial_r \Sigma_{pq} ]\\
+K_{\theta \varphi} &= -\frac{a \sqrt{pq} \sin^2 \theta}{2 \sqrt{ \Delta \Sigma_{pq} \sqrt{H_1 H_2}}} \frac{\partial_\theta \Sigma_{pq}}{\sqrt{H_1 H_2}} (c_0 (r-m) +r) 
+\end{align}
+The nonzero components of the Maxwell tensors are
+\begin{widetext}
+\begin{align}
+F_{tr} &= \frac{Q}{H_2} - \frac{\partial_r H_2}{(H_2)^2} \left[ Q \left(r+\frac{p-2m}{2} \right) + q \sqrt{\frac{q(p^2-4m)}{16m^2(p+q)}} a \cos \theta \right] \\
+F_{t \theta} &= - \frac{\partial_r H_\theta}{(H_2)^2} \left[ Q \left(r+\frac{p-2m}{2} \right) + q \sqrt{\frac{q(p^2-4m)}{16m^2(p+q)}} a \cos \theta \right] 
+- \frac{q}{H_2} \sqrt{\frac{q(p^2-4m)}{16m^2(p+q)}} a \sin \theta\\
+F_{r \varphi} &= \frac{\partial_r H_2}{(H_2)^2} \left[P a^2 \sin^2 \theta \cos \theta + \sqrt{\frac{p(q^2-4m^2)}{16m^2(p+q)}} \left(pr - m (p-2m) +\frac{q(p^2-4m^2)}{p+q} \right) a \sin^2 \theta \right] \nonumber \\
+		    &-\frac{1}{H_2} p \sqrt{\frac{p(q^2-4m^2)}{16m^2(p+q)}} a \sin^2 \theta\\
+F_{\theta \varphi} &= P \sin \theta + \frac{1}{H_2} \Bigg[P a^2 \sin \theta (\sin^2 \theta - 2 \cos^2 \theta) 
+			- \sqrt{\frac{p(q^2-4m^2)}{16m^2(p+q)}} \left(pr - m (p-2m) +\frac{q(p^2-4m^2)}{p+q} \right) 2a \sin \theta \cos \theta \Bigg] \nonumber \\
+			&+\frac{\partial_\theta H_2}{(H_2)^2} \left[P a^2 \sin^2 \theta \cos \theta + \sqrt{\frac{p(q^2-4m^2)}{16m^2(p+q)}} \left(pr - m (p-2m) +\frac{q(p^2-4m^2)}{p+q} \right) a \sin^2 \theta \right]
+\end{align}
+\end{widetext}
+
+where derivatives are	
+\begin{widetext}
+\begin{align}
+\partial_r H_1 &= 2r+p-2m \\
+\partial_r H_2 &= 2r+q-2m \\
+\partial_\theta H_1 &= -2a^2 \sin \theta \cos \theta + p c_1 a \sin \theta \\
+\partial_\theta H_2 &= -2a^2 \sin \theta \cos \theta - 1 c_1 a \sin \theta \\
+\partial_r \Sigma_{pq} &= 2r \left[\rho^2 + r(q-2m) + r(p-2m) + \frac{1}{2} (p-2m)(q-2m) \right] \nonumber \\
+					&+(r^2 + a^2)(2r+q+p-4m) + 2ma^2 \sin^2 \theta + 2(r-m)c_1(q-p) \cos \theta \nonumber \\
+					&+(p-2m)(q-2m) \left[2r + \frac{1}{2(p+q)} (q(p-2m) + p(q-2m)) \right] \\
+\partial_\theta \Sigma_{pq} &= -2(r^2+a^2) a^2 \sin \theta \cos \theta  + 4mra^2 \sin \theta \cos \theta - c_1(q-p) \Delta \sin \theta
+\end{align}
+\end{widetext}
+Again, the BSSN variables are (same procedure as Kerr-Sen)
+\begin{align}
+ds^2 = -\alpha^2 dt^2 +e^{4\bar{\phi}} \tilde{\gamma}_{ij} (dx^i + \beta^i dt)(dx^j \beta^j dt)
+\end{align}
+where $\bar{\phi}$ is a conformal factor (same as BSSN section above) and $\det \tilde{\gamma} = 1$. From here, we have
+\begin{align}
+\alpha^2 &= \frac{\sqrt{H_1 H_2} \Delta}{\Sigma_{pq}} \\
+\beta^{\varphi} &= - \frac{a \sqrt{pq} (c_0 (r-m) + r)}{\Sigma_{pq}}
+\end{align}
+We can write the metric $\tilde{\gamma}_{ij}$ in Cartesian like coordinates (with $\bar{r}^2 = \bar{x}^2+\bar{y}^2 + \bar{z}^2$, $\bar{\rho}^2= \bar{x}^2+\bar{y}^2$)
+\begin{align}
+e^{12 \bar{\phi}} &= \frac{\sqrt{H_1 H_2} \Sigma_{pq}}{\bar{r}^6} \\
+\tilde{\gamma}_{\bar{x} \bar{x}} &=\frac{C^{-2/3}}{\bar{\rho}^2} (\bar{x}^2 C + \bar{y}^2) \\
+\tilde{\gamma}_{\bar{x} \bar{y}} &=\frac{\bar{x} \bar{y} C^{-2/3}}{\bar{\rho}^2} (C-1) \\
+\tilde{\gamma}_{\bar{y} \bar{y}} &=\frac{C^{-2/3}}{\bar{\rho}^2} (\bar{y}^2 C + \bar{x}^2)\\
+\tilde{\gamma}_{\bar{z} \bar{z}} &=C^{1/3}
+\end{align}
+where $C = H_1 H_2/\Sigma_{pq}$. The components of the inverse metric are
+\begin{align}
+\tilde{\gamma}^{\bar{x} \bar{x}} &=\frac{C^{-1/3}}{\bar{\rho}^2} (\bar{y}^2 C + \bar{x}^2) \\
+\tilde{\gamma}^{\bar{x} \bar{y}} &=\frac{\bar{x} \bar{y} C^{-1/3}}{\bar{\rho}^2} (1- C) \\
+\tilde{\gamma}^{\bar{y} \bar{y}} &=\frac{C^{-1/3}}{\bar{\rho}^2} (\bar{x}^2 C + \bar{y}^2)\\
+\tilde{\gamma}^{\bar{z} \bar{z}} &=C^{-1/3}
+\end{align}
+The components of conformal connection coefficients are
+\begin{align}
+\tilde{\Gamma}^{\bar{x}} &= -\bar{x} \left[\frac{C^{-1/3}}{\bar{\rho}^2}(3-C) + (\bar{r} \sin^2 \theta + \partial_{\bar{r}} + \sin \theta \cos \theta \partial_\theta)\frac{C^{-1/3}}{\bar{\rho}^2} \right] \\
+\tilde{\Gamma}^{\bar{y}} &= \frac{\bar{y}}{\bar{x}} \tilde{\Gamma}^{\bar{x}} \\
+\tilde{\Gamma}^{\bar{z}} &= - \partial_{\bar{z}} C^{-1/3}
+\end{align}
+
+
+We can rewrite other quantities such as extrinsic curvatures and Maxwell tensors into Cartesian like coordinates via Kerr-Sen way as described previous section.
+
+
+%RL black hole end
+
+
+
+\subsection{Binary Black Hole}
+
+
+
+
 
 
 
